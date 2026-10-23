@@ -1,0 +1,6442 @@
+{
+  "manifest": {
+    "timestamp": "2026-10-21T11:26:54.226Z",
+    "commit": "a657798e4ab5b3c9f1214fe32baf4d562c1bc003",
+    "describe": "v1.3.0-181-ga657798e",
+    "qaNlpSourcesDirty": false,
+    "node": "v24.12.0",
+    "platform": "win32 10.0.19045 x64",
+    "cpu": "Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8",
+    "totalMemGB": 31.9,
+    "reference": {
+      "path": "W:\\Projects\\arsnova.eu\\referat-2b\\reference-dataset.v1.json",
+      "version": "1.0.0-draft",
+      "sha256": "6d00fcd33899ac65e1567756539befbf503091357f1fe72344e3049a3f2690a8",
+      "labeled": 87,
+      "expectUncertain": 10,
+      "itemsInFile": 112,
+      "locales": [
+        "de",
+        "en",
+        "fr",
+        "es"
+      ]
+    },
+    "releaseConstants": {
+      "QA_NLP_MIN_CONFIDENCE_DEFAULT": 0.55,
+      "QA_NLP_EARLY_EXIT_MARGIN": 0.22,
+      "QA_NLP_EARLY_EXIT_MIN_TOKENS": 6,
+      "QA_NLP_FALLBACK_K": 5,
+      "QA_NLP_FALLBACK_MIN_AGREEMENT": 0.6,
+      "QA_NLP_GATEKEEPER_MODEL_VERSION": "gatekeeper-hash-nb-v1",
+      "QA_NLP_FALLBACK_MODEL_VERSION": "fallback-knn-v1"
+    },
+    "criteria": {
+      "MIN_ACCEPTED_PRECISION": 0.8,
+      "MAX_UNCERTAIN_RATE": 0.3,
+      "source": "apps/backend/src/lib/qaNlpCalibrate.ts"
+    },
+    "settings": {
+      "RUNS": 20,
+      "BOOTSTRAP": 2000,
+      "SEED": 456,
+      "SWEEP": [
+        0.35,
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6,
+        0.65,
+        0.7,
+        0.8,
+        0.9
+      ]
+    }
+  },
+  "results": {
+    "original": {
+      "keyword": {
+        "operatingPoint": 0.55,
+        "labeled": {
+          "n": 87,
+          "bestGuessAccuracy": 0.5862068965517241,
+          "macroF1": 0.5517172722747636,
+          "coverage": 0.4942528735632184,
+          "uncertainRate": 0.5057471264367817,
+          "acceptedPrecision": 0.8604651162790697,
+          "usefulRate": 0.42528735632183906,
+          "wrongAcceptedRate": 0.06896551724137931,
+          "perClass": {
+            "content": {
+              "precision": 0.48484848484848486,
+              "recall": 1,
+              "f1": 0.653061224489796,
+              "support": 32
+            },
+            "organization": {
+              "precision": 0.9090909090909091,
+              "recall": 0.3333333333333333,
+              "f1": 0.4878048780487804,
+              "support": 30
+            },
+            "technical": {
+              "precision": 0.9,
+              "recall": 0.36,
+              "f1": 0.5142857142857143,
+              "support": 25
+            }
+          },
+          "confusion": {
+            "content": {
+              "content": 32,
+              "organization": 0,
+              "technical": 0
+            },
+            "organization": {
+              "content": 19,
+              "organization": 10,
+              "technical": 1
+            },
+            "technical": {
+              "content": 15,
+              "organization": 1,
+              "technical": 9
+            }
+          }
+        },
+        "abstentionOnAmbiguousAndNoise": {
+          "n": 10,
+          "rate": 0.9
+        },
+        "byLocale": {
+          "de": {
+            "n": 48,
+            "bestGuessAccuracy": 0.6875,
+            "coverage": 0.625,
+            "acceptedPrecision": 0.9,
+            "usefulRate": 0.5625,
+            "wrongAcceptedRate": 0.0625
+          },
+          "en": {
+            "n": 18,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0.5,
+            "acceptedPrecision": 0.7777777777777778,
+            "usefulRate": 0.3888888888888889,
+            "wrongAcceptedRate": 0.1111111111111111
+          },
+          "fr": {
+            "n": 9,
+            "bestGuessAccuracy": 0.3333333333333333,
+            "coverage": 0,
+            "acceptedPrecision": 0,
+            "usefulRate": 0,
+            "wrongAcceptedRate": 0
+          },
+          "es": {
+            "n": 10,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0.4,
+            "acceptedPrecision": 0.75,
+            "usefulRate": 0.3,
+            "wrongAcceptedRate": 0.1
+          },
+          "mixed": {
+            "n": 2,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0,
+            "acceptedPrecision": 0,
+            "usefulRate": 0,
+            "wrongAcceptedRate": 0
+          }
+        },
+        "byTag": {
+          "canonical": {
+            "n": 46,
+            "bestGuessAccuracy": 0.5434782608695652,
+            "coverage": 0.5217391304347826,
+            "acceptedPrecision": 0.8333333333333334,
+            "usefulRate": 0.43478260869565216,
+            "wrongAcceptedRate": 0.08695652173913043
+          },
+          "(none)": {
+            "n": 16,
+            "bestGuessAccuracy": 0.8125,
+            "coverage": 0.5625,
+            "acceptedPrecision": 0.7777777777777778,
+            "usefulRate": 0.4375,
+            "wrongAcceptedRate": 0.125
+          },
+          "short": {
+            "n": 12,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "frame": {
+            "n": 3,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.6666666666666666,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0
+          },
+          "typo": {
+            "n": 4,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "slang": {
+            "n": 4,
+            "bestGuessAccuracy": 0.75,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "code-switch": {
+            "n": 2,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0,
+            "acceptedPrecision": 0,
+            "usefulRate": 0,
+            "wrongAcceptedRate": 0
+          },
+          "near-miss": {
+            "n": 8,
+            "bestGuessAccuracy": 0.375,
+            "coverage": 0.375,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.25,
+            "wrongAcceptedRate": 0.125
+          }
+        },
+        "byGoldCategory": {
+          "content": {
+            "n": 32,
+            "bestGuessAccuracy": 1,
+            "coverage": 0.625,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.625,
+            "wrongAcceptedRate": 0
+          },
+          "organization": {
+            "n": 30,
+            "bestGuessAccuracy": 0.3333333333333333,
+            "coverage": 0.5333333333333333,
+            "acceptedPrecision": 0.625,
+            "usefulRate": 0.3333333333333333,
+            "wrongAcceptedRate": 0.2
+          },
+          "technical": {
+            "n": 25,
+            "bestGuessAccuracy": 0.36,
+            "coverage": 0.28,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.28,
+            "wrongAcceptedRate": 0
+          }
+        },
+        "calibration": null,
+        "bootstrap95": {
+          "usefulRate": {
+            "lo": 0.3218390804597701,
+            "hi": 0.5287356321839081
+          },
+          "acceptedPrecision": {
+            "lo": 0.75,
+            "hi": 0.9555555555555556
+          },
+          "coverage": {
+            "lo": 0.39080459770114945,
+            "hi": 0.5977011494252874
+          },
+          "macroF1": {
+            "lo": 0.43369963369963366,
+            "hi": 0.6617376711866694
+          },
+          "wrongAcceptedRate": {
+            "lo": 0.022988505747126436,
+            "hi": 0.12643678160919541
+          }
+        },
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "coverage": 0.6091954022988506,
+            "uncertainRate": 0.3908045977011494,
+            "acceptedPrecision": 0.7547169811320755,
+            "usefulRate": 0.45977011494252873,
+            "wrongAcceptedRate": 0.14942528735632185,
+            "abstention": 0.8,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.4,
+            "coverage": 0.6091954022988506,
+            "uncertainRate": 0.3908045977011494,
+            "acceptedPrecision": 0.7547169811320755,
+            "usefulRate": 0.45977011494252873,
+            "wrongAcceptedRate": 0.14942528735632185,
+            "abstention": 0.8,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.45,
+            "coverage": 0.6091954022988506,
+            "uncertainRate": 0.3908045977011494,
+            "acceptedPrecision": 0.7547169811320755,
+            "usefulRate": 0.45977011494252873,
+            "wrongAcceptedRate": 0.14942528735632185,
+            "abstention": 0.8,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.5,
+            "coverage": 0.6091954022988506,
+            "uncertainRate": 0.3908045977011494,
+            "acceptedPrecision": 0.7547169811320755,
+            "usefulRate": 0.45977011494252873,
+            "wrongAcceptedRate": 0.14942528735632185,
+            "abstention": 0.8,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.55,
+            "coverage": 0.4942528735632184,
+            "uncertainRate": 0.5057471264367817,
+            "acceptedPrecision": 0.8604651162790697,
+            "usefulRate": 0.42528735632183906,
+            "wrongAcceptedRate": 0.06896551724137931,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.6,
+            "coverage": 0.4942528735632184,
+            "uncertainRate": 0.5057471264367817,
+            "acceptedPrecision": 0.8604651162790697,
+            "usefulRate": 0.42528735632183906,
+            "wrongAcceptedRate": 0.06896551724137931,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.65,
+            "coverage": 0.4942528735632184,
+            "uncertainRate": 0.5057471264367817,
+            "acceptedPrecision": 0.8604651162790697,
+            "usefulRate": 0.42528735632183906,
+            "wrongAcceptedRate": 0.06896551724137931,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.7,
+            "coverage": 0.47126436781609193,
+            "uncertainRate": 0.5287356321839081,
+            "acceptedPrecision": 0.8536585365853658,
+            "usefulRate": 0.40229885057471265,
+            "wrongAcceptedRate": 0.06896551724137931,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.8,
+            "coverage": 0.45977011494252873,
+            "uncertainRate": 0.5402298850574713,
+            "acceptedPrecision": 0.85,
+            "usefulRate": 0.39080459770114945,
+            "wrongAcceptedRate": 0.06896551724137931,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.9,
+            "coverage": 0.45977011494252873,
+            "uncertainRate": 0.5402298850574713,
+            "acceptedPrecision": 0.85,
+            "usefulRate": 0.39080459770114945,
+            "wrongAcceptedRate": 0.06896551724137931,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          }
+        ],
+        "outcomes": [
+          {
+            "id": "R001",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R002",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R003",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R004",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R006",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R007",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R008",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R009",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R010",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R011",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R013",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R014",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R015",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R016",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R017",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R018",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R019",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R020",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R021",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R022",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R024",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R025",
+            "category": "content",
+            "confidence": 0.6667,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R026",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R027",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R028",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R030",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R031",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R032",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R034",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R035",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R036",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R037",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R038",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R040",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R041",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R042",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R043",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R044",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R045",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R047",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R048",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R049",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R050",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R052",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R053",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R054",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R055",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R056",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R058",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R059",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R060",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R061",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R062",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R063",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R064",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R065",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R067",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R068",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R069",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R070",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R071",
+            "category": "organization",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R073",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R074",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R075",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R076",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R077",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R079",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R080",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R081",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R082",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R083",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R084",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R085",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R086",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R087",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R088",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R090",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R091",
+            "category": "technical",
+            "confidence": 0.75,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R092",
+            "category": "technical",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R093",
+            "category": "technical",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R094",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R096",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R097",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R098",
+            "category": "content",
+            "confidence": 0.6667,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R099",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R100",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R102",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R103",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R104",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R105",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R106",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R107",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R108",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R109",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": null
+          },
+          {
+            "id": "R110",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": null
+          },
+          {
+            "id": "R111",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": null
+          },
+          {
+            "id": "R112",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": null
+          }
+        ]
+      },
+      "gatekeeper": {
+        "operatingPoint": 0.55,
+        "labeled": {
+          "n": 87,
+          "bestGuessAccuracy": 0.6781609195402298,
+          "macroF1": 0.6766615456788531,
+          "coverage": 0.9540229885057471,
+          "uncertainRate": 0.04597701149425293,
+          "acceptedPrecision": 0.6867469879518072,
+          "usefulRate": 0.6551724137931034,
+          "wrongAcceptedRate": 0.2988505747126437,
+          "perClass": {
+            "content": {
+              "precision": 0.6153846153846154,
+              "recall": 0.75,
+              "f1": 0.676056338028169,
+              "support": 32
+            },
+            "organization": {
+              "precision": 0.7407407407407407,
+              "recall": 0.6666666666666666,
+              "f1": 0.7017543859649122,
+              "support": 30
+            },
+            "technical": {
+              "precision": 0.7142857142857143,
+              "recall": 0.6,
+              "f1": 0.6521739130434783,
+              "support": 25
+            }
+          },
+          "confusion": {
+            "content": {
+              "content": 24,
+              "organization": 4,
+              "technical": 4
+            },
+            "organization": {
+              "content": 8,
+              "organization": 20,
+              "technical": 2
+            },
+            "technical": {
+              "content": 7,
+              "organization": 3,
+              "technical": 15
+            }
+          }
+        },
+        "abstentionOnAmbiguousAndNoise": {
+          "n": 10,
+          "rate": 0.1
+        },
+        "byLocale": {
+          "de": {
+            "n": 48,
+            "bestGuessAccuracy": 0.7291666666666666,
+            "coverage": 0.9583333333333334,
+            "acceptedPrecision": 0.717391304347826,
+            "usefulRate": 0.6875,
+            "wrongAcceptedRate": 0.2708333333333333
+          },
+          "en": {
+            "n": 18,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.9444444444444444,
+            "acceptedPrecision": 0.7058823529411765,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.2777777777777778
+          },
+          "fr": {
+            "n": 9,
+            "bestGuessAccuracy": 0.3333333333333333,
+            "coverage": 0.8888888888888888,
+            "acceptedPrecision": 0.375,
+            "usefulRate": 0.3333333333333333,
+            "wrongAcceptedRate": 0.5555555555555556
+          },
+          "es": {
+            "n": 10,
+            "bestGuessAccuracy": 0.7,
+            "coverage": 1,
+            "acceptedPrecision": 0.7,
+            "usefulRate": 0.7,
+            "wrongAcceptedRate": 0.3
+          },
+          "mixed": {
+            "n": 2,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          }
+        },
+        "byTag": {
+          "canonical": {
+            "n": 46,
+            "bestGuessAccuracy": 0.6521739130434783,
+            "coverage": 0.9565217391304348,
+            "acceptedPrecision": 0.6590909090909091,
+            "usefulRate": 0.6304347826086957,
+            "wrongAcceptedRate": 0.32608695652173914
+          },
+          "(none)": {
+            "n": 16,
+            "bestGuessAccuracy": 0.875,
+            "coverage": 0.875,
+            "acceptedPrecision": 0.9285714285714286,
+            "usefulRate": 0.8125,
+            "wrongAcceptedRate": 0.0625
+          },
+          "short": {
+            "n": 12,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 1,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.3333333333333333
+          },
+          "frame": {
+            "n": 3,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          },
+          "typo": {
+            "n": 4,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          },
+          "slang": {
+            "n": 4,
+            "bestGuessAccuracy": 0.25,
+            "coverage": 1,
+            "acceptedPrecision": 0.25,
+            "usefulRate": 0.25,
+            "wrongAcceptedRate": 0.75
+          },
+          "code-switch": {
+            "n": 2,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          },
+          "near-miss": {
+            "n": 8,
+            "bestGuessAccuracy": 0.375,
+            "coverage": 1,
+            "acceptedPrecision": 0.375,
+            "usefulRate": 0.375,
+            "wrongAcceptedRate": 0.625
+          }
+        },
+        "byGoldCategory": {
+          "content": {
+            "n": 32,
+            "bestGuessAccuracy": 0.75,
+            "coverage": 0.9375,
+            "acceptedPrecision": 0.7666666666666667,
+            "usefulRate": 0.71875,
+            "wrongAcceptedRate": 0.21875
+          },
+          "organization": {
+            "n": 30,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.9666666666666667,
+            "acceptedPrecision": 0.6896551724137931,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.3
+          },
+          "technical": {
+            "n": 25,
+            "bestGuessAccuracy": 0.6,
+            "coverage": 0.96,
+            "acceptedPrecision": 0.5833333333333334,
+            "usefulRate": 0.56,
+            "wrongAcceptedRate": 0.4
+          }
+        },
+        "calibration": {
+          "bins": [
+            {
+              "range": "[0.00, 0.40)",
+              "n": 0,
+              "meanConfidence": 0,
+              "accuracy": 0
+            },
+            {
+              "range": "[0.40, 0.55)",
+              "n": 4,
+              "meanConfidence": 0.5185128731915521,
+              "accuracy": 0.5
+            },
+            {
+              "range": "[0.55, 0.70)",
+              "n": 8,
+              "meanConfidence": 0.6210526162260304,
+              "accuracy": 0.25
+            },
+            {
+              "range": "[0.70, 0.85)",
+              "n": 12,
+              "meanConfidence": 0.7711783332710334,
+              "accuracy": 0.5
+            },
+            {
+              "range": "[0.85, 1.00]",
+              "n": 63,
+              "meanConfidence": 0.9791919812176201,
+              "accuracy": 0.7777777777777778
+            }
+          ],
+          "ece": 0.21822651998318293
+        },
+        "bootstrap95": {
+          "usefulRate": {
+            "lo": 0.5517241379310345,
+            "hi": 0.7471264367816092
+          },
+          "acceptedPrecision": {
+            "lo": 0.5853658536585366,
+            "hi": 0.7831325301204819
+          },
+          "coverage": {
+            "lo": 0.9080459770114943,
+            "hi": 0.9885057471264368
+          },
+          "macroF1": {
+            "lo": 0.5715841236389182,
+            "hi": 0.7670995670995672
+          },
+          "wrongAcceptedRate": {
+            "lo": 0.20689655172413793,
+            "hi": 0.40229885057471265
+          }
+        },
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "coverage": 1,
+            "uncertainRate": 0,
+            "acceptedPrecision": 0.6781609195402298,
+            "usefulRate": 0.6781609195402298,
+            "wrongAcceptedRate": 0.3218390804597701,
+            "abstention": 0,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.4,
+            "coverage": 1,
+            "uncertainRate": 0,
+            "acceptedPrecision": 0.6781609195402298,
+            "usefulRate": 0.6781609195402298,
+            "wrongAcceptedRate": 0.3218390804597701,
+            "abstention": 0,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.45,
+            "coverage": 1,
+            "uncertainRate": 0,
+            "acceptedPrecision": 0.6781609195402298,
+            "usefulRate": 0.6781609195402298,
+            "wrongAcceptedRate": 0.3218390804597701,
+            "abstention": 0.1,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.5,
+            "coverage": 0.9885057471264368,
+            "uncertainRate": 0.011494252873563204,
+            "acceptedPrecision": 0.686046511627907,
+            "usefulRate": 0.6781609195402298,
+            "wrongAcceptedRate": 0.3103448275862069,
+            "abstention": 0.1,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.55,
+            "coverage": 0.9540229885057471,
+            "uncertainRate": 0.04597701149425293,
+            "acceptedPrecision": 0.6867469879518072,
+            "usefulRate": 0.6551724137931034,
+            "wrongAcceptedRate": 0.2988505747126437,
+            "abstention": 0.1,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.6,
+            "coverage": 0.9080459770114943,
+            "uncertainRate": 0.09195402298850575,
+            "acceptedPrecision": 0.7088607594936709,
+            "usefulRate": 0.6436781609195402,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.3,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.65,
+            "coverage": 0.8850574712643678,
+            "uncertainRate": 0.11494252873563215,
+            "acceptedPrecision": 0.7272727272727273,
+            "usefulRate": 0.6436781609195402,
+            "wrongAcceptedRate": 0.2413793103448276,
+            "abstention": 0.3,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.7,
+            "coverage": 0.8620689655172413,
+            "uncertainRate": 0.13793103448275867,
+            "acceptedPrecision": 0.7333333333333333,
+            "usefulRate": 0.632183908045977,
+            "wrongAcceptedRate": 0.22988505747126436,
+            "abstention": 0.5,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.8,
+            "coverage": 0.7586206896551724,
+            "uncertainRate": 0.24137931034482762,
+            "acceptedPrecision": 0.7878787878787878,
+            "usefulRate": 0.5977011494252874,
+            "wrongAcceptedRate": 0.16091954022988506,
+            "abstention": 0.6,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.9,
+            "coverage": 0.6551724137931034,
+            "uncertainRate": 0.3448275862068966,
+            "acceptedPrecision": 0.8245614035087719,
+            "usefulRate": 0.5402298850574713,
+            "wrongAcceptedRate": 0.11494252873563218,
+            "abstention": 0.6,
+            "meetsCriteria": false
+          }
+        ],
+        "outcomes": [
+          {
+            "id": "R001",
+            "category": "content",
+            "confidence": 0.9977,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R002",
+            "category": "content",
+            "confidence": 0.8339,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R003",
+            "category": "technical",
+            "confidence": 0.6546,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R004",
+            "category": "technical",
+            "confidence": 0.4989,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R006",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R007",
+            "category": "content",
+            "confidence": 0.9919,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R008",
+            "category": "content",
+            "confidence": 0.5228,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R009",
+            "category": "organization",
+            "confidence": 0.9991,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R010",
+            "category": "organization",
+            "confidence": 0.8886,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R011",
+            "category": "organization",
+            "confidence": 0.8744,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R013",
+            "category": "content",
+            "confidence": 0.9996,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R014",
+            "category": "content",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R015",
+            "category": "technical",
+            "confidence": 0.8819,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R016",
+            "category": "content",
+            "confidence": 0.9783,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R017",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R018",
+            "category": "content",
+            "confidence": 0.9588,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R019",
+            "category": "content",
+            "confidence": 0.9613,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R020",
+            "category": "content",
+            "confidence": 0.9997,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R021",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R022",
+            "category": "content",
+            "confidence": 0.6932,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R024",
+            "category": "content",
+            "confidence": 0.5713,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R025",
+            "category": "technical",
+            "confidence": 0.7732,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R026",
+            "category": "content",
+            "confidence": 0.9979,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R027",
+            "category": "content",
+            "confidence": 0.8308,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R028",
+            "category": "content",
+            "confidence": 0.9992,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R030",
+            "category": "content",
+            "confidence": 0.995,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R031",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R032",
+            "category": "content",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R034",
+            "category": "content",
+            "confidence": 0.9957,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R035",
+            "category": "organization",
+            "confidence": 0.9995,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R036",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R037",
+            "category": "content",
+            "confidence": 0.7911,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R038",
+            "category": "content",
+            "confidence": 0.9993,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R040",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R041",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R042",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R043",
+            "category": "organization",
+            "confidence": 0.9896,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R044",
+            "category": "organization",
+            "confidence": 0.8911,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R045",
+            "category": "organization",
+            "confidence": 0.9985,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R047",
+            "category": "organization",
+            "confidence": 0.9892,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R048",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R049",
+            "category": "organization",
+            "confidence": 0.977,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R050",
+            "category": "organization",
+            "confidence": 0.9759,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R052",
+            "category": "organization",
+            "confidence": 0.9918,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R053",
+            "category": "content",
+            "confidence": 0.9505,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R054",
+            "category": "technical",
+            "confidence": 0.7274,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R055",
+            "category": "content",
+            "confidence": 0.5193,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R056",
+            "category": "organization",
+            "confidence": 0.9145,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R058",
+            "category": "organization",
+            "confidence": 0.9912,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R059",
+            "category": "organization",
+            "confidence": 0.9997,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R060",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R061",
+            "category": "content",
+            "confidence": 0.9475,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R062",
+            "category": "content",
+            "confidence": 0.7198,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R063",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R064",
+            "category": "organization",
+            "confidence": 0.7684,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R065",
+            "category": "content",
+            "confidence": 0.9835,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R067",
+            "category": "content",
+            "confidence": 0.9849,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R068",
+            "category": "technical",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R069",
+            "category": "content",
+            "confidence": 0.7597,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R070",
+            "category": "content",
+            "confidence": 0.9978,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R071",
+            "category": "content",
+            "confidence": 0.5902,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R073",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R074",
+            "category": "content",
+            "confidence": 0.8794,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R075",
+            "category": "technical",
+            "confidence": 0.7541,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R076",
+            "category": "technical",
+            "confidence": 0.8776,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R077",
+            "category": "organization",
+            "confidence": 0.5923,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R079",
+            "category": "content",
+            "confidence": 0.6383,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R080",
+            "category": "content",
+            "confidence": 0.6489,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R081",
+            "category": "content",
+            "confidence": 0.9951,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R082",
+            "category": "technical",
+            "confidence": 0.7637,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R083",
+            "category": "technical",
+            "confidence": 0.8044,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R084",
+            "category": "technical",
+            "confidence": 0.9918,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R085",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R086",
+            "category": "technical",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R087",
+            "category": "technical",
+            "confidence": 0.9996,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R088",
+            "category": "organization",
+            "confidence": 0.7277,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R090",
+            "category": "technical",
+            "confidence": 0.9286,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R091",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R092",
+            "category": "technical",
+            "confidence": 0.5331,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R093",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R094",
+            "category": "technical",
+            "confidence": 0.9685,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R096",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R097",
+            "category": "technical",
+            "confidence": 0.5797,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R098",
+            "category": "content",
+            "confidence": 0.9651,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R099",
+            "category": "organization",
+            "confidence": 0.9985,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R100",
+            "category": "organization",
+            "confidence": 0.9927,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R102",
+            "category": "organization",
+            "confidence": 0.9924,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R103",
+            "category": "content",
+            "confidence": 0.5666,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R104",
+            "category": "technical",
+            "confidence": 0.6881,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R105",
+            "category": "organization",
+            "confidence": 0.939,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R106",
+            "category": "technical",
+            "confidence": 0.9178,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R107",
+            "category": "organization",
+            "confidence": 0.9012,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R108",
+            "category": "content",
+            "confidence": 0.7589,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R109",
+            "category": "content",
+            "confidence": 0.971,
+            "accepted": true,
+            "correct": null
+          },
+          {
+            "id": "R110",
+            "category": "content",
+            "confidence": 0.6855,
+            "accepted": true,
+            "correct": null
+          },
+          {
+            "id": "R111",
+            "category": "content",
+            "confidence": 0.4479,
+            "accepted": false,
+            "correct": null
+          },
+          {
+            "id": "R112",
+            "category": "organization",
+            "confidence": 0.5699,
+            "accepted": true,
+            "correct": null
+          }
+        ]
+      },
+      "cascade": {
+        "operatingPoint": 0.55,
+        "labeled": {
+          "n": 87,
+          "bestGuessAccuracy": 0.6781609195402298,
+          "macroF1": 0.6766615456788531,
+          "coverage": 0.8850574712643678,
+          "uncertainRate": 0.11494252873563215,
+          "acceptedPrecision": 0.6883116883116883,
+          "usefulRate": 0.6091954022988506,
+          "wrongAcceptedRate": 0.27586206896551724,
+          "perClass": {
+            "content": {
+              "precision": 0.6153846153846154,
+              "recall": 0.75,
+              "f1": 0.676056338028169,
+              "support": 32
+            },
+            "organization": {
+              "precision": 0.7407407407407407,
+              "recall": 0.6666666666666666,
+              "f1": 0.7017543859649122,
+              "support": 30
+            },
+            "technical": {
+              "precision": 0.7142857142857143,
+              "recall": 0.6,
+              "f1": 0.6521739130434783,
+              "support": 25
+            }
+          },
+          "confusion": {
+            "content": {
+              "content": 24,
+              "organization": 4,
+              "technical": 4
+            },
+            "organization": {
+              "content": 8,
+              "organization": 20,
+              "technical": 2
+            },
+            "technical": {
+              "content": 7,
+              "organization": 3,
+              "technical": 15
+            }
+          }
+        },
+        "abstentionOnAmbiguousAndNoise": {
+          "n": 10,
+          "rate": 0.7
+        },
+        "byLocale": {
+          "de": {
+            "n": 48,
+            "bestGuessAccuracy": 0.7291666666666666,
+            "coverage": 0.875,
+            "acceptedPrecision": 0.7142857142857143,
+            "usefulRate": 0.625,
+            "wrongAcceptedRate": 0.25
+          },
+          "en": {
+            "n": 18,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 1,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.3333333333333333
+          },
+          "fr": {
+            "n": 9,
+            "bestGuessAccuracy": 0.4444444444444444,
+            "coverage": 0.8888888888888888,
+            "acceptedPrecision": 0.5,
+            "usefulRate": 0.4444444444444444,
+            "wrongAcceptedRate": 0.4444444444444444
+          },
+          "es": {
+            "n": 10,
+            "bestGuessAccuracy": 0.6,
+            "coverage": 0.8,
+            "acceptedPrecision": 0.75,
+            "usefulRate": 0.6,
+            "wrongAcceptedRate": 0.2
+          },
+          "mixed": {
+            "n": 2,
+            "bestGuessAccuracy": 1,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          }
+        },
+        "byTag": {
+          "canonical": {
+            "n": 46,
+            "bestGuessAccuracy": 0.6521739130434783,
+            "coverage": 0.9347826086956522,
+            "acceptedPrecision": 0.6744186046511628,
+            "usefulRate": 0.6304347826086957,
+            "wrongAcceptedRate": 0.30434782608695654
+          },
+          "(none)": {
+            "n": 16,
+            "bestGuessAccuracy": 0.875,
+            "coverage": 0.9375,
+            "acceptedPrecision": 0.8666666666666667,
+            "usefulRate": 0.8125,
+            "wrongAcceptedRate": 0.125
+          },
+          "short": {
+            "n": 12,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.5,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.3333333333333333,
+            "wrongAcceptedRate": 0.16666666666666666
+          },
+          "frame": {
+            "n": 3,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          },
+          "typo": {
+            "n": 4,
+            "bestGuessAccuracy": 1,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "slang": {
+            "n": 4,
+            "bestGuessAccuracy": 0.25,
+            "coverage": 0.5,
+            "acceptedPrecision": 0,
+            "usefulRate": 0,
+            "wrongAcceptedRate": 0.5
+          },
+          "code-switch": {
+            "n": 2,
+            "bestGuessAccuracy": 1,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "near-miss": {
+            "n": 8,
+            "bestGuessAccuracy": 0.375,
+            "coverage": 1,
+            "acceptedPrecision": 0.375,
+            "usefulRate": 0.375,
+            "wrongAcceptedRate": 0.625
+          }
+        },
+        "byGoldCategory": {
+          "content": {
+            "n": 32,
+            "bestGuessAccuracy": 0.75,
+            "coverage": 0.9375,
+            "acceptedPrecision": 0.7666666666666667,
+            "usefulRate": 0.71875,
+            "wrongAcceptedRate": 0.21875
+          },
+          "organization": {
+            "n": 30,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.9,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.6,
+            "wrongAcceptedRate": 0.3
+          },
+          "technical": {
+            "n": 25,
+            "bestGuessAccuracy": 0.6,
+            "coverage": 0.8,
+            "acceptedPrecision": 0.6,
+            "usefulRate": 0.48,
+            "wrongAcceptedRate": 0.32
+          }
+        },
+        "calibration": {
+          "bins": [
+            {
+              "range": "[0.00, 0.40)",
+              "n": 0,
+              "meanConfidence": 0,
+              "accuracy": 0
+            },
+            {
+              "range": "[0.40, 0.55)",
+              "n": 2,
+              "meanConfidence": 0.52795,
+              "accuracy": 1
+            },
+            {
+              "range": "[0.55, 0.70)",
+              "n": 9,
+              "meanConfidence": 0.6241666666666668,
+              "accuracy": 0.4444444444444444
+            },
+            {
+              "range": "[0.70, 0.85)",
+              "n": 17,
+              "meanConfidence": 0.7796588235294118,
+              "accuracy": 0.47058823529411764
+            },
+            {
+              "range": "[0.85, 1.00]",
+              "n": 59,
+              "meanConfidence": 0.9777864406779659,
+              "accuracy": 0.7627118644067796
+            }
+          ],
+          "ece": 0.23569195402298843
+        },
+        "bootstrap95": {
+          "usefulRate": {
+            "lo": 0.5057471264367817,
+            "hi": 0.7126436781609196
+          },
+          "acceptedPrecision": {
+            "lo": 0.5797101449275363,
+            "hi": 0.7894736842105263
+          },
+          "coverage": {
+            "lo": 0.8160919540229885,
+            "hi": 0.9425287356321839
+          },
+          "macroF1": {
+            "lo": 0.5704476074883226,
+            "hi": 0.7707153036653258
+          },
+          "wrongAcceptedRate": {
+            "lo": 0.1839080459770115,
+            "hi": 0.3793103448275862
+          }
+        },
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "coverage": 0.8735632183908046,
+            "uncertainRate": 0.12643678160919536,
+            "acceptedPrecision": 0.6842105263157895,
+            "usefulRate": 0.5977011494252874,
+            "wrongAcceptedRate": 0.27586206896551724,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.4,
+            "coverage": 0.8735632183908046,
+            "uncertainRate": 0.12643678160919536,
+            "acceptedPrecision": 0.6842105263157895,
+            "usefulRate": 0.5977011494252874,
+            "wrongAcceptedRate": 0.27586206896551724,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.45,
+            "coverage": 0.8735632183908046,
+            "uncertainRate": 0.12643678160919536,
+            "acceptedPrecision": 0.6842105263157895,
+            "usefulRate": 0.5977011494252874,
+            "wrongAcceptedRate": 0.27586206896551724,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.5,
+            "coverage": 0.8850574712643678,
+            "uncertainRate": 0.11494252873563215,
+            "acceptedPrecision": 0.6883116883116883,
+            "usefulRate": 0.6091954022988506,
+            "wrongAcceptedRate": 0.27586206896551724,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.55,
+            "coverage": 0.8850574712643678,
+            "uncertainRate": 0.11494252873563215,
+            "acceptedPrecision": 0.6883116883116883,
+            "usefulRate": 0.6091954022988506,
+            "wrongAcceptedRate": 0.27586206896551724,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.6,
+            "coverage": 0.896551724137931,
+            "uncertainRate": 0.10344827586206895,
+            "acceptedPrecision": 0.6923076923076923,
+            "usefulRate": 0.6206896551724138,
+            "wrongAcceptedRate": 0.27586206896551724,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.65,
+            "coverage": 0.896551724137931,
+            "uncertainRate": 0.10344827586206895,
+            "acceptedPrecision": 0.7051282051282052,
+            "usefulRate": 0.632183908045977,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.7,
+            "coverage": 0.8850574712643678,
+            "uncertainRate": 0.11494252873563215,
+            "acceptedPrecision": 0.7142857142857143,
+            "usefulRate": 0.632183908045977,
+            "wrongAcceptedRate": 0.25287356321839083,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.8,
+            "coverage": 0.8160919540229885,
+            "uncertainRate": 0.1839080459770115,
+            "acceptedPrecision": 0.7464788732394366,
+            "usefulRate": 0.6091954022988506,
+            "wrongAcceptedRate": 0.20689655172413793,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.9,
+            "coverage": 0.7816091954022989,
+            "uncertainRate": 0.2183908045977011,
+            "acceptedPrecision": 0.7352941176470589,
+            "usefulRate": 0.5747126436781609,
+            "wrongAcceptedRate": 0.20689655172413793,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          }
+        ],
+        "cascadePaths": {
+          "early-exit": 70,
+          "fallback": 17
+        },
+        "outcomes": [
+          {
+            "id": "R001",
+            "category": "content",
+            "confidence": 0.9977,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R002",
+            "category": "content",
+            "confidence": 0.8339,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R003",
+            "category": "technical",
+            "confidence": 0.6546,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R004",
+            "category": "content",
+            "confidence": 0.6,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R006",
+            "category": "content",
+            "confidence": 0.6,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R007",
+            "category": "content",
+            "confidence": 0.9919,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R008",
+            "category": "content",
+            "confidence": 0.5228,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R009",
+            "category": "organization",
+            "confidence": 0.9991,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R010",
+            "category": "organization",
+            "confidence": 0.8886,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R011",
+            "category": "organization",
+            "confidence": 0.8744,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R013",
+            "category": "content",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R014",
+            "category": "content",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R015",
+            "category": "technical",
+            "confidence": 0.8819,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R016",
+            "category": "content",
+            "confidence": 0.9783,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R017",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R018",
+            "category": "content",
+            "confidence": 0.9588,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R019",
+            "category": "content",
+            "confidence": 0.9613,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R020",
+            "category": "content",
+            "confidence": 0.9997,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R021",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R022",
+            "category": "content",
+            "confidence": 0.6932,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R024",
+            "category": "technical",
+            "confidence": 0.8,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R025",
+            "category": "technical",
+            "confidence": 0.7732,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R026",
+            "category": "content",
+            "confidence": 0.9979,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R027",
+            "category": "content",
+            "confidence": 0.8308,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R028",
+            "category": "content",
+            "confidence": 0.9992,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R030",
+            "category": "content",
+            "confidence": 0.995,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R031",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R032",
+            "category": "content",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R034",
+            "category": "content",
+            "confidence": 0.9957,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R035",
+            "category": "organization",
+            "confidence": 0.9995,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R036",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R037",
+            "category": "content",
+            "confidence": 0.7911,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R038",
+            "category": "content",
+            "confidence": 0.9993,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R040",
+            "category": "organization",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R041",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R042",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R043",
+            "category": "organization",
+            "confidence": 0.9896,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R044",
+            "category": "organization",
+            "confidence": 0.8911,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R045",
+            "category": "organization",
+            "confidence": 0.9985,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R047",
+            "category": "organization",
+            "confidence": 0.9892,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R048",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R049",
+            "category": "organization",
+            "confidence": 0.977,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R050",
+            "category": "organization",
+            "confidence": 0.9759,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R052",
+            "category": "organization",
+            "confidence": 0.9918,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R053",
+            "category": "content",
+            "confidence": 0.9505,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R054",
+            "category": "technical",
+            "confidence": 0.7274,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R055",
+            "category": "content",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R056",
+            "category": "organization",
+            "confidence": 0.9145,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R058",
+            "category": "organization",
+            "confidence": 0.9912,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R059",
+            "category": "organization",
+            "confidence": 0.9997,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R060",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R061",
+            "category": "content",
+            "confidence": 0.9475,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R062",
+            "category": "content",
+            "confidence": 0.7198,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R063",
+            "category": "organization",
+            "confidence": 0.6,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R064",
+            "category": "organization",
+            "confidence": 0.7684,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R065",
+            "category": "content",
+            "confidence": 0.9835,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R067",
+            "category": "content",
+            "confidence": 0.9849,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R068",
+            "category": "technical",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R069",
+            "category": "content",
+            "confidence": 0.7597,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R070",
+            "category": "content",
+            "confidence": 0.9978,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R071",
+            "category": "content",
+            "confidence": 0.5902,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R073",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R074",
+            "category": "content",
+            "confidence": 0.8794,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R075",
+            "category": "technical",
+            "confidence": 0.7541,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R076",
+            "category": "technical",
+            "confidence": 0.8776,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R077",
+            "category": "organization",
+            "confidence": 0.5923,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R079",
+            "category": "content",
+            "confidence": 0.6383,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R080",
+            "category": "content",
+            "confidence": 0.6489,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R081",
+            "category": "content",
+            "confidence": 0.9951,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R082",
+            "category": "technical",
+            "confidence": 0.7637,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R083",
+            "category": "technical",
+            "confidence": 0.8044,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R084",
+            "category": "technical",
+            "confidence": 0.9918,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R085",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R086",
+            "category": "technical",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R087",
+            "category": "technical",
+            "confidence": 0.9996,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R088",
+            "category": "organization",
+            "confidence": 0.7277,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R090",
+            "category": "technical",
+            "confidence": 0.9286,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R091",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R092",
+            "category": "technical",
+            "confidence": 0.5331,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R093",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R094",
+            "category": "technical",
+            "confidence": 0.9685,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R096",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R097",
+            "category": "technical",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R098",
+            "category": "content",
+            "confidence": 0.9651,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R099",
+            "category": "organization",
+            "confidence": 0.9985,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R100",
+            "category": "organization",
+            "confidence": 0.9927,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R102",
+            "category": "organization",
+            "confidence": 0.9924,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R103",
+            "category": "content",
+            "confidence": 0.6,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R104",
+            "category": "technical",
+            "confidence": 0.6881,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R105",
+            "category": "organization",
+            "confidence": 0.939,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R106",
+            "category": "technical",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R107",
+            "category": "organization",
+            "confidence": 0.9012,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R108",
+            "category": "content",
+            "confidence": 0.7589,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R109",
+            "category": "content",
+            "confidence": 0.971,
+            "accepted": false,
+            "correct": null,
+            "path": "fallback"
+          },
+          {
+            "id": "R110",
+            "category": "content",
+            "confidence": 0.6855,
+            "accepted": false,
+            "correct": null,
+            "path": "fallback"
+          },
+          {
+            "id": "R111",
+            "category": "content",
+            "confidence": 0.4479,
+            "accepted": false,
+            "correct": null,
+            "path": "fallback"
+          },
+          {
+            "id": "R112",
+            "category": "organization",
+            "confidence": 0.5699,
+            "accepted": false,
+            "correct": null,
+            "path": "fallback"
+          }
+        ]
+      }
+    },
+    "translit": {
+      "keyword": {
+        "operatingPoint": 0.55,
+        "labeled": {
+          "n": 87,
+          "bestGuessAccuracy": 0.5747126436781609,
+          "macroF1": 0.5332799786581299,
+          "coverage": 0.5057471264367817,
+          "uncertainRate": 0.49425287356321834,
+          "acceptedPrecision": 0.8409090909090909,
+          "usefulRate": 0.42528735632183906,
+          "wrongAcceptedRate": 0.08045977011494253,
+          "perClass": {
+            "content": {
+              "precision": 0.48484848484848486,
+              "recall": 1,
+              "f1": 0.653061224489796,
+              "support": 32
+            },
+            "organization": {
+              "precision": 0.8333333333333334,
+              "recall": 0.3333333333333333,
+              "f1": 0.47619047619047616,
+              "support": 30
+            },
+            "technical": {
+              "precision": 0.8888888888888888,
+              "recall": 0.32,
+              "f1": 0.47058823529411764,
+              "support": 25
+            }
+          },
+          "confusion": {
+            "content": {
+              "content": 32,
+              "organization": 0,
+              "technical": 0
+            },
+            "organization": {
+              "content": 19,
+              "organization": 10,
+              "technical": 1
+            },
+            "technical": {
+              "content": 15,
+              "organization": 2,
+              "technical": 8
+            }
+          }
+        },
+        "abstentionOnAmbiguousAndNoise": {
+          "n": 10,
+          "rate": 0.9
+        },
+        "byLocale": {
+          "de": {
+            "n": 48,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.6458333333333334,
+            "acceptedPrecision": 0.8709677419354839,
+            "usefulRate": 0.5625,
+            "wrongAcceptedRate": 0.08333333333333333
+          },
+          "en": {
+            "n": 18,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0.5,
+            "acceptedPrecision": 0.7777777777777778,
+            "usefulRate": 0.3888888888888889,
+            "wrongAcceptedRate": 0.1111111111111111
+          },
+          "fr": {
+            "n": 9,
+            "bestGuessAccuracy": 0.3333333333333333,
+            "coverage": 0,
+            "acceptedPrecision": 0,
+            "usefulRate": 0,
+            "wrongAcceptedRate": 0
+          },
+          "es": {
+            "n": 10,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0.4,
+            "acceptedPrecision": 0.75,
+            "usefulRate": 0.3,
+            "wrongAcceptedRate": 0.1
+          },
+          "mixed": {
+            "n": 2,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0,
+            "acceptedPrecision": 0,
+            "usefulRate": 0,
+            "wrongAcceptedRate": 0
+          }
+        },
+        "byTag": {
+          "canonical": {
+            "n": 46,
+            "bestGuessAccuracy": 0.5217391304347826,
+            "coverage": 0.5217391304347826,
+            "acceptedPrecision": 0.7916666666666666,
+            "usefulRate": 0.41304347826086957,
+            "wrongAcceptedRate": 0.10869565217391304
+          },
+          "(none)": {
+            "n": 16,
+            "bestGuessAccuracy": 0.8125,
+            "coverage": 0.625,
+            "acceptedPrecision": 0.8,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0.125
+          },
+          "short": {
+            "n": 12,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "frame": {
+            "n": 3,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.6666666666666666,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0
+          },
+          "typo": {
+            "n": 4,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "slang": {
+            "n": 4,
+            "bestGuessAccuracy": 0.75,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "code-switch": {
+            "n": 2,
+            "bestGuessAccuracy": 0.5,
+            "coverage": 0,
+            "acceptedPrecision": 0,
+            "usefulRate": 0,
+            "wrongAcceptedRate": 0
+          },
+          "near-miss": {
+            "n": 8,
+            "bestGuessAccuracy": 0.375,
+            "coverage": 0.375,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.25,
+            "wrongAcceptedRate": 0.125
+          }
+        },
+        "byGoldCategory": {
+          "content": {
+            "n": 32,
+            "bestGuessAccuracy": 1,
+            "coverage": 0.65625,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.65625,
+            "wrongAcceptedRate": 0
+          },
+          "organization": {
+            "n": 30,
+            "bestGuessAccuracy": 0.3333333333333333,
+            "coverage": 0.5666666666666667,
+            "acceptedPrecision": 0.5882352941176471,
+            "usefulRate": 0.3333333333333333,
+            "wrongAcceptedRate": 0.23333333333333334
+          },
+          "technical": {
+            "n": 25,
+            "bestGuessAccuracy": 0.32,
+            "coverage": 0.24,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.24,
+            "wrongAcceptedRate": 0
+          }
+        },
+        "calibration": null,
+        "bootstrap95": {
+          "usefulRate": {
+            "lo": 0.3218390804597701,
+            "hi": 0.5287356321839081
+          },
+          "acceptedPrecision": {
+            "lo": 0.723404255319149,
+            "hi": 0.9375
+          },
+          "coverage": {
+            "lo": 0.40229885057471265,
+            "hi": 0.6091954022988506
+          },
+          "macroF1": {
+            "lo": 0.409461520927215,
+            "hi": 0.6437298477465624
+          },
+          "wrongAcceptedRate": {
+            "lo": 0.034482758620689655,
+            "hi": 0.13793103448275862
+          }
+        },
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "coverage": 0.632183908045977,
+            "uncertainRate": 0.367816091954023,
+            "acceptedPrecision": 0.7272727272727273,
+            "usefulRate": 0.45977011494252873,
+            "wrongAcceptedRate": 0.1724137931034483,
+            "abstention": 0.8,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.4,
+            "coverage": 0.632183908045977,
+            "uncertainRate": 0.367816091954023,
+            "acceptedPrecision": 0.7272727272727273,
+            "usefulRate": 0.45977011494252873,
+            "wrongAcceptedRate": 0.1724137931034483,
+            "abstention": 0.8,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.45,
+            "coverage": 0.632183908045977,
+            "uncertainRate": 0.367816091954023,
+            "acceptedPrecision": 0.7272727272727273,
+            "usefulRate": 0.45977011494252873,
+            "wrongAcceptedRate": 0.1724137931034483,
+            "abstention": 0.8,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.5,
+            "coverage": 0.632183908045977,
+            "uncertainRate": 0.367816091954023,
+            "acceptedPrecision": 0.7272727272727273,
+            "usefulRate": 0.45977011494252873,
+            "wrongAcceptedRate": 0.1724137931034483,
+            "abstention": 0.8,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.55,
+            "coverage": 0.5057471264367817,
+            "uncertainRate": 0.49425287356321834,
+            "acceptedPrecision": 0.8409090909090909,
+            "usefulRate": 0.42528735632183906,
+            "wrongAcceptedRate": 0.08045977011494253,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.6,
+            "coverage": 0.5057471264367817,
+            "uncertainRate": 0.49425287356321834,
+            "acceptedPrecision": 0.8409090909090909,
+            "usefulRate": 0.42528735632183906,
+            "wrongAcceptedRate": 0.08045977011494253,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.65,
+            "coverage": 0.5057471264367817,
+            "uncertainRate": 0.49425287356321834,
+            "acceptedPrecision": 0.8409090909090909,
+            "usefulRate": 0.42528735632183906,
+            "wrongAcceptedRate": 0.08045977011494253,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.7,
+            "coverage": 0.4827586206896552,
+            "uncertainRate": 0.5172413793103448,
+            "acceptedPrecision": 0.8333333333333334,
+            "usefulRate": 0.40229885057471265,
+            "wrongAcceptedRate": 0.08045977011494253,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.8,
+            "coverage": 0.47126436781609193,
+            "uncertainRate": 0.5287356321839081,
+            "acceptedPrecision": 0.8292682926829268,
+            "usefulRate": 0.39080459770114945,
+            "wrongAcceptedRate": 0.08045977011494253,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.9,
+            "coverage": 0.47126436781609193,
+            "uncertainRate": 0.5287356321839081,
+            "acceptedPrecision": 0.8292682926829268,
+            "usefulRate": 0.39080459770114945,
+            "wrongAcceptedRate": 0.08045977011494253,
+            "abstention": 0.9,
+            "meetsCriteria": false
+          }
+        ],
+        "outcomes": [
+          {
+            "id": "R001",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R002",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R003",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R004",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R006",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R007",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R008",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R009",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R010",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R011",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R013",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R014",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R015",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R016",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R017",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R018",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R019",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R020",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R021",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R022",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R024",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R025",
+            "category": "content",
+            "confidence": 0.6667,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R026",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R027",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R028",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R030",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R031",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R032",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R034",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R035",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R036",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R037",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R038",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R040",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R041",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R042",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R043",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R044",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R045",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R047",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R048",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R049",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R050",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R052",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R053",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R054",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R055",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R056",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R058",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R059",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R060",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R061",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R062",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R063",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R064",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R065",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R067",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R068",
+            "category": "organization",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R069",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R070",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R071",
+            "category": "organization",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R073",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R074",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R075",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R076",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R077",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R079",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R080",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R081",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R082",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R083",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R084",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R085",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R086",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R087",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R088",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R090",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R091",
+            "category": "technical",
+            "confidence": 0.75,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R092",
+            "category": "technical",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R093",
+            "category": "technical",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R094",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R096",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R097",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R098",
+            "category": "content",
+            "confidence": 0.6667,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R099",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R100",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R102",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R103",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R104",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R105",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R106",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R107",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R108",
+            "category": "content",
+            "confidence": 0.5,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R109",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": null
+          },
+          {
+            "id": "R110",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": null
+          },
+          {
+            "id": "R111",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": null
+          },
+          {
+            "id": "R112",
+            "category": "content",
+            "confidence": 0.3333,
+            "accepted": false,
+            "correct": null
+          }
+        ]
+      },
+      "gatekeeper": {
+        "operatingPoint": 0.55,
+        "labeled": {
+          "n": 87,
+          "bestGuessAccuracy": 0.6896551724137931,
+          "macroF1": 0.6894399118363284,
+          "coverage": 0.9540229885057471,
+          "uncertainRate": 0.04597701149425293,
+          "acceptedPrecision": 0.6987951807228916,
+          "usefulRate": 0.6666666666666666,
+          "wrongAcceptedRate": 0.28735632183908044,
+          "perClass": {
+            "content": {
+              "precision": 0.631578947368421,
+              "recall": 0.75,
+              "f1": 0.6857142857142857,
+              "support": 32
+            },
+            "organization": {
+              "precision": 0.7407407407407407,
+              "recall": 0.6666666666666666,
+              "f1": 0.7017543859649122,
+              "support": 30
+            },
+            "technical": {
+              "precision": 0.7272727272727273,
+              "recall": 0.64,
+              "f1": 0.6808510638297872,
+              "support": 25
+            }
+          },
+          "confusion": {
+            "content": {
+              "content": 24,
+              "organization": 4,
+              "technical": 4
+            },
+            "organization": {
+              "content": 8,
+              "organization": 20,
+              "technical": 2
+            },
+            "technical": {
+              "content": 6,
+              "organization": 3,
+              "technical": 16
+            }
+          }
+        },
+        "abstentionOnAmbiguousAndNoise": {
+          "n": 10,
+          "rate": 0.1
+        },
+        "byLocale": {
+          "de": {
+            "n": 48,
+            "bestGuessAccuracy": 0.75,
+            "coverage": 0.9583333333333334,
+            "acceptedPrecision": 0.7391304347826086,
+            "usefulRate": 0.7083333333333334,
+            "wrongAcceptedRate": 0.25
+          },
+          "en": {
+            "n": 18,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.9444444444444444,
+            "acceptedPrecision": 0.7058823529411765,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.2777777777777778
+          },
+          "fr": {
+            "n": 9,
+            "bestGuessAccuracy": 0.3333333333333333,
+            "coverage": 0.8888888888888888,
+            "acceptedPrecision": 0.375,
+            "usefulRate": 0.3333333333333333,
+            "wrongAcceptedRate": 0.5555555555555556
+          },
+          "es": {
+            "n": 10,
+            "bestGuessAccuracy": 0.7,
+            "coverage": 1,
+            "acceptedPrecision": 0.7,
+            "usefulRate": 0.7,
+            "wrongAcceptedRate": 0.3
+          },
+          "mixed": {
+            "n": 2,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          }
+        },
+        "byTag": {
+          "canonical": {
+            "n": 46,
+            "bestGuessAccuracy": 0.6739130434782609,
+            "coverage": 0.9565217391304348,
+            "acceptedPrecision": 0.6818181818181818,
+            "usefulRate": 0.6521739130434783,
+            "wrongAcceptedRate": 0.30434782608695654
+          },
+          "(none)": {
+            "n": 16,
+            "bestGuessAccuracy": 0.875,
+            "coverage": 0.875,
+            "acceptedPrecision": 0.9285714285714286,
+            "usefulRate": 0.8125,
+            "wrongAcceptedRate": 0.0625
+          },
+          "short": {
+            "n": 12,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 1,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.3333333333333333
+          },
+          "frame": {
+            "n": 3,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          },
+          "typo": {
+            "n": 4,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          },
+          "slang": {
+            "n": 4,
+            "bestGuessAccuracy": 0.25,
+            "coverage": 1,
+            "acceptedPrecision": 0.25,
+            "usefulRate": 0.25,
+            "wrongAcceptedRate": 0.75
+          },
+          "code-switch": {
+            "n": 2,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          },
+          "near-miss": {
+            "n": 8,
+            "bestGuessAccuracy": 0.375,
+            "coverage": 1,
+            "acceptedPrecision": 0.375,
+            "usefulRate": 0.375,
+            "wrongAcceptedRate": 0.625
+          }
+        },
+        "byGoldCategory": {
+          "content": {
+            "n": 32,
+            "bestGuessAccuracy": 0.75,
+            "coverage": 0.9375,
+            "acceptedPrecision": 0.7666666666666667,
+            "usefulRate": 0.71875,
+            "wrongAcceptedRate": 0.21875
+          },
+          "organization": {
+            "n": 30,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.9666666666666667,
+            "acceptedPrecision": 0.6896551724137931,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.3
+          },
+          "technical": {
+            "n": 25,
+            "bestGuessAccuracy": 0.64,
+            "coverage": 0.96,
+            "acceptedPrecision": 0.625,
+            "usefulRate": 0.6,
+            "wrongAcceptedRate": 0.36
+          }
+        },
+        "calibration": {
+          "bins": [
+            {
+              "range": "[0.00, 0.40)",
+              "n": 0,
+              "meanConfidence": 0,
+              "accuracy": 0
+            },
+            {
+              "range": "[0.40, 0.55)",
+              "n": 4,
+              "meanConfidence": 0.5185128731915521,
+              "accuracy": 0.5
+            },
+            {
+              "range": "[0.55, 0.70)",
+              "n": 7,
+              "meanConfidence": 0.6170677450465603,
+              "accuracy": 0.2857142857142857
+            },
+            {
+              "range": "[0.70, 0.85)",
+              "n": 12,
+              "meanConfidence": 0.7700914270309861,
+              "accuracy": 0.5833333333333334
+            },
+            {
+              "range": "[0.85, 1.00]",
+              "n": 64,
+              "meanConfidence": 0.9783488893787541,
+              "accuracy": 0.765625
+            }
+          ],
+          "ece": 0.20975806612303705
+        },
+        "bootstrap95": {
+          "usefulRate": {
+            "lo": 0.5632183908045977,
+            "hi": 0.7586206896551724
+          },
+          "acceptedPrecision": {
+            "lo": 0.5952380952380952,
+            "hi": 0.7926829268292683
+          },
+          "coverage": {
+            "lo": 0.9080459770114943,
+            "hi": 0.9885057471264368
+          },
+          "macroF1": {
+            "lo": 0.58320987654321,
+            "hi": 0.7807162250403823
+          },
+          "wrongAcceptedRate": {
+            "lo": 0.19540229885057472,
+            "hi": 0.39080459770114945
+          }
+        },
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "coverage": 1,
+            "uncertainRate": 0,
+            "acceptedPrecision": 0.6896551724137931,
+            "usefulRate": 0.6896551724137931,
+            "wrongAcceptedRate": 0.3103448275862069,
+            "abstention": 0,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.4,
+            "coverage": 1,
+            "uncertainRate": 0,
+            "acceptedPrecision": 0.6896551724137931,
+            "usefulRate": 0.6896551724137931,
+            "wrongAcceptedRate": 0.3103448275862069,
+            "abstention": 0,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.45,
+            "coverage": 1,
+            "uncertainRate": 0,
+            "acceptedPrecision": 0.6896551724137931,
+            "usefulRate": 0.6896551724137931,
+            "wrongAcceptedRate": 0.3103448275862069,
+            "abstention": 0.1,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.5,
+            "coverage": 0.9885057471264368,
+            "uncertainRate": 0.011494252873563204,
+            "acceptedPrecision": 0.6976744186046512,
+            "usefulRate": 0.6896551724137931,
+            "wrongAcceptedRate": 0.2988505747126437,
+            "abstention": 0.1,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.55,
+            "coverage": 0.9540229885057471,
+            "uncertainRate": 0.04597701149425293,
+            "acceptedPrecision": 0.6987951807228916,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.28735632183908044,
+            "abstention": 0.1,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.6,
+            "coverage": 0.9080459770114943,
+            "uncertainRate": 0.09195402298850575,
+            "acceptedPrecision": 0.7215189873417721,
+            "usefulRate": 0.6551724137931034,
+            "wrongAcceptedRate": 0.25287356321839083,
+            "abstention": 0.3,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.65,
+            "coverage": 0.896551724137931,
+            "uncertainRate": 0.10344827586206895,
+            "acceptedPrecision": 0.7307692307692307,
+            "usefulRate": 0.6551724137931034,
+            "wrongAcceptedRate": 0.2413793103448276,
+            "abstention": 0.3,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.7,
+            "coverage": 0.8735632183908046,
+            "uncertainRate": 0.12643678160919536,
+            "acceptedPrecision": 0.7368421052631579,
+            "usefulRate": 0.6436781609195402,
+            "wrongAcceptedRate": 0.22988505747126436,
+            "abstention": 0.5,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.8,
+            "coverage": 0.7701149425287356,
+            "uncertainRate": 0.22988505747126442,
+            "acceptedPrecision": 0.7761194029850746,
+            "usefulRate": 0.5977011494252874,
+            "wrongAcceptedRate": 0.1724137931034483,
+            "abstention": 0.6,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.9,
+            "coverage": 0.6666666666666666,
+            "uncertainRate": 0.33333333333333337,
+            "acceptedPrecision": 0.8103448275862069,
+            "usefulRate": 0.5402298850574713,
+            "wrongAcceptedRate": 0.12643678160919541,
+            "abstention": 0.6,
+            "meetsCriteria": false
+          }
+        ],
+        "outcomes": [
+          {
+            "id": "R001",
+            "category": "content",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R002",
+            "category": "content",
+            "confidence": 0.8339,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R003",
+            "category": "technical",
+            "confidence": 0.6546,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R004",
+            "category": "technical",
+            "confidence": 0.4989,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R006",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R007",
+            "category": "content",
+            "confidence": 0.9919,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R008",
+            "category": "content",
+            "confidence": 0.5228,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R009",
+            "category": "organization",
+            "confidence": 0.999,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R010",
+            "category": "organization",
+            "confidence": 0.8886,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R011",
+            "category": "organization",
+            "confidence": 0.8744,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R013",
+            "category": "content",
+            "confidence": 0.9996,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R014",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R015",
+            "category": "technical",
+            "confidence": 0.8819,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R016",
+            "category": "content",
+            "confidence": 0.9783,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R017",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R018",
+            "category": "content",
+            "confidence": 0.9588,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R019",
+            "category": "content",
+            "confidence": 0.9613,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R020",
+            "category": "content",
+            "confidence": 0.9997,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R021",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R022",
+            "category": "content",
+            "confidence": 0.6932,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R024",
+            "category": "content",
+            "confidence": 0.5713,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R025",
+            "category": "technical",
+            "confidence": 0.7732,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R026",
+            "category": "content",
+            "confidence": 0.9973,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R027",
+            "category": "content",
+            "confidence": 0.8308,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R028",
+            "category": "content",
+            "confidence": 0.9992,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R030",
+            "category": "content",
+            "confidence": 0.9375,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R031",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R032",
+            "category": "content",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R034",
+            "category": "content",
+            "confidence": 0.9957,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R035",
+            "category": "organization",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R036",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R037",
+            "category": "content",
+            "confidence": 0.7911,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R038",
+            "category": "content",
+            "confidence": 0.9993,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R040",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R041",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R042",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R043",
+            "category": "organization",
+            "confidence": 0.9572,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R044",
+            "category": "organization",
+            "confidence": 0.8911,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R045",
+            "category": "organization",
+            "confidence": 0.9985,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R047",
+            "category": "organization",
+            "confidence": 0.9892,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R048",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R049",
+            "category": "organization",
+            "confidence": 0.977,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R050",
+            "category": "organization",
+            "confidence": 0.9759,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R052",
+            "category": "organization",
+            "confidence": 0.9918,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R053",
+            "category": "content",
+            "confidence": 0.9594,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R054",
+            "category": "technical",
+            "confidence": 0.9729,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R055",
+            "category": "content",
+            "confidence": 0.5193,
+            "accepted": false,
+            "correct": false
+          },
+          {
+            "id": "R056",
+            "category": "organization",
+            "confidence": 0.9145,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R058",
+            "category": "organization",
+            "confidence": 0.9945,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R059",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R060",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R061",
+            "category": "content",
+            "confidence": 0.9475,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R062",
+            "category": "content",
+            "confidence": 0.7198,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R063",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R064",
+            "category": "organization",
+            "confidence": 0.7684,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R065",
+            "category": "content",
+            "confidence": 0.9835,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R067",
+            "category": "content",
+            "confidence": 0.9849,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R068",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R069",
+            "category": "content",
+            "confidence": 0.7597,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R070",
+            "category": "content",
+            "confidence": 0.9978,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R071",
+            "category": "content",
+            "confidence": 0.5902,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R073",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R074",
+            "category": "content",
+            "confidence": 0.8794,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R075",
+            "category": "technical",
+            "confidence": 0.7541,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R076",
+            "category": "technical",
+            "confidence": 0.8776,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R077",
+            "category": "organization",
+            "confidence": 0.5923,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R079",
+            "category": "content",
+            "confidence": 0.6383,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R080",
+            "category": "technical",
+            "confidence": 0.7143,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R081",
+            "category": "content",
+            "confidence": 0.9951,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R082",
+            "category": "technical",
+            "confidence": 0.7637,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R083",
+            "category": "technical",
+            "confidence": 0.8044,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R084",
+            "category": "technical",
+            "confidence": 0.9918,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R085",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R086",
+            "category": "technical",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R087",
+            "category": "technical",
+            "confidence": 0.9996,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R088",
+            "category": "organization",
+            "confidence": 0.7277,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R090",
+            "category": "technical",
+            "confidence": 0.9435,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R091",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R092",
+            "category": "technical",
+            "confidence": 0.5331,
+            "accepted": false,
+            "correct": true
+          },
+          {
+            "id": "R093",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R094",
+            "category": "technical",
+            "confidence": 0.9685,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R096",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R097",
+            "category": "technical",
+            "confidence": 0.5797,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R098",
+            "category": "content",
+            "confidence": 0.9651,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R099",
+            "category": "organization",
+            "confidence": 0.9985,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R100",
+            "category": "organization",
+            "confidence": 0.9983,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R102",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R103",
+            "category": "content",
+            "confidence": 0.5773,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R104",
+            "category": "technical",
+            "confidence": 0.6881,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R105",
+            "category": "organization",
+            "confidence": 0.939,
+            "accepted": true,
+            "correct": false
+          },
+          {
+            "id": "R106",
+            "category": "technical",
+            "confidence": 0.9178,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R107",
+            "category": "organization",
+            "confidence": 0.9012,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R108",
+            "category": "content",
+            "confidence": 0.7589,
+            "accepted": true,
+            "correct": true
+          },
+          {
+            "id": "R109",
+            "category": "content",
+            "confidence": 0.9988,
+            "accepted": true,
+            "correct": null
+          },
+          {
+            "id": "R110",
+            "category": "content",
+            "confidence": 0.6855,
+            "accepted": true,
+            "correct": null
+          },
+          {
+            "id": "R111",
+            "category": "content",
+            "confidence": 0.4479,
+            "accepted": false,
+            "correct": null
+          },
+          {
+            "id": "R112",
+            "category": "organization",
+            "confidence": 0.5699,
+            "accepted": true,
+            "correct": null
+          }
+        ]
+      },
+      "cascade": {
+        "operatingPoint": 0.55,
+        "labeled": {
+          "n": 87,
+          "bestGuessAccuracy": 0.6896551724137931,
+          "macroF1": 0.6894399118363284,
+          "coverage": 0.8850574712643678,
+          "uncertainRate": 0.11494252873563215,
+          "acceptedPrecision": 0.7012987012987013,
+          "usefulRate": 0.6206896551724138,
+          "wrongAcceptedRate": 0.26436781609195403,
+          "perClass": {
+            "content": {
+              "precision": 0.631578947368421,
+              "recall": 0.75,
+              "f1": 0.6857142857142857,
+              "support": 32
+            },
+            "organization": {
+              "precision": 0.7407407407407407,
+              "recall": 0.6666666666666666,
+              "f1": 0.7017543859649122,
+              "support": 30
+            },
+            "technical": {
+              "precision": 0.7272727272727273,
+              "recall": 0.64,
+              "f1": 0.6808510638297872,
+              "support": 25
+            }
+          },
+          "confusion": {
+            "content": {
+              "content": 24,
+              "organization": 4,
+              "technical": 4
+            },
+            "organization": {
+              "content": 8,
+              "organization": 20,
+              "technical": 2
+            },
+            "technical": {
+              "content": 6,
+              "organization": 3,
+              "technical": 16
+            }
+          }
+        },
+        "abstentionOnAmbiguousAndNoise": {
+          "n": 10,
+          "rate": 0.7
+        },
+        "byLocale": {
+          "de": {
+            "n": 48,
+            "bestGuessAccuracy": 0.75,
+            "coverage": 0.875,
+            "acceptedPrecision": 0.7380952380952381,
+            "usefulRate": 0.6458333333333334,
+            "wrongAcceptedRate": 0.22916666666666666
+          },
+          "en": {
+            "n": 18,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 1,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.6666666666666666,
+            "wrongAcceptedRate": 0.3333333333333333
+          },
+          "fr": {
+            "n": 9,
+            "bestGuessAccuracy": 0.4444444444444444,
+            "coverage": 0.8888888888888888,
+            "acceptedPrecision": 0.5,
+            "usefulRate": 0.4444444444444444,
+            "wrongAcceptedRate": 0.4444444444444444
+          },
+          "es": {
+            "n": 10,
+            "bestGuessAccuracy": 0.6,
+            "coverage": 0.8,
+            "acceptedPrecision": 0.75,
+            "usefulRate": 0.6,
+            "wrongAcceptedRate": 0.2
+          },
+          "mixed": {
+            "n": 2,
+            "bestGuessAccuracy": 1,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          }
+        },
+        "byTag": {
+          "canonical": {
+            "n": 46,
+            "bestGuessAccuracy": 0.6739130434782609,
+            "coverage": 0.9347826086956522,
+            "acceptedPrecision": 0.6976744186046512,
+            "usefulRate": 0.6521739130434783,
+            "wrongAcceptedRate": 0.2826086956521739
+          },
+          "(none)": {
+            "n": 16,
+            "bestGuessAccuracy": 0.875,
+            "coverage": 0.9375,
+            "acceptedPrecision": 0.8666666666666667,
+            "usefulRate": 0.8125,
+            "wrongAcceptedRate": 0.125
+          },
+          "short": {
+            "n": 12,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.5,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.3333333333333333,
+            "wrongAcceptedRate": 0.16666666666666666
+          },
+          "frame": {
+            "n": 3,
+            "bestGuessAccuracy": 1,
+            "coverage": 1,
+            "acceptedPrecision": 1,
+            "usefulRate": 1,
+            "wrongAcceptedRate": 0
+          },
+          "typo": {
+            "n": 4,
+            "bestGuessAccuracy": 1,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "slang": {
+            "n": 4,
+            "bestGuessAccuracy": 0.25,
+            "coverage": 0.5,
+            "acceptedPrecision": 0,
+            "usefulRate": 0,
+            "wrongAcceptedRate": 0.5
+          },
+          "code-switch": {
+            "n": 2,
+            "bestGuessAccuracy": 1,
+            "coverage": 0.5,
+            "acceptedPrecision": 1,
+            "usefulRate": 0.5,
+            "wrongAcceptedRate": 0
+          },
+          "near-miss": {
+            "n": 8,
+            "bestGuessAccuracy": 0.375,
+            "coverage": 1,
+            "acceptedPrecision": 0.375,
+            "usefulRate": 0.375,
+            "wrongAcceptedRate": 0.625
+          }
+        },
+        "byGoldCategory": {
+          "content": {
+            "n": 32,
+            "bestGuessAccuracy": 0.75,
+            "coverage": 0.9375,
+            "acceptedPrecision": 0.7666666666666667,
+            "usefulRate": 0.71875,
+            "wrongAcceptedRate": 0.21875
+          },
+          "organization": {
+            "n": 30,
+            "bestGuessAccuracy": 0.6666666666666666,
+            "coverage": 0.9,
+            "acceptedPrecision": 0.6666666666666666,
+            "usefulRate": 0.6,
+            "wrongAcceptedRate": 0.3
+          },
+          "technical": {
+            "n": 25,
+            "bestGuessAccuracy": 0.64,
+            "coverage": 0.8,
+            "acceptedPrecision": 0.65,
+            "usefulRate": 0.52,
+            "wrongAcceptedRate": 0.28
+          }
+        },
+        "calibration": {
+          "bins": [
+            {
+              "range": "[0.00, 0.40)",
+              "n": 0,
+              "meanConfidence": 0,
+              "accuracy": 0
+            },
+            {
+              "range": "[0.40, 0.55)",
+              "n": 2,
+              "meanConfidence": 0.52795,
+              "accuracy": 1
+            },
+            {
+              "range": "[0.55, 0.70)",
+              "n": 8,
+              "meanConfidence": 0.621075,
+              "accuracy": 0.5
+            },
+            {
+              "range": "[0.70, 0.85)",
+              "n": 17,
+              "meanConfidence": 0.7788882352941177,
+              "accuracy": 0.5294117647058824
+            },
+            {
+              "range": "[0.85, 1.00]",
+              "n": 60,
+              "meanConfidence": 0.976915,
+              "accuracy": 0.75
+            }
+          ],
+          "ece": 0.2272264367816092
+        },
+        "bootstrap95": {
+          "usefulRate": {
+            "lo": 0.5172413793103449,
+            "hi": 0.7241379310344828
+          },
+          "acceptedPrecision": {
+            "lo": 0.5949367088607594,
+            "hi": 0.8
+          },
+          "coverage": {
+            "lo": 0.8160919540229885,
+            "hi": 0.9425287356321839
+          },
+          "macroF1": {
+            "lo": 0.58320987654321,
+            "hi": 0.7822036644279486
+          },
+          "wrongAcceptedRate": {
+            "lo": 0.1724137931034483,
+            "hi": 0.367816091954023
+          }
+        },
+        "sweep": [
+          {
+            "threshold": 0.35,
+            "coverage": 0.8735632183908046,
+            "uncertainRate": 0.12643678160919536,
+            "acceptedPrecision": 0.6973684210526315,
+            "usefulRate": 0.6091954022988506,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.4,
+            "coverage": 0.8735632183908046,
+            "uncertainRate": 0.12643678160919536,
+            "acceptedPrecision": 0.6973684210526315,
+            "usefulRate": 0.6091954022988506,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.45,
+            "coverage": 0.8735632183908046,
+            "uncertainRate": 0.12643678160919536,
+            "acceptedPrecision": 0.6973684210526315,
+            "usefulRate": 0.6091954022988506,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.5,
+            "coverage": 0.8850574712643678,
+            "uncertainRate": 0.11494252873563215,
+            "acceptedPrecision": 0.7012987012987013,
+            "usefulRate": 0.6206896551724138,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.55,
+            "coverage": 0.8850574712643678,
+            "uncertainRate": 0.11494252873563215,
+            "acceptedPrecision": 0.7012987012987013,
+            "usefulRate": 0.6206896551724138,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.6,
+            "coverage": 0.896551724137931,
+            "uncertainRate": 0.10344827586206895,
+            "acceptedPrecision": 0.7051282051282052,
+            "usefulRate": 0.632183908045977,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.65,
+            "coverage": 0.896551724137931,
+            "uncertainRate": 0.10344827586206895,
+            "acceptedPrecision": 0.7051282051282052,
+            "usefulRate": 0.632183908045977,
+            "wrongAcceptedRate": 0.26436781609195403,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.7,
+            "coverage": 0.8850574712643678,
+            "uncertainRate": 0.11494252873563215,
+            "acceptedPrecision": 0.7142857142857143,
+            "usefulRate": 0.632183908045977,
+            "wrongAcceptedRate": 0.25287356321839083,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.8,
+            "coverage": 0.8275862068965517,
+            "uncertainRate": 0.1724137931034483,
+            "acceptedPrecision": 0.7361111111111112,
+            "usefulRate": 0.6091954022988506,
+            "wrongAcceptedRate": 0.21839080459770116,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          },
+          {
+            "threshold": 0.9,
+            "coverage": 0.7931034482758621,
+            "uncertainRate": 0.2068965517241379,
+            "acceptedPrecision": 0.7246376811594203,
+            "usefulRate": 0.5747126436781609,
+            "wrongAcceptedRate": 0.21839080459770116,
+            "abstention": 0.7,
+            "meetsCriteria": false
+          }
+        ],
+        "cascadePaths": {
+          "early-exit": 70,
+          "fallback": 17
+        },
+        "outcomes": [
+          {
+            "id": "R001",
+            "category": "content",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R002",
+            "category": "content",
+            "confidence": 0.8339,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R003",
+            "category": "technical",
+            "confidence": 0.6546,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R004",
+            "category": "content",
+            "confidence": 0.6,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R006",
+            "category": "content",
+            "confidence": 0.6,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R007",
+            "category": "content",
+            "confidence": 0.9919,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R008",
+            "category": "content",
+            "confidence": 0.5228,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R009",
+            "category": "organization",
+            "confidence": 0.999,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R010",
+            "category": "organization",
+            "confidence": 0.8886,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R011",
+            "category": "organization",
+            "confidence": 0.8744,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R013",
+            "category": "content",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R014",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R015",
+            "category": "technical",
+            "confidence": 0.8819,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R016",
+            "category": "content",
+            "confidence": 0.9783,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R017",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R018",
+            "category": "content",
+            "confidence": 0.9588,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R019",
+            "category": "content",
+            "confidence": 0.9613,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R020",
+            "category": "content",
+            "confidence": 0.9997,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R021",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R022",
+            "category": "content",
+            "confidence": 0.6932,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R024",
+            "category": "technical",
+            "confidence": 0.8,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R025",
+            "category": "technical",
+            "confidence": 0.7732,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R026",
+            "category": "content",
+            "confidence": 0.9973,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R027",
+            "category": "content",
+            "confidence": 0.8308,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R028",
+            "category": "content",
+            "confidence": 0.9992,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R030",
+            "category": "content",
+            "confidence": 0.9375,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R031",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R032",
+            "category": "content",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R034",
+            "category": "content",
+            "confidence": 0.9957,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R035",
+            "category": "organization",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R036",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R037",
+            "category": "content",
+            "confidence": 0.7911,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R038",
+            "category": "content",
+            "confidence": 0.9993,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R040",
+            "category": "organization",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R041",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R042",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R043",
+            "category": "organization",
+            "confidence": 0.9572,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R044",
+            "category": "organization",
+            "confidence": 0.8911,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R045",
+            "category": "organization",
+            "confidence": 0.9985,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R047",
+            "category": "organization",
+            "confidence": 0.9892,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R048",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R049",
+            "category": "organization",
+            "confidence": 0.977,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R050",
+            "category": "organization",
+            "confidence": 0.9759,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R052",
+            "category": "organization",
+            "confidence": 0.9918,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R053",
+            "category": "content",
+            "confidence": 0.9594,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R054",
+            "category": "technical",
+            "confidence": 0.9729,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R055",
+            "category": "content",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R056",
+            "category": "organization",
+            "confidence": 0.9145,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R058",
+            "category": "organization",
+            "confidence": 0.9945,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R059",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R060",
+            "category": "organization",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R061",
+            "category": "content",
+            "confidence": 0.9475,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R062",
+            "category": "content",
+            "confidence": 0.7198,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R063",
+            "category": "organization",
+            "confidence": 0.6,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R064",
+            "category": "organization",
+            "confidence": 0.7684,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R065",
+            "category": "content",
+            "confidence": 0.9835,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R067",
+            "category": "content",
+            "confidence": 0.9849,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R068",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R069",
+            "category": "content",
+            "confidence": 0.7597,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R070",
+            "category": "content",
+            "confidence": 0.9978,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R071",
+            "category": "content",
+            "confidence": 0.5902,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R073",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R074",
+            "category": "content",
+            "confidence": 0.8794,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R075",
+            "category": "technical",
+            "confidence": 0.7541,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R076",
+            "category": "technical",
+            "confidence": 0.8776,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R077",
+            "category": "organization",
+            "confidence": 0.5923,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R079",
+            "category": "content",
+            "confidence": 0.6383,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R080",
+            "category": "technical",
+            "confidence": 0.7143,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R081",
+            "category": "content",
+            "confidence": 0.9951,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R082",
+            "category": "technical",
+            "confidence": 0.7637,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R083",
+            "category": "technical",
+            "confidence": 0.8044,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R084",
+            "category": "technical",
+            "confidence": 0.9918,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R085",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R086",
+            "category": "technical",
+            "confidence": 0.9998,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R087",
+            "category": "technical",
+            "confidence": 0.9996,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R088",
+            "category": "organization",
+            "confidence": 0.7277,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R090",
+            "category": "technical",
+            "confidence": 0.9435,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R091",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R092",
+            "category": "technical",
+            "confidence": 0.5331,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R093",
+            "category": "technical",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R094",
+            "category": "technical",
+            "confidence": 0.9685,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R096",
+            "category": "content",
+            "confidence": 1,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R097",
+            "category": "technical",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R098",
+            "category": "content",
+            "confidence": 0.9651,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R099",
+            "category": "organization",
+            "confidence": 0.9985,
+            "accepted": true,
+            "correct": true,
+            "path": "early-exit"
+          },
+          {
+            "id": "R100",
+            "category": "organization",
+            "confidence": 0.9983,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R102",
+            "category": "organization",
+            "confidence": 0.9999,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R103",
+            "category": "content",
+            "confidence": 0.6,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R104",
+            "category": "technical",
+            "confidence": 0.6881,
+            "accepted": false,
+            "correct": false,
+            "path": "fallback"
+          },
+          {
+            "id": "R105",
+            "category": "organization",
+            "confidence": 0.939,
+            "accepted": true,
+            "correct": false,
+            "path": "early-exit"
+          },
+          {
+            "id": "R106",
+            "category": "technical",
+            "confidence": 0.8,
+            "accepted": true,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R107",
+            "category": "organization",
+            "confidence": 0.9012,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R108",
+            "category": "content",
+            "confidence": 0.7589,
+            "accepted": false,
+            "correct": true,
+            "path": "fallback"
+          },
+          {
+            "id": "R109",
+            "category": "content",
+            "confidence": 0.9988,
+            "accepted": false,
+            "correct": null,
+            "path": "fallback"
+          },
+          {
+            "id": "R110",
+            "category": "content",
+            "confidence": 0.6855,
+            "accepted": false,
+            "correct": null,
+            "path": "fallback"
+          },
+          {
+            "id": "R111",
+            "category": "content",
+            "confidence": 0.4479,
+            "accepted": false,
+            "correct": null,
+            "path": "fallback"
+          },
+          {
+            "id": "R112",
+            "category": "organization",
+            "confidence": 0.5699,
+            "accepted": false,
+            "correct": null,
+            "path": "fallback"
+          }
+        ]
+      }
+    }
+  },
+  "pairwise": {
+    "cascade vs keyword": {
+      "useful": {
+        "onlyA": 25,
+        "onlyB": 9,
+        "p": 0.00904118549078703
+      },
+      "bestGuess": {
+        "onlyA": 18,
+        "onlyB": 10,
+        "p": 0.1849333420395851
+      }
+    },
+    "gatekeeper vs keyword": {
+      "useful": {
+        "onlyA": 27,
+        "onlyB": 7,
+        "p": 0.0008213953115046024
+      },
+      "bestGuess": {
+        "onlyA": 18,
+        "onlyB": 10,
+        "p": 0.1849333420395851
+      }
+    },
+    "cascade vs gatekeeper": {
+      "useful": {
+        "onlyA": 1,
+        "onlyB": 5,
+        "p": 0.21875
+      },
+      "bestGuess": {
+        "onlyA": 1,
+        "onlyB": 1,
+        "p": 1
+      }
+    }
+  },
+  "runtime": {
+    "coldStart": {
+      "gatekeeperTrainMs": 3.7479000000000156,
+      "fallbackPrototypeBuildMs": 4.572500000000048,
+      "heapUsedDeltaMB": 60.90077209472656,
+      "rssDeltaMB": 93.68359375,
+      "note": "Delta enthält Modul-Import und Training; Größenordnung, keine exakte Modellgröße."
+    },
+    "warmLatency": {
+      "keyword": {
+        "calls": 1940,
+        "meanMs": 0.007843298969073516,
+        "p50Ms": 0.007700000000113505,
+        "p95Ms": 0.010500000000092768,
+        "p99Ms": 0.01290000000017244,
+        "maxMs": 0.028099999999994907,
+        "throughputPerSec": 124499.43526029361
+      },
+      "gatekeeper": {
+        "calls": 1940,
+        "meanMs": 0.01774829896907221,
+        "p50Ms": 0.016200000000026193,
+        "p95Ms": 0.02369999999996253,
+        "p99Ms": 0.05989999999997053,
+        "maxMs": 0.6667999999999665,
+        "throughputPerSec": 55727.269593593046
+      },
+      "cascade": {
+        "calls": 1940,
+        "meanMs": 0.0678620618556696,
+        "p50Ms": 0.02539999999999054,
+        "p95Ms": 0.18290000000001783,
+        "p99Ms": 0.22469999999998436,
+        "maxMs": 0.292699999999968,
+        "throughputPerSec": 14682.965262677493
+      }
+    },
+    "productionTimeoutMs": 2000
+  }
+}

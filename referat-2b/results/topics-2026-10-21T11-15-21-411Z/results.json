@@ -1,0 +1,3424 @@
+{
+  "manifest": {
+    "timestamp": "2026-10-21T11:15:21.411Z",
+    "commit": "a657798e4ab5b3c9f1214fe32baf4d562c1bc003",
+    "describe": "v1.3.0-181-ga657798e",
+    "wordCloudSourcesDirty": false,
+    "node": "v24.12.0",
+    "platform": "win32 10.0.19045 x64",
+    "cpu": "Intel(R) Core(TM) i7-7700K CPU @ 4.20GHz × 8",
+    "reference": {
+      "version": "1.0.0-draft",
+      "sha256": "6d00fcd33899ac65e1567756539befbf503091357f1fe72344e3049a3f2690a8",
+      "items": 97,
+      "itemsInFile": 112,
+      "locales": [
+        "de",
+        "en",
+        "fr",
+        "es"
+      ]
+    },
+    "encoder": {
+      "modelId": "intfloat/multilingual-e5-small",
+      "modelVersion": "intfloat/multilingual-e5-small@sha256:f80102d3f2a1229f",
+      "dimensions": 384,
+      "image": "arsnova-wordcloud-encoder:e5-small sha256:245b8f96e7255b8e0ae01bef6b1daeaa5c17a7d44579df4df92097f85502eecd",
+      "imageSizeMB": 1496.828619,
+      "limits": "cpus=1000000000 mem=2147483648",
+      "transport": "loopback HTTP http://127.0.0.1:8790/embed (Labor; Produktion: Unix-Socket, network_mode none)"
+    },
+    "releaseConstants": {
+      "WORD_CLOUD_SEMANTIC_COSINE_THRESHOLD": 0.87,
+      "WORD_CLOUD_SEMANTIC_MAX_TOPICS": 12,
+      "WORD_CLOUD_SEMANTIC_LOCALES": [
+        "de",
+        "en"
+      ],
+      "reliableGate": "mind. 1 Cluster ≥ 2 Mitglieder und Konfidenz ≥ 0,65",
+      "readyStatus": "mind. 1 Cluster mit Konfidenz ≥ 0,85"
+    },
+    "settings": {
+      "RUNS": 10,
+      "SWEEP": [
+        0.8,
+        0.82,
+        0.84,
+        0.85,
+        0.86,
+        0.87,
+        0.88,
+        0.89,
+        0.9,
+        0.92
+      ]
+    }
+  },
+  "results": {
+    "mixed": {
+      "label": "Gesamtset (de/en/fr/es), Session-Locale de",
+      "productRunsEncoder": true,
+      "encoder": {
+        "n": 97,
+        "goldTopics": 33,
+        "goldMultiTopics": 17,
+        "predictedTopics": 60,
+        "predictedMultiTopics": 27,
+        "missedSingletonRate": 0.32098765432098764,
+        "ari": 0.28297681660973667,
+        "nmi": 0.8445408936794696,
+        "bcubed": {
+          "precision": 0.8625429553264605,
+          "recall": 0.4601374570446733,
+          "f1": 0.6001273147218136
+        },
+        "pairRecall": 0.1910828025477707,
+        "monolingualPairRecall": 0.35135135135135137,
+        "crossLingualPairRecall": 0.14166666666666666,
+        "falseMergePairs": 17,
+        "falseMerges": [
+          [
+            "R008",
+            "R102"
+          ],
+          [
+            "R013",
+            "R102"
+          ],
+          [
+            "R026",
+            "R108"
+          ],
+          [
+            "R035",
+            "R104"
+          ],
+          [
+            "R038",
+            "R061"
+          ],
+          [
+            "R038",
+            "R067"
+          ],
+          [
+            "R044",
+            "R060"
+          ],
+          [
+            "R053",
+            "R097"
+          ],
+          [
+            "R058",
+            "R063"
+          ],
+          [
+            "R059",
+            "R063"
+          ],
+          [
+            "R061",
+            "R067"
+          ],
+          [
+            "R065",
+            "R105"
+          ],
+          [
+            "R085",
+            "R100"
+          ],
+          [
+            "R086",
+            "R100"
+          ],
+          [
+            "R091",
+            "R098"
+          ],
+          [
+            "R092",
+            "R098"
+          ],
+          [
+            "R109",
+            "R112"
+          ]
+        ],
+        "product": {
+          "reliableGatePassed": true,
+          "status": "ready",
+          "topicsShown": 12,
+          "multiMemberTopicsShown": 12,
+          "itemsInShownMultiTopics": 0.35051546391752575
+        },
+        "clusters": [
+          {
+            "label": "The poll won't load on my phone.",
+            "confidence": 0.946,
+            "members": [
+              "R087",
+              "R088"
+            ],
+            "families": [
+              "T-VOTE"
+            ]
+          },
+          {
+            "label": "Could you walk us through another linear regression example?",
+            "confidence": 0.913,
+            "members": [
+              "R001",
+              "R003",
+              "R004"
+            ],
+            "families": [
+              "C-REG"
+            ]
+          },
+          {
+            "label": "Gilt für Blatt 2 die Abgabe Freitag 23:59 oder Sonntag?",
+            "confidence": 0.911,
+            "members": [
+              "R041",
+              "R036",
+              "R040"
+            ],
+            "families": [
+              "O-DEAD"
+            ]
+          },
+          {
+            "label": "Wie rechne ich mit Bayes bedingte Wahrscheinlichkeiten aus, an einem Beispiel?",
+            "confidence": 0.903,
+            "members": [
+              "R030",
+              "R031"
+            ],
+            "families": [
+              "C-BAYES"
+            ]
+          },
+          {
+            "label": "Ist die Formelsammlung im Moodle die aktuelle Version?",
+            "confidence": 0.899,
+            "members": [
+              "R053",
+              "R097"
+            ],
+            "families": [
+              "O-AIDS",
+              "S-FORMULA-VERSION"
+            ]
+          },
+          {
+            "label": "Woher kommt auf Folie 17 plötzlich das Quadrat?",
+            "confidence": 0.898,
+            "members": [
+              "R026",
+              "R108"
+            ],
+            "families": [
+              "C-DERIV",
+              "S-AMB-6"
+            ]
+          },
+          {
+            "label": "Die Projektion ist so blass, dass man die Formeln nicht lesen kann.",
+            "confidence": 0.898,
+            "members": [
+              "R081",
+              "R083"
+            ],
+            "families": [
+              "T-BEAM"
+            ]
+          },
+          {
+            "label": "The eduroam connection keeps dropping in here.",
+            "confidence": 0.897,
+            "members": [
+              "R069",
+              "R070"
+            ],
+            "families": [
+              "T-WIFI"
+            ]
+          },
+          {
+            "label": "Can you give an intuitive example of Bayes' theorem?",
+            "confidence": 0.895,
+            "members": [
+              "R032",
+              "R034"
+            ],
+            "families": [
+              "C-BAYES"
+            ]
+          },
+          {
+            "label": "Bis wann müssen wir das zweite Übungsblatt hochladen?",
+            "confidence": 0.894,
+            "members": [
+              "R035",
+              "R104"
+            ],
+            "families": [
+              "O-DEAD",
+              "S-AMB-2"
+            ]
+          },
+          {
+            "label": "Kurze Nachfrage: gibt es noch ein Beispiel zur Regression?",
+            "confidence": 0.909,
+            "members": [
+              "R002",
+              "R006",
+              "R007"
+            ],
+            "families": [
+              "C-REG"
+            ]
+          },
+          {
+            "label": "Können Sie nochmal erklären, was der p-Wert eigentlich aussagt?",
+            "confidence": 0.916,
+            "members": [
+              "R015",
+              "R014",
+              "R019"
+            ],
+            "families": [
+              "C-PVAL"
+            ]
+          },
+          {
+            "label": "Den Schritt von Zeile 2 auf Zeile 3 in der Herleitung auf Folie 17 verstehe ich nicht.",
+            "confidence": 0.892,
+            "members": [
+              "R025",
+              "R027"
+            ],
+            "families": [
+              "C-DERIV"
+            ]
+          },
+          {
+            "label": "Findet nächsten Donnerstag überhaupt Vorlesung statt?",
+            "confidence": 0.912,
+            "members": [
+              "R063",
+              "R058",
+              "R059"
+            ],
+            "families": [
+              "O-REC",
+              "O-CANC"
+            ]
+          },
+          {
+            "label": "Der Beamer schneidet die rechte Hälfte der Folie ab.",
+            "confidence": 0.888,
+            "members": [
+              "R080",
+              "R084"
+            ],
+            "families": [
+              "T-BEAM"
+            ]
+          },
+          {
+            "label": "El wifi del aula se cae todo el rato.",
+            "confidence": 0.887,
+            "members": [
+              "R068",
+              "R071"
+            ],
+            "families": [
+              "T-WIFI"
+            ]
+          },
+          {
+            "label": "Wird in der Vorlesung die Anwesenheit kontrolliert?",
+            "confidence": 0.885,
+            "members": [
+              "R042",
+              "R043"
+            ],
+            "families": [
+              "O-ATT"
+            ]
+          },
+          {
+            "label": "¡Gracias!",
+            "confidence": 0.885,
+            "members": [
+              "R109",
+              "R112"
+            ],
+            "families": [
+              "S-NOISE-1",
+              "S-NOISE-4"
+            ]
+          },
+          {
+            "label": "Wie erkenne ich Overfitting in der Praxis?",
+            "confidence": 0.884,
+            "members": [
+              "R020",
+              "R022"
+            ],
+            "families": [
+              "C-OVF"
+            ]
+          },
+          {
+            "label": "Sind die Hypothesentests aus Kapitel 5 klausurrelevant?",
+            "confidence": 0.89,
+            "members": [
+              "R102",
+              "R008",
+              "R013"
+            ],
+            "families": [
+              "S-CH5-READING",
+              "C-HYP"
+            ]
+          },
+          {
+            "label": "What does a p-value actually tell us?",
+            "confidence": 0.881,
+            "members": [
+              "R016",
+              "R018"
+            ],
+            "families": [
+              "C-PVAL"
+            ]
+          },
+          {
+            "label": "Le cours de jeudi prochain est maintenu ?",
+            "confidence": 0.897,
+            "members": [
+              "R038",
+              "R061",
+              "R067"
+            ],
+            "families": [
+              "O-DEAD",
+              "O-CANC",
+              "O-REC"
+            ]
+          },
+          {
+            "label": "Beim Download der Vorlesungsfolien kommt nur eine Fehlermeldung.",
+            "confidence": 0.882,
+            "members": [
+              "R098",
+              "R091",
+              "R092"
+            ],
+            "families": [
+              "S-SLIDE-TYPO",
+              "T-PDF"
+            ]
+          },
+          {
+            "label": "Die Abstimmung lädt bei mir seit zwei Minuten nicht.",
+            "confidence": 0.891,
+            "members": [
+              "R100",
+              "R085",
+              "R086"
+            ],
+            "families": [
+              "S-REC-PLAYBACK",
+              "T-VOTE"
+            ]
+          },
+          {
+            "label": "On n'entend rien au fond, le micro est trop faible.",
+            "confidence": 0.901,
+            "members": [
+              "R076",
+              "R074",
+              "R077"
+            ],
+            "families": [
+              "T-AUDIO"
+            ]
+          },
+          {
+            "label": "Is there a lecture next Thursday or is it cancelled?",
+            "confidence": 0.873,
+            "members": [
+              "R044",
+              "R060"
+            ],
+            "families": [
+              "O-ATT",
+              "O-CANC"
+            ]
+          },
+          {
+            "label": "Is this going to be on it?",
+            "confidence": 0.873,
+            "members": [
+              "R065",
+              "R105"
+            ],
+            "families": [
+              "O-REC",
+              "S-AMB-3"
+            ]
+          }
+        ]
+      },
+      "lexical": {
+        "n": 97,
+        "goldTopics": 33,
+        "goldMultiTopics": 17,
+        "predictedTopics": 61,
+        "predictedMultiTopics": 20,
+        "missedSingletonRate": 0.3950617283950617,
+        "ari": 0.22006185076520499,
+        "nmi": 0.8071888189953168,
+        "bcubed": {
+          "precision": 0.776975945017182,
+          "recall": 0.44845360824742236,
+          "f1": 0.5686784118044992
+        },
+        "pairRecall": 0.16560509554140126,
+        "monolingualPairRecall": 0.24324324324324326,
+        "crossLingualPairRecall": 0.14166666666666666,
+        "falseMergePairs": 38,
+        "falseMerges": [
+          [
+            "R008",
+            "R102"
+          ],
+          [
+            "R009",
+            "R054"
+          ],
+          [
+            "R010",
+            "R049"
+          ],
+          [
+            "R010",
+            "R055"
+          ],
+          [
+            "R010",
+            "R099"
+          ],
+          [
+            "R011",
+            "R056"
+          ],
+          [
+            "R013",
+            "R102"
+          ],
+          [
+            "R025",
+            "R080"
+          ],
+          [
+            "R025",
+            "R098"
+          ],
+          [
+            "R025",
+            "R108"
+          ],
+          [
+            "R026",
+            "R080"
+          ],
+          [
+            "R026",
+            "R098"
+          ],
+          [
+            "R026",
+            "R108"
+          ],
+          [
+            "R035",
+            "R104"
+          ],
+          [
+            "R038",
+            "R050"
+          ],
+          [
+            "R041",
+            "R073"
+          ],
+          [
+            "R042",
+            "R058"
+          ],
+          [
+            "R042",
+            "R059"
+          ],
+          [
+            "R042",
+            "R063"
+          ],
+          [
+            "R043",
+            "R058"
+          ],
+          [
+            "R043",
+            "R059"
+          ],
+          [
+            "R043",
+            "R063"
+          ],
+          [
+            "R049",
+            "R055"
+          ],
+          [
+            "R049",
+            "R099"
+          ],
+          [
+            "R053",
+            "R096"
+          ],
+          [
+            "R055",
+            "R099"
+          ],
+          [
+            "R058",
+            "R063"
+          ],
+          [
+            "R059",
+            "R063"
+          ],
+          [
+            "R061",
+            "R067"
+          ],
+          [
+            "R064",
+            "R091"
+          ],
+          [
+            "R064",
+            "R093"
+          ],
+          [
+            "R064",
+            "R097"
+          ],
+          [
+            "R080",
+            "R098"
+          ],
+          [
+            "R080",
+            "R108"
+          ],
+          [
+            "R083",
+            "R094"
+          ],
+          [
+            "R091",
+            "R097"
+          ],
+          [
+            "R093",
+            "R097"
+          ],
+          [
+            "R098",
+            "R108"
+          ]
+        ],
+        "clusters": [
+          {
+            "label": "Folie",
+            "members": [
+              "R098",
+              "R025",
+              "R080",
+              "R108",
+              "R026"
+            ],
+            "families": [
+              "S-SLIDE-TYPO",
+              "C-DERIV",
+              "T-BEAM",
+              "S-AMB-6"
+            ]
+          },
+          {
+            "label": "Regression",
+            "members": [
+              "R002",
+              "R003",
+              "R001",
+              "R007",
+              "R004"
+            ],
+            "families": [
+              "C-REG"
+            ]
+          },
+          {
+            "label": "Vorlesung",
+            "members": [
+              "R058",
+              "R059",
+              "R043",
+              "R063",
+              "R042"
+            ],
+            "families": [
+              "O-CANC",
+              "O-ATT",
+              "O-REC"
+            ]
+          },
+          {
+            "label": "Bayes",
+            "members": [
+              "R032",
+              "R030",
+              "R034",
+              "R031"
+            ],
+            "families": [
+              "C-BAYES"
+            ]
+          },
+          {
+            "label": "exam",
+            "members": [
+              "R055",
+              "R049",
+              "R010",
+              "R099"
+            ],
+            "families": [
+              "O-AIDS",
+              "O-ROOM",
+              "C-HYP",
+              "S-EXAM-WIFI"
+            ]
+          },
+          {
+            "label": "Moodle",
+            "members": [
+              "R091",
+              "R097",
+              "R093",
+              "R064"
+            ],
+            "families": [
+              "T-PDF",
+              "S-FORMULA-VERSION",
+              "O-REC"
+            ]
+          },
+          {
+            "label": "Kapitel 5",
+            "members": [
+              "R102",
+              "R013",
+              "R008"
+            ],
+            "families": [
+              "S-CH5-READING",
+              "C-HYP"
+            ]
+          },
+          {
+            "label": "cours",
+            "members": [
+              "R067",
+              "R061"
+            ],
+            "families": [
+              "O-REC",
+              "O-CANC"
+            ]
+          },
+          {
+            "label": "diapositivas",
+            "members": [
+              "R094",
+              "R083"
+            ],
+            "families": [
+              "T-PDF",
+              "T-BEAM"
+            ]
+          },
+          {
+            "label": "eduroam",
+            "members": [
+              "R069",
+              "R070"
+            ],
+            "families": [
+              "T-WIFI"
+            ]
+          },
+          {
+            "label": "examen",
+            "members": [
+              "R011",
+              "R056"
+            ],
+            "families": [
+              "C-HYP",
+              "O-AIDS"
+            ]
+          },
+          {
+            "label": "hochladen",
+            "members": [
+              "R035",
+              "R104"
+            ],
+            "families": [
+              "O-DEAD",
+              "S-AMB-2"
+            ]
+          },
+          {
+            "label": "Klausur",
+            "members": [
+              "R053",
+              "R096"
+            ],
+            "families": [
+              "O-AIDS",
+              "S-REG-EXAM"
+            ]
+          },
+          {
+            "label": "Nachfrage",
+            "members": [
+              "R041",
+              "R073"
+            ],
+            "families": [
+              "O-DEAD",
+              "T-WIFI"
+            ]
+          },
+          {
+            "label": "overfitting",
+            "members": [
+              "R022",
+              "R020"
+            ],
+            "families": [
+              "C-OVF"
+            ]
+          },
+          {
+            "label": "p-value",
+            "members": [
+              "R019",
+              "R016"
+            ],
+            "families": [
+              "C-PVAL"
+            ]
+          },
+          {
+            "label": "p-Wert",
+            "members": [
+              "R015",
+              "R014"
+            ],
+            "families": [
+              "C-PVAL"
+            ]
+          },
+          {
+            "label": "Prüfung",
+            "members": [
+              "R054",
+              "R009"
+            ],
+            "families": [
+              "O-AIDS",
+              "C-HYP"
+            ]
+          },
+          {
+            "label": "quelle",
+            "members": [
+              "R050",
+              "R038"
+            ],
+            "families": [
+              "O-ROOM",
+              "O-DEAD"
+            ]
+          },
+          {
+            "label": "slides",
+            "members": [
+              "R084",
+              "R082"
+            ],
+            "families": [
+              "T-BEAM"
+            ]
+          }
+        ]
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": 0.32896267533904483,
+          "bcubedF1": 0.5476353027108444,
+          "bcubedP": 0.5148502700049093,
+          "bcubedR": 0.5848797250859107,
+          "predictedMultiTopics": 22,
+          "falseMergePairs": 127,
+          "crossLingualPairRecall": 0.3333333333333333
+        },
+        {
+          "threshold": 0.82,
+          "ari": 0.3704757146602427,
+          "bcubedF1": 0.5963105083120643,
+          "bcubedP": 0.6542955326460482,
+          "bcubedR": 0.5477663230240548,
+          "predictedMultiTopics": 28,
+          "falseMergePairs": 59,
+          "crossLingualPairRecall": 0.2916666666666667
+        },
+        {
+          "threshold": 0.84,
+          "ari": 0.40278967071694965,
+          "bcubedF1": 0.627110157367668,
+          "bcubedP": 0.7333333333333331,
+          "bcubedR": 0.5477663230240548,
+          "predictedMultiTopics": 28,
+          "falseMergePairs": 40,
+          "crossLingualPairRecall": 0.2916666666666667
+        },
+        {
+          "threshold": 0.85,
+          "ari": 0.36910448701188403,
+          "bcubedF1": 0.6275510167440489,
+          "bcubedP": 0.7986254295532643,
+          "bcubedR": 0.5168384879725084,
+          "predictedMultiTopics": 27,
+          "falseMergePairs": 29,
+          "crossLingualPairRecall": 0.225
+        },
+        {
+          "threshold": 0.86,
+          "ari": 0.36750793234943097,
+          "bcubedF1": 0.6309405789444337,
+          "bcubedP": 0.8226804123711339,
+          "bcubedR": 0.5116838487972506,
+          "predictedMultiTopics": 25,
+          "falseMergePairs": 26,
+          "crossLingualPairRecall": 0.225
+        },
+        {
+          "threshold": 0.87,
+          "ari": 0.28297681660973667,
+          "bcubedF1": 0.6001273147218136,
+          "bcubedP": 0.8625429553264605,
+          "bcubedR": 0.4601374570446733,
+          "predictedMultiTopics": 27,
+          "falseMergePairs": 17,
+          "crossLingualPairRecall": 0.14166666666666666
+        },
+        {
+          "threshold": 0.88,
+          "ari": 0.2793911485051242,
+          "bcubedF1": 0.6062905091845905,
+          "bcubedP": 0.9209621993127147,
+          "bcubedR": 0.45189003436426084,
+          "predictedMultiTopics": 25,
+          "falseMergePairs": 9,
+          "crossLingualPairRecall": 0.125
+        },
+        {
+          "threshold": 0.89,
+          "ari": 0.2425037666848222,
+          "bcubedF1": 0.5946036893144481,
+          "bcubedP": 0.9587628865979382,
+          "bcubedR": 0.4309278350515461,
+          "predictedMultiTopics": 19,
+          "falseMergePairs": 4,
+          "crossLingualPairRecall": 0.09166666666666666
+        },
+        {
+          "threshold": 0.9,
+          "ari": 0.14733890727222207,
+          "bcubedF1": 0.5588435522695567,
+          "bcubedP": 0.9896907216494846,
+          "bcubedR": 0.38934707903780047,
+          "predictedMultiTopics": 10,
+          "falseMergePairs": 1,
+          "crossLingualPairRecall": 0.05
+        },
+        {
+          "threshold": 0.92,
+          "ari": 0.07049512336712259,
+          "bcubedF1": 0.5303172448492914,
+          "bcubedP": 0.9896907216494846,
+          "bcubedR": 0.3621993127147764,
+          "predictedMultiTopics": 7,
+          "falseMergePairs": 1,
+          "crossLingualPairRecall": 0.025
+        }
+      ]
+    },
+    "de": {
+      "label": "nur Deutsch",
+      "productRunsEncoder": true,
+      "encoder": {
+        "n": 54,
+        "goldTopics": 28,
+        "goldMultiTopics": 17,
+        "predictedTopics": 32,
+        "predictedMultiTopics": 15,
+        "missedSingletonRate": 0.32558139534883723,
+        "ari": 0.4957878215189468,
+        "nmi": 0.8983569589048896,
+        "bcubed": {
+          "precision": 0.8086419753086419,
+          "recall": 0.7253086419753088,
+          "f1": 0.7647117271530418
+        },
+        "pairRecall": 0.4594594594594595,
+        "monolingualPairRecall": 0.4594594594594595,
+        "crossLingualPairRecall": null,
+        "falseMergePairs": 13,
+        "falseMerges": [
+          [
+            "R008",
+            "R102"
+          ],
+          [
+            "R013",
+            "R102"
+          ],
+          [
+            "R026",
+            "R108"
+          ],
+          [
+            "R035",
+            "R104"
+          ],
+          [
+            "R053",
+            "R097"
+          ],
+          [
+            "R058",
+            "R063"
+          ],
+          [
+            "R059",
+            "R063"
+          ],
+          [
+            "R074",
+            "R081"
+          ],
+          [
+            "R085",
+            "R100"
+          ],
+          [
+            "R086",
+            "R100"
+          ],
+          [
+            "R091",
+            "R098"
+          ],
+          [
+            "R092",
+            "R098"
+          ],
+          [
+            "R109",
+            "R111"
+          ]
+        ],
+        "product": {
+          "reliableGatePassed": true,
+          "status": "ready",
+          "topicsShown": 12,
+          "multiMemberTopicsShown": 12,
+          "itemsInShownMultiTopics": 0.5740740740740741
+        },
+        "clusters": [
+          {
+            "label": "Checkt jemand den p-Wert? Ich raff das nicht.",
+            "confidence": 0.922,
+            "members": [
+              "R014",
+              "R015"
+            ],
+            "families": [
+              "C-PVAL"
+            ]
+          },
+          {
+            "label": "Gilt für Blatt 2 die Abgabe Freitag 23:59 oder Sonntag?",
+            "confidence": 0.911,
+            "members": [
+              "R041",
+              "R036",
+              "R040"
+            ],
+            "families": [
+              "O-DEAD"
+            ]
+          },
+          {
+            "label": "Wie rechne ich mit Bayes bedingte Wahrscheinlichkeiten aus, an einem Beispiel?",
+            "confidence": 0.903,
+            "members": [
+              "R030",
+              "R031"
+            ],
+            "families": [
+              "C-BAYES"
+            ]
+          },
+          {
+            "label": "Ist die Formelsammlung im Moodle die aktuelle Version?",
+            "confidence": 0.899,
+            "members": [
+              "R053",
+              "R097"
+            ],
+            "families": [
+              "O-AIDS",
+              "S-FORMULA-VERSION"
+            ]
+          },
+          {
+            "label": "Woher kommt auf Folie 17 plötzlich das Quadrat?",
+            "confidence": 0.898,
+            "members": [
+              "R026",
+              "R108"
+            ],
+            "families": [
+              "C-DERIV",
+              "S-AMB-6"
+            ]
+          },
+          {
+            "label": "Bis wann müssen wir das zweite Übungsblatt hochladen?",
+            "confidence": 0.894,
+            "members": [
+              "R035",
+              "R104"
+            ],
+            "families": [
+              "O-DEAD",
+              "S-AMB-2"
+            ]
+          },
+          {
+            "label": "Noch ein Regressionsbeispiel?",
+            "confidence": 0.908,
+            "members": [
+              "R002",
+              "R001",
+              "R006",
+              "R007"
+            ],
+            "families": [
+              "C-REG"
+            ]
+          },
+          {
+            "label": "Hinten versteht man Sie kaum, das Mikro ist zu leise.",
+            "confidence": 0.891,
+            "members": [
+              "R074",
+              "R081"
+            ],
+            "families": [
+              "T-AUDIO",
+              "T-BEAM"
+            ]
+          },
+          {
+            "label": "Findet nächsten Donnerstag überhaupt Vorlesung statt?",
+            "confidence": 0.912,
+            "members": [
+              "R063",
+              "R058",
+              "R059"
+            ],
+            "families": [
+              "O-REC",
+              "O-CANC"
+            ]
+          },
+          {
+            "label": "Wird in der Vorlesung die Anwesenheit kontrolliert?",
+            "confidence": 0.885,
+            "members": [
+              "R042",
+              "R043"
+            ],
+            "families": [
+              "O-ATT"
+            ]
+          },
+          {
+            "label": "Sind die Hypothesentests aus Kapitel 5 klausurrelevant?",
+            "confidence": 0.89,
+            "members": [
+              "R102",
+              "R008",
+              "R013"
+            ],
+            "families": [
+              "S-CH5-READING",
+              "C-HYP"
+            ]
+          },
+          {
+            "label": "Beim Download der Vorlesungsfolien kommt nur eine Fehlermeldung.",
+            "confidence": 0.882,
+            "members": [
+              "R098",
+              "R091",
+              "R092"
+            ],
+            "families": [
+              "S-SLIDE-TYPO",
+              "T-PDF"
+            ]
+          },
+          {
+            "label": "Die Abstimmung lädt bei mir seit zwei Minuten nicht.",
+            "confidence": 0.891,
+            "members": [
+              "R100",
+              "R085",
+              "R086"
+            ],
+            "families": [
+              "S-REC-PLAYBACK",
+              "T-VOTE"
+            ]
+          },
+          {
+            "label": "Hallo zusammen",
+            "confidence": 0.874,
+            "members": [
+              "R109",
+              "R111"
+            ],
+            "families": [
+              "S-NOISE-1",
+              "S-NOISE-3"
+            ]
+          },
+          {
+            "label": "Kurze Nachfrage: geht das WLAN bei euch auch nicht?",
+            "confidence": 0.872,
+            "members": [
+              "R068",
+              "R073"
+            ],
+            "families": [
+              "T-WIFI"
+            ]
+          }
+        ]
+      },
+      "lexical": {
+        "n": 54,
+        "goldTopics": 28,
+        "goldMultiTopics": 17,
+        "predictedTopics": 34,
+        "predictedMultiTopics": 11,
+        "missedSingletonRate": 0.4186046511627907,
+        "ari": 0.23066048067541464,
+        "nmi": 0.8521313283218453,
+        "bcubed": {
+          "precision": 0.7382716049382717,
+          "recall": 0.6450617283950616,
+          "f1": 0.6885263963949074
+        },
+        "pairRecall": 0.24324324324324326,
+        "monolingualPairRecall": 0.24324324324324326,
+        "crossLingualPairRecall": null,
+        "falseMergePairs": 26,
+        "falseMerges": [
+          [
+            "R008",
+            "R102"
+          ],
+          [
+            "R009",
+            "R054"
+          ],
+          [
+            "R013",
+            "R102"
+          ],
+          [
+            "R025",
+            "R080"
+          ],
+          [
+            "R025",
+            "R098"
+          ],
+          [
+            "R025",
+            "R108"
+          ],
+          [
+            "R026",
+            "R080"
+          ],
+          [
+            "R026",
+            "R098"
+          ],
+          [
+            "R026",
+            "R108"
+          ],
+          [
+            "R035",
+            "R104"
+          ],
+          [
+            "R041",
+            "R073"
+          ],
+          [
+            "R042",
+            "R058"
+          ],
+          [
+            "R042",
+            "R059"
+          ],
+          [
+            "R042",
+            "R063"
+          ],
+          [
+            "R043",
+            "R058"
+          ],
+          [
+            "R043",
+            "R059"
+          ],
+          [
+            "R043",
+            "R063"
+          ],
+          [
+            "R053",
+            "R096"
+          ],
+          [
+            "R058",
+            "R063"
+          ],
+          [
+            "R059",
+            "R063"
+          ],
+          [
+            "R064",
+            "R091"
+          ],
+          [
+            "R064",
+            "R097"
+          ],
+          [
+            "R080",
+            "R098"
+          ],
+          [
+            "R080",
+            "R108"
+          ],
+          [
+            "R091",
+            "R097"
+          ],
+          [
+            "R098",
+            "R108"
+          ]
+        ],
+        "clusters": [
+          {
+            "label": "Folie",
+            "members": [
+              "R098",
+              "R025",
+              "R080",
+              "R108",
+              "R026"
+            ],
+            "families": [
+              "S-SLIDE-TYPO",
+              "C-DERIV",
+              "T-BEAM",
+              "S-AMB-6"
+            ]
+          },
+          {
+            "label": "Vorlesung",
+            "members": [
+              "R058",
+              "R059",
+              "R043",
+              "R063",
+              "R042"
+            ],
+            "families": [
+              "O-CANC",
+              "O-ATT",
+              "O-REC"
+            ]
+          },
+          {
+            "label": "Kapitel 5",
+            "members": [
+              "R102",
+              "R013",
+              "R008"
+            ],
+            "families": [
+              "S-CH5-READING",
+              "C-HYP"
+            ]
+          },
+          {
+            "label": "Moodle",
+            "members": [
+              "R091",
+              "R097",
+              "R064"
+            ],
+            "families": [
+              "T-PDF",
+              "S-FORMULA-VERSION",
+              "O-REC"
+            ]
+          },
+          {
+            "label": "Regression",
+            "members": [
+              "R002",
+              "R001",
+              "R007"
+            ],
+            "families": [
+              "C-REG"
+            ]
+          },
+          {
+            "label": "Beispiel",
+            "members": [
+              "R030",
+              "R031"
+            ],
+            "families": [
+              "C-BAYES"
+            ]
+          },
+          {
+            "label": "hochladen",
+            "members": [
+              "R035",
+              "R104"
+            ],
+            "families": [
+              "O-DEAD",
+              "S-AMB-2"
+            ]
+          },
+          {
+            "label": "Klausur",
+            "members": [
+              "R053",
+              "R096"
+            ],
+            "families": [
+              "O-AIDS",
+              "S-REG-EXAM"
+            ]
+          },
+          {
+            "label": "Nachfrage",
+            "members": [
+              "R041",
+              "R073"
+            ],
+            "families": [
+              "O-DEAD",
+              "T-WIFI"
+            ]
+          },
+          {
+            "label": "p-Wert",
+            "members": [
+              "R015",
+              "R014"
+            ],
+            "families": [
+              "C-PVAL"
+            ]
+          },
+          {
+            "label": "Prüfung",
+            "members": [
+              "R054",
+              "R009"
+            ],
+            "families": [
+              "O-AIDS",
+              "C-HYP"
+            ]
+          }
+        ]
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": 0.2946404524643146,
+          "bcubedF1": 0.5691184387676483,
+          "bcubedP": 0.43906525573192234,
+          "bcubedR": 0.808641975308642,
+          "predictedMultiTopics": 13,
+          "falseMergePairs": 83,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.82,
+          "ari": 0.37979456507606296,
+          "bcubedF1": 0.6742232648941245,
+          "bcubedP": 0.5932098765432099,
+          "bcubedR": 0.7808641975308643,
+          "predictedMultiTopics": 18,
+          "falseMergePairs": 43,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.84,
+          "ari": 0.39431894781395493,
+          "bcubedF1": 0.7168861983676798,
+          "bcubedP": 0.6765432098765432,
+          "bcubedR": 0.7623456790123456,
+          "predictedMultiTopics": 15,
+          "falseMergePairs": 36,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.85,
+          "ari": 0.4115449856929904,
+          "bcubedF1": 0.732229349731808,
+          "bcubedP": 0.7209876543209875,
+          "bcubedR": 0.7438271604938272,
+          "predictedMultiTopics": 14,
+          "falseMergePairs": 29,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.86,
+          "ari": 0.41427674843779844,
+          "bcubedF1": 0.7377459712605398,
+          "bcubedP": 0.7506172839506172,
+          "bcubedR": 0.7253086419753088,
+          "predictedMultiTopics": 13,
+          "falseMergePairs": 25,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.87,
+          "ari": 0.4957878215189468,
+          "bcubedF1": 0.7647117271530418,
+          "bcubedP": 0.8086419753086419,
+          "bcubedR": 0.7253086419753088,
+          "predictedMultiTopics": 15,
+          "falseMergePairs": 13,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.88,
+          "ari": 0.5147167163655499,
+          "bcubedF1": 0.7863358504135203,
+          "bcubedP": 0.8765432098765432,
+          "bcubedR": 0.7129629629629629,
+          "predictedMultiTopics": 13,
+          "falseMergePairs": 8,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.89,
+          "ari": 0.5274228375460435,
+          "bcubedF1": 0.7976667369456742,
+          "bcubedP": 0.9259259259259259,
+          "bcubedR": 0.7006172839506172,
+          "predictedMultiTopics": 12,
+          "falseMergePairs": 4,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.9,
+          "ari": 0.4191409714809748,
+          "bcubedF1": 0.7819548872180451,
+          "bcubedP": 1,
+          "bcubedR": 0.6419753086419752,
+          "predictedMultiTopics": 6,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.92,
+          "ari": 0.1910406852248394,
+          "bcubedF1": 0.7294117647058823,
+          "bcubedP": 1,
+          "bcubedR": 0.574074074074074,
+          "predictedMultiTopics": 4,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        }
+      ]
+    },
+    "en": {
+      "label": "nur Englisch",
+      "productRunsEncoder": true,
+      "encoder": {
+        "n": 20,
+        "goldTopics": 20,
+        "goldMultiTopics": 0,
+        "predictedTopics": 17,
+        "predictedMultiTopics": 3,
+        "missedSingletonRate": 0,
+        "ari": 0,
+        "nmi": 0.964045401409525,
+        "bcubed": {
+          "precision": 0.85,
+          "recall": 1,
+          "f1": 0.9189189189189189
+        },
+        "pairRecall": 0,
+        "monolingualPairRecall": null,
+        "crossLingualPairRecall": null,
+        "falseMergePairs": 3,
+        "falseMerges": [
+          [
+            "R003",
+            "R032"
+          ],
+          [
+            "R044",
+            "R060"
+          ],
+          [
+            "R065",
+            "R105"
+          ]
+        ],
+        "product": {
+          "reliableGatePassed": true,
+          "status": "ready",
+          "topicsShown": 12,
+          "multiMemberTopicsShown": 3,
+          "itemsInShownMultiTopics": 0.3
+        },
+        "clusters": [
+          {
+            "label": "Could you walk us through another linear regression example?",
+            "confidence": 0.875,
+            "members": [
+              "R003",
+              "R032"
+            ],
+            "families": [
+              "C-REG",
+              "C-BAYES"
+            ]
+          },
+          {
+            "label": "Is there a lecture next Thursday or is it cancelled?",
+            "confidence": 0.873,
+            "members": [
+              "R044",
+              "R060"
+            ],
+            "families": [
+              "O-ATT",
+              "O-CANC"
+            ]
+          },
+          {
+            "label": "Is this going to be on it?",
+            "confidence": 0.873,
+            "members": [
+              "R065",
+              "R105"
+            ],
+            "families": [
+              "O-REC",
+              "S-AMB-3"
+            ]
+          }
+        ]
+      },
+      "lexical": {
+        "n": 20,
+        "goldTopics": 20,
+        "goldMultiTopics": 0,
+        "predictedTopics": 14,
+        "predictedMultiTopics": 4,
+        "missedSingletonRate": 0,
+        "ari": 0,
+        "nmi": 0.9118815870683767,
+        "bcubed": {
+          "precision": 0.7,
+          "recall": 1,
+          "f1": 0.8235294117647058
+        },
+        "pairRecall": 0,
+        "monolingualPairRecall": null,
+        "crossLingualPairRecall": null,
+        "falseMergePairs": 9,
+        "falseMerges": [
+          [
+            "R003",
+            "R032"
+          ],
+          [
+            "R010",
+            "R049"
+          ],
+          [
+            "R010",
+            "R055"
+          ],
+          [
+            "R010",
+            "R099"
+          ],
+          [
+            "R016",
+            "R022"
+          ],
+          [
+            "R049",
+            "R055"
+          ],
+          [
+            "R049",
+            "R099"
+          ],
+          [
+            "R055",
+            "R099"
+          ],
+          [
+            "R060",
+            "R093"
+          ]
+        ],
+        "clusters": [
+          {
+            "label": "exam",
+            "members": [
+              "R055",
+              "R049",
+              "R010",
+              "R099"
+            ],
+            "families": [
+              "O-AIDS",
+              "O-ROOM",
+              "C-HYP",
+              "S-EXAM-WIFI"
+            ]
+          },
+          {
+            "label": "example",
+            "members": [
+              "R032",
+              "R003"
+            ],
+            "families": [
+              "C-BAYES",
+              "C-REG"
+            ]
+          },
+          {
+            "label": "lecture",
+            "members": [
+              "R060",
+              "R093"
+            ],
+            "families": [
+              "O-CANC",
+              "T-PDF"
+            ]
+          },
+          {
+            "label": "tell",
+            "members": [
+              "R022",
+              "R016"
+            ],
+            "families": [
+              "C-OVF",
+              "C-PVAL"
+            ]
+          }
+        ]
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": 0,
+          "bcubedF1": 0.5185185185185185,
+          "bcubedP": 0.35,
+          "bcubedR": 1,
+          "predictedMultiTopics": 4,
+          "falseMergePairs": 34,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.82,
+          "ari": 0,
+          "bcubedF1": 0.5714285714285715,
+          "bcubedP": 0.4,
+          "bcubedR": 1,
+          "predictedMultiTopics": 5,
+          "falseMergePairs": 24,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.84,
+          "ari": 0,
+          "bcubedF1": 0.787878787878788,
+          "bcubedP": 0.65,
+          "bcubedR": 1,
+          "predictedMultiTopics": 7,
+          "falseMergePairs": 7,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.85,
+          "ari": 0,
+          "bcubedF1": 0.8571428571428571,
+          "bcubedP": 0.75,
+          "bcubedR": 1,
+          "predictedMultiTopics": 5,
+          "falseMergePairs": 5,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.86,
+          "ari": 0,
+          "bcubedF1": 0.888888888888889,
+          "bcubedP": 0.8,
+          "bcubedR": 1,
+          "predictedMultiTopics": 4,
+          "falseMergePairs": 4,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.87,
+          "ari": 0,
+          "bcubedF1": 0.9189189189189189,
+          "bcubedP": 0.85,
+          "bcubedR": 1,
+          "predictedMultiTopics": 3,
+          "falseMergePairs": 3,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.88,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.89,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.9,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.92,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        }
+      ]
+    },
+    "fr": {
+      "label": "nur Französisch",
+      "productRunsEncoder": false,
+      "encoder": {
+        "n": 10,
+        "goldTopics": 10,
+        "goldMultiTopics": 0,
+        "predictedTopics": 6,
+        "predictedMultiTopics": 2,
+        "missedSingletonRate": 0,
+        "ari": 0,
+        "nmi": 0.832953141577903,
+        "bcubed": {
+          "precision": 0.5999999999999999,
+          "recall": 1,
+          "f1": 0.7499999999999999
+        },
+        "pairRecall": 0,
+        "monolingualPairRecall": null,
+        "crossLingualPairRecall": null,
+        "falseMergePairs": 6,
+        "falseMerges": [
+          [
+            "R017",
+            "R077"
+          ],
+          [
+            "R017",
+            "R088"
+          ],
+          [
+            "R038",
+            "R061"
+          ],
+          [
+            "R038",
+            "R067"
+          ],
+          [
+            "R061",
+            "R067"
+          ],
+          [
+            "R077",
+            "R088"
+          ]
+        ],
+        "product": {
+          "reliableGatePassed": true,
+          "status": "ready",
+          "topicsShown": 6,
+          "multiMemberTopicsShown": 2,
+          "itemsInShownMultiTopics": 0.6
+        },
+        "clusters": [
+          {
+            "label": "Le cours de jeudi prochain est maintenu ?",
+            "confidence": 0.897,
+            "members": [
+              "R038",
+              "R061",
+              "R067"
+            ],
+            "families": [
+              "O-DEAD",
+              "O-CANC",
+              "O-REC"
+            ]
+          },
+          {
+            "label": "On n'entend rien au fond, le micro est trop faible.",
+            "confidence": 0.882,
+            "members": [
+              "R017",
+              "R077",
+              "R088"
+            ],
+            "families": [
+              "C-PVAL",
+              "T-AUDIO",
+              "T-VOTE"
+            ]
+          }
+        ]
+      },
+      "lexical": {
+        "n": 10,
+        "goldTopics": 10,
+        "goldMultiTopics": 0,
+        "predictedTopics": 9,
+        "predictedMultiTopics": 1,
+        "missedSingletonRate": 0,
+        "ari": 0,
+        "nmi": 0.9689626841273452,
+        "bcubed": {
+          "precision": 0.9,
+          "recall": 1,
+          "f1": 0.9473684210526316
+        },
+        "pairRecall": 0,
+        "monolingualPairRecall": null,
+        "crossLingualPairRecall": null,
+        "falseMergePairs": 1,
+        "falseMerges": [
+          [
+            "R061",
+            "R067"
+          ]
+        ],
+        "clusters": [
+          {
+            "label": "cours",
+            "members": [
+              "R067",
+              "R061"
+            ],
+            "families": [
+              "O-REC",
+              "O-CANC"
+            ]
+          }
+        ]
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": 0,
+          "bcubedF1": 0.46153846153846156,
+          "bcubedP": 0.30000000000000004,
+          "bcubedR": 1,
+          "predictedMultiTopics": 2,
+          "falseMergePairs": 16,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.82,
+          "ari": 0,
+          "bcubedF1": 0.5714285714285715,
+          "bcubedP": 0.4,
+          "bcubedR": 1,
+          "predictedMultiTopics": 3,
+          "falseMergePairs": 10,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.84,
+          "ari": 0,
+          "bcubedF1": 0.6666666666666666,
+          "bcubedP": 0.5,
+          "bcubedR": 1,
+          "predictedMultiTopics": 3,
+          "falseMergePairs": 7,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.85,
+          "ari": 0,
+          "bcubedF1": 0.6666666666666666,
+          "bcubedP": 0.5,
+          "bcubedR": 1,
+          "predictedMultiTopics": 3,
+          "falseMergePairs": 7,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.86,
+          "ari": 0,
+          "bcubedF1": 0.7499999999999999,
+          "bcubedP": 0.5999999999999999,
+          "bcubedR": 1,
+          "predictedMultiTopics": 2,
+          "falseMergePairs": 6,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.87,
+          "ari": 0,
+          "bcubedF1": 0.7499999999999999,
+          "bcubedP": 0.5999999999999999,
+          "bcubedR": 1,
+          "predictedMultiTopics": 2,
+          "falseMergePairs": 6,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.88,
+          "ari": 0,
+          "bcubedF1": 0.888888888888889,
+          "bcubedP": 0.8,
+          "bcubedR": 1,
+          "predictedMultiTopics": 2,
+          "falseMergePairs": 2,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.89,
+          "ari": 0,
+          "bcubedF1": 0.9473684210526316,
+          "bcubedP": 0.9,
+          "bcubedR": 1,
+          "predictedMultiTopics": 1,
+          "falseMergePairs": 1,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.9,
+          "ari": 0,
+          "bcubedF1": 0.9473684210526316,
+          "bcubedP": 0.9,
+          "bcubedR": 1,
+          "predictedMultiTopics": 1,
+          "falseMergePairs": 1,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.92,
+          "ari": 0,
+          "bcubedF1": 0.9473684210526316,
+          "bcubedP": 0.9,
+          "bcubedR": 1,
+          "predictedMultiTopics": 1,
+          "falseMergePairs": 1,
+          "crossLingualPairRecall": null
+        }
+      ]
+    },
+    "es": {
+      "label": "nur Spanisch",
+      "productRunsEncoder": false,
+      "encoder": {
+        "n": 11,
+        "goldTopics": 11,
+        "goldMultiTopics": 0,
+        "predictedTopics": 11,
+        "predictedMultiTopics": 0,
+        "missedSingletonRate": 0,
+        "ari": 1,
+        "nmi": 1,
+        "bcubed": {
+          "precision": 1,
+          "recall": 1,
+          "f1": 1
+        },
+        "pairRecall": 0,
+        "monolingualPairRecall": null,
+        "crossLingualPairRecall": null,
+        "falseMergePairs": 0,
+        "falseMerges": [],
+        "product": {
+          "reliableGatePassed": false,
+          "status": "fallback",
+          "topicsShown": 11,
+          "multiMemberTopicsShown": 0,
+          "itemsInShownMultiTopics": 0
+        },
+        "clusters": []
+      },
+      "lexical": {
+        "n": 11,
+        "goldTopics": 11,
+        "goldMultiTopics": 0,
+        "predictedTopics": 9,
+        "predictedMultiTopics": 2,
+        "missedSingletonRate": 0,
+        "ari": 0,
+        "nmi": 0.9445272649374314,
+        "bcubed": {
+          "precision": 0.8181818181818182,
+          "recall": 1,
+          "f1": 0.9
+        },
+        "pairRecall": 0,
+        "monolingualPairRecall": null,
+        "crossLingualPairRecall": null,
+        "falseMergePairs": 2,
+        "falseMerges": [
+          [
+            "R011",
+            "R056"
+          ],
+          [
+            "R083",
+            "R094"
+          ]
+        ],
+        "clusters": [
+          {
+            "label": "diapositivas",
+            "members": [
+              "R094",
+              "R083"
+            ],
+            "families": [
+              "T-PDF",
+              "T-BEAM"
+            ]
+          },
+          {
+            "label": "examen",
+            "members": [
+              "R011",
+              "R056"
+            ],
+            "families": [
+              "C-HYP",
+              "O-AIDS"
+            ]
+          }
+        ]
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": 0,
+          "bcubedF1": 0.6249999999999999,
+          "bcubedP": 0.4545454545454545,
+          "bcubedR": 1,
+          "predictedMultiTopics": 4,
+          "falseMergePairs": 8,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.82,
+          "ari": 0,
+          "bcubedF1": 0.7777777777777778,
+          "bcubedP": 0.6363636363636364,
+          "bcubedR": 1,
+          "predictedMultiTopics": 4,
+          "falseMergePairs": 4,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.84,
+          "ari": 0,
+          "bcubedF1": 0.8421052631578948,
+          "bcubedP": 0.7272727272727273,
+          "bcubedR": 1,
+          "predictedMultiTopics": 3,
+          "falseMergePairs": 3,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.85,
+          "ari": 0,
+          "bcubedF1": 0.8421052631578948,
+          "bcubedP": 0.7272727272727273,
+          "bcubedR": 1,
+          "predictedMultiTopics": 3,
+          "falseMergePairs": 3,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.86,
+          "ari": 0,
+          "bcubedF1": 0.9,
+          "bcubedP": 0.8181818181818182,
+          "bcubedR": 1,
+          "predictedMultiTopics": 2,
+          "falseMergePairs": 2,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.87,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.88,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.89,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.9,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        },
+        {
+          "threshold": 0.92,
+          "ari": 1,
+          "bcubedF1": 1,
+          "bcubedP": 1,
+          "bcubedR": 1,
+          "predictedMultiTopics": 0,
+          "falseMergePairs": 0,
+          "crossLingualPairRecall": null
+        }
+      ]
+    }
+  },
+  "stability": {
+    "_vectorDrift": {
+      "description": "1 - cos zwischen Gesamtanfrage und inkrementellen Läufen",
+      "median": 0.0031111491214820264,
+      "min": 0,
+      "max": 0.013087728804463405
+    },
+    "mixed": {
+      "ari": {
+        "median": 0.2770761025517533,
+        "min": 0.2546189847903353,
+        "max": 0.3103722577838543
+      },
+      "bcubedF1": {
+        "median": 0.5995545130646092,
+        "min": 0.5871158710215456,
+        "max": 0.614285562220247
+      },
+      "falseMergePairs": {
+        "median": 16.5,
+        "min": 14,
+        "max": 21
+      },
+      "predictedMultiTopics": {
+        "median": 25.5,
+        "min": 25,
+        "max": 28
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": {
+            "median": 0.3627986176079466,
+            "min": 0.32064544369577497,
+            "max": 0.39213621749182087
+          },
+          "bcubedF1": {
+            "median": 0.5687147413786189,
+            "min": 0.5420109692214167,
+            "max": 0.5863370354936315
+          },
+          "falseMergePairs": {
+            "median": 116.5,
+            "min": 93,
+            "max": 139
+          }
+        },
+        {
+          "threshold": 0.82,
+          "ari": {
+            "median": 0.4033789771393589,
+            "min": 0.2873147048018719,
+            "max": 0.44485184684075224
+          },
+          "bcubedF1": {
+            "median": 0.6104797671341747,
+            "min": 0.5634751883172749,
+            "max": 0.6371579738017216
+          },
+          "falseMergePairs": {
+            "median": 56,
+            "min": 44,
+            "max": 73
+          }
+        },
+        {
+          "threshold": 0.84,
+          "ari": {
+            "median": 0.3841037696340017,
+            "min": 0.26757163516203697,
+            "max": 0.43332826217302206
+          },
+          "bcubedF1": {
+            "median": 0.6217264867352399,
+            "min": 0.5691663603808786,
+            "max": 0.637196528258832
+          },
+          "falseMergePairs": {
+            "median": 36,
+            "min": 29,
+            "max": 48
+          }
+        },
+        {
+          "threshold": 0.85,
+          "ari": {
+            "median": 0.3840418938198107,
+            "min": 0.27694522257993226,
+            "max": 0.4056129297510809
+          },
+          "bcubedF1": {
+            "median": 0.6287969347538122,
+            "min": 0.5855708127171528,
+            "max": 0.6399144035194383
+          },
+          "falseMergePairs": {
+            "median": 28,
+            "min": 26,
+            "max": 31
+          }
+        },
+        {
+          "threshold": 0.86,
+          "ari": {
+            "median": 0.3425792010917186,
+            "min": 0.2569437882309955,
+            "max": 0.40663232453316167
+          },
+          "bcubedF1": {
+            "median": 0.618676914597826,
+            "min": 0.5825717470047364,
+            "max": 0.6469700398791917
+          },
+          "falseMergePairs": {
+            "median": 23.5,
+            "min": 20,
+            "max": 25
+          }
+        },
+        {
+          "threshold": 0.87,
+          "ari": {
+            "median": 0.2770761025517533,
+            "min": 0.2546189847903353,
+            "max": 0.3103722577838543
+          },
+          "bcubedF1": {
+            "median": 0.5995545130646092,
+            "min": 0.5871158710215456,
+            "max": 0.614285562220247
+          },
+          "falseMergePairs": {
+            "median": 16.5,
+            "min": 14,
+            "max": 21
+          }
+        },
+        {
+          "threshold": 0.88,
+          "ari": {
+            "median": 0.25565701198313323,
+            "min": 0.23464714645675086,
+            "max": 0.272303904358285
+          },
+          "bcubedF1": {
+            "median": 0.5949925706125002,
+            "min": 0.5856470961357699,
+            "max": 0.6033014820609605
+          },
+          "falseMergePairs": {
+            "median": 9,
+            "min": 7,
+            "max": 13
+          }
+        },
+        {
+          "threshold": 0.89,
+          "ari": {
+            "median": 0.21577037159483914,
+            "min": 0.2013931405456785,
+            "max": 0.22357666441940965
+          },
+          "bcubedF1": {
+            "median": 0.58113381887051,
+            "min": 0.5735755262136735,
+            "max": 0.5863745148688059
+          },
+          "falseMergePairs": {
+            "median": 4.5,
+            "min": 3,
+            "max": 7
+          }
+        },
+        {
+          "threshold": 0.9,
+          "ari": {
+            "median": 0.14554842183183275,
+            "min": 0.1238172219555937,
+            "max": 0.1682224309900258
+          },
+          "bcubedF1": {
+            "median": 0.556698822176104,
+            "min": 0.5467066999811029,
+            "max": 0.5665887402751693
+          },
+          "falseMergePairs": {
+            "median": 2,
+            "min": 1,
+            "max": 3
+          }
+        },
+        {
+          "threshold": 0.92,
+          "ari": {
+            "median": 0.05939253670656742,
+            "min": 0.03565129082259875,
+            "max": 0.07049512336712259
+          },
+          "bcubedF1": {
+            "median": 0.5273486291634988,
+            "min": 0.5191820179144836,
+            "max": 0.5303172448492914
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 1
+          }
+        }
+      ]
+    },
+    "de": {
+      "ari": {
+        "median": 0.4579107453685276,
+        "min": 0.4323295061714402,
+        "max": 0.5436812069098226
+      },
+      "bcubedF1": {
+        "median": 0.7522729029375801,
+        "min": 0.7409963448610791,
+        "max": 0.7800136094099349
+      },
+      "falseMergePairs": {
+        "median": 13.5,
+        "min": 10,
+        "max": 16
+      },
+      "predictedMultiTopics": {
+        "median": 15,
+        "min": 14,
+        "max": 16
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": {
+            "median": 0.26057148506503225,
+            "min": 0.21450224264033188,
+            "max": 0.2946404524643146
+          },
+          "bcubedF1": {
+            "median": 0.5514571948998178,
+            "min": 0.518200708019086,
+            "max": 0.5935705268398498
+          },
+          "falseMergePairs": {
+            "median": 89.5,
+            "min": 77,
+            "max": 101
+          }
+        },
+        {
+          "threshold": 0.82,
+          "ari": {
+            "median": 0.3194736369703346,
+            "min": 0.2875918513650756,
+            "max": 0.3714435502153707
+          },
+          "bcubedF1": {
+            "median": 0.6363204053134985,
+            "min": 0.6055885262116717,
+            "max": 0.6819583754503278
+          },
+          "falseMergePairs": {
+            "median": 50.5,
+            "min": 45,
+            "max": 55
+          }
+        },
+        {
+          "threshold": 0.84,
+          "ari": {
+            "median": 0.3776402667599741,
+            "min": 0.36740507883491336,
+            "max": 0.4249162759544542
+          },
+          "bcubedF1": {
+            "median": 0.6926050778294943,
+            "min": 0.6843930828622409,
+            "max": 0.718947864388116
+          },
+          "falseMergePairs": {
+            "median": 29.5,
+            "min": 26,
+            "max": 34
+          }
+        },
+        {
+          "threshold": 0.85,
+          "ari": {
+            "median": 0.39101134638839624,
+            "min": 0.3775775598064888,
+            "max": 0.43606394462244913
+          },
+          "bcubedF1": {
+            "median": 0.7071918981711602,
+            "min": 0.7010384063641106,
+            "max": 0.7286878859658755
+          },
+          "falseMergePairs": {
+            "median": 26.5,
+            "min": 25,
+            "max": 28
+          }
+        },
+        {
+          "threshold": 0.86,
+          "ari": {
+            "median": 0.4279810772076593,
+            "min": 0.4142927308447937,
+            "max": 0.46634103746554967
+          },
+          "bcubedF1": {
+            "median": 0.737952858163047,
+            "min": 0.7250985027580772,
+            "max": 0.7454144255964695
+          },
+          "falseMergePairs": {
+            "median": 20.5,
+            "min": 17,
+            "max": 23
+          }
+        },
+        {
+          "threshold": 0.87,
+          "ari": {
+            "median": 0.4579107453685276,
+            "min": 0.4323295061714402,
+            "max": 0.5436812069098226
+          },
+          "bcubedF1": {
+            "median": 0.7522729029375801,
+            "min": 0.7409963448610791,
+            "max": 0.7800136094099349
+          },
+          "falseMergePairs": {
+            "median": 13.5,
+            "min": 10,
+            "max": 16
+          }
+        },
+        {
+          "threshold": 0.88,
+          "ari": {
+            "median": 0.4728893472815677,
+            "min": 0.39989119223837966,
+            "max": 0.5387696841329772
+          },
+          "bcubedF1": {
+            "median": 0.7736588916966058,
+            "min": 0.7364504892167408,
+            "max": 0.7937867218535171
+          },
+          "falseMergePairs": {
+            "median": 8,
+            "min": 7,
+            "max": 13
+          }
+        },
+        {
+          "threshold": 0.89,
+          "ari": {
+            "median": 0.48215652764482897,
+            "min": 0.44415274782678577,
+            "max": 0.5105504104399075
+          },
+          "bcubedF1": {
+            "median": 0.780501337089759,
+            "min": 0.7706747843734145,
+            "max": 0.7921146953405018
+          },
+          "falseMergePairs": {
+            "median": 4,
+            "min": 3,
+            "max": 6
+          }
+        },
+        {
+          "threshold": 0.9,
+          "ari": {
+            "median": 0.37611437677586185,
+            "min": 0.3330877820707488,
+            "max": 0.45183722780446123
+          },
+          "bcubedF1": {
+            "median": 0.7694214290772606,
+            "min": 0.7500181198811335,
+            "max": 0.7910447761194029
+          },
+          "falseMergePairs": {
+            "median": 1,
+            "min": 0,
+            "max": 2
+          }
+        },
+        {
+          "threshold": 0.92,
+          "ari": {
+            "median": 0.16886560200419073,
+            "min": 0.10017786241713228,
+            "max": 0.1910406852248394
+          },
+          "bcubedF1": {
+            "median": 0.7256526279150712,
+            "min": 0.7065868263473054,
+            "max": 0.7294117647058823
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        }
+      ]
+    },
+    "en": {
+      "ari": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "bcubedF1": {
+        "median": 0.9331436699857752,
+        "min": 0.9189189189189189,
+        "max": 0.9473684210526316
+      },
+      "falseMergePairs": {
+        "median": 2.5,
+        "min": 2,
+        "max": 3
+      },
+      "predictedMultiTopics": {
+        "median": 2.5,
+        "min": 2,
+        "max": 3
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.5185185185185185,
+            "min": 0.5185185185185185,
+            "max": 0.5714285714285715
+          },
+          "falseMergePairs": {
+            "median": 34,
+            "min": 24,
+            "max": 34
+          }
+        },
+        {
+          "threshold": 0.82,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.5714285714285715,
+            "min": 0.5714285714285715,
+            "max": 0.6666666666666666
+          },
+          "falseMergePairs": {
+            "median": 24,
+            "min": 12,
+            "max": 24
+          }
+        },
+        {
+          "threshold": 0.84,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.787878787878788,
+            "min": 0.7499999999999999,
+            "max": 0.8235294117647058
+          },
+          "falseMergePairs": {
+            "median": 8,
+            "min": 6,
+            "max": 9
+          }
+        },
+        {
+          "threshold": 0.85,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.8571428571428571,
+            "min": 0.8235294117647058,
+            "max": 0.888888888888889
+          },
+          "falseMergePairs": {
+            "median": 5,
+            "min": 4,
+            "max": 6
+          }
+        },
+        {
+          "threshold": 0.86,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.888888888888889,
+            "min": 0.888888888888889,
+            "max": 0.888888888888889
+          },
+          "falseMergePairs": {
+            "median": 4,
+            "min": 4,
+            "max": 4
+          }
+        },
+        {
+          "threshold": 0.87,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.9331436699857752,
+            "min": 0.9189189189189189,
+            "max": 0.9473684210526316
+          },
+          "falseMergePairs": {
+            "median": 2.5,
+            "min": 2,
+            "max": 3
+          }
+        },
+        {
+          "threshold": 0.88,
+          "ari": {
+            "median": 1,
+            "min": 0,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 0.9743589743589743,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 1
+          }
+        },
+        {
+          "threshold": 0.89,
+          "ari": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "threshold": 0.9,
+          "ari": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "threshold": 0.92,
+          "ari": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        }
+      ]
+    },
+    "fr": {
+      "ari": {
+        "median": 0,
+        "min": 0,
+        "max": 0
+      },
+      "bcubedF1": {
+        "median": 0.7499999999999999,
+        "min": 0.7499999999999999,
+        "max": 0.8235294117647058
+      },
+      "falseMergePairs": {
+        "median": 6,
+        "min": 4,
+        "max": 6
+      },
+      "predictedMultiTopics": {
+        "median": 2,
+        "min": 2,
+        "max": 2
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.4615384615384615,
+            "min": 0.4615384615384615,
+            "max": 0.46153846153846156
+          },
+          "falseMergePairs": {
+            "median": 18,
+            "min": 16,
+            "max": 18
+          }
+        },
+        {
+          "threshold": 0.82,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.5714285714285715,
+            "min": 0.5714285714285715,
+            "max": 0.5714285714285715
+          },
+          "falseMergePairs": {
+            "median": 10,
+            "min": 10,
+            "max": 10
+          }
+        },
+        {
+          "threshold": 0.84,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.6666666666666666,
+            "min": 0.5714285714285715,
+            "max": 0.6666666666666666
+          },
+          "falseMergePairs": {
+            "median": 7,
+            "min": 7,
+            "max": 10
+          }
+        },
+        {
+          "threshold": 0.85,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.6666666666666666,
+            "min": 0.6666666666666666,
+            "max": 0.7499999999999999
+          },
+          "falseMergePairs": {
+            "median": 7,
+            "min": 6,
+            "max": 7
+          }
+        },
+        {
+          "threshold": 0.86,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.7499999999999999,
+            "min": 0.7499999999999999,
+            "max": 0.7499999999999999
+          },
+          "falseMergePairs": {
+            "median": 6,
+            "min": 6,
+            "max": 6
+          }
+        },
+        {
+          "threshold": 0.87,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.7499999999999999,
+            "min": 0.7499999999999999,
+            "max": 0.8235294117647058
+          },
+          "falseMergePairs": {
+            "median": 6,
+            "min": 4,
+            "max": 6
+          }
+        },
+        {
+          "threshold": 0.88,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.888888888888889,
+            "min": 0.8235294117647058,
+            "max": 0.9473684210526316
+          },
+          "falseMergePairs": {
+            "median": 2,
+            "min": 1,
+            "max": 4
+          }
+        },
+        {
+          "threshold": 0.89,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.9473684210526316,
+            "min": 0.9473684210526316,
+            "max": 0.9473684210526316
+          },
+          "falseMergePairs": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          }
+        },
+        {
+          "threshold": 0.9,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.9473684210526316,
+            "min": 0.9473684210526316,
+            "max": 0.9473684210526316
+          },
+          "falseMergePairs": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          }
+        },
+        {
+          "threshold": 0.92,
+          "ari": {
+            "median": 1,
+            "min": 0,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 0.9473684210526316,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 1
+          }
+        }
+      ]
+    },
+    "es": {
+      "ari": {
+        "median": 1,
+        "min": 0,
+        "max": 1
+      },
+      "bcubedF1": {
+        "median": 1,
+        "min": 0.9523809523809523,
+        "max": 1
+      },
+      "falseMergePairs": {
+        "median": 0,
+        "min": 0,
+        "max": 1
+      },
+      "predictedMultiTopics": {
+        "median": 0,
+        "min": 0,
+        "max": 1
+      },
+      "sweep": [
+        {
+          "threshold": 0.8,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.6249999999999999,
+            "min": 0.5333333333333333,
+            "max": 0.625
+          },
+          "falseMergePairs": {
+            "median": 8,
+            "min": 8,
+            "max": 11
+          }
+        },
+        {
+          "threshold": 0.82,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.8421052631578948,
+            "min": 0.7777777777777778,
+            "max": 0.8421052631578948
+          },
+          "falseMergePairs": {
+            "median": 3,
+            "min": 3,
+            "max": 4
+          }
+        },
+        {
+          "threshold": 0.84,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.8421052631578948,
+            "min": 0.8421052631578948,
+            "max": 0.8421052631578948
+          },
+          "falseMergePairs": {
+            "median": 3,
+            "min": 3,
+            "max": 3
+          }
+        },
+        {
+          "threshold": 0.85,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.8421052631578948,
+            "min": 0.8421052631578948,
+            "max": 0.8421052631578948
+          },
+          "falseMergePairs": {
+            "median": 3,
+            "min": 3,
+            "max": 3
+          }
+        },
+        {
+          "threshold": 0.86,
+          "ari": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          },
+          "bcubedF1": {
+            "median": 0.8710526315789474,
+            "min": 0.8421052631578948,
+            "max": 0.9
+          },
+          "falseMergePairs": {
+            "median": 2.5,
+            "min": 2,
+            "max": 3
+          }
+        },
+        {
+          "threshold": 0.87,
+          "ari": {
+            "median": 1,
+            "min": 0,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 0.9523809523809523,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 1
+          }
+        },
+        {
+          "threshold": 0.88,
+          "ari": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "threshold": 0.89,
+          "ari": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "threshold": 0.9,
+          "ari": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        },
+        {
+          "threshold": 0.92,
+          "ari": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "bcubedF1": {
+            "median": 1,
+            "min": 1,
+            "max": 1
+          },
+          "falseMergePairs": {
+            "median": 0,
+            "min": 0,
+            "max": 0
+          }
+        }
+      ]
+    }
+  },
+  "similarity": {
+    "sameFamily": {
+      "n": 157,
+      "min": 0.7336419315157432,
+      "p10": 0.7825388743597727,
+      "p50": 0.8484371923294528,
+      "p90": 0.9044855177556752,
+      "max": 0.9463182452028092
+    },
+    "differentFamily": {
+      "n": 4499,
+      "min": 0.6653304564747866,
+      "p10": 0.7411773552907095,
+      "p50": 0.7848793714965026,
+      "p90": 0.8283041800873494,
+      "max": 0.9223480410200597
+    },
+    "differentFamilyFramePairs": {
+      "n": 3,
+      "min": 0.8606902320538049,
+      "p10": 0.8606902320538049,
+      "p50": 0.861078429794388,
+      "p90": 0.8639963347038554,
+      "max": 0.8639963347038554
+    },
+    "differentFamilyAboveThreshold": 45,
+    "sameFamilyBelowThreshold": 103
+  },
+  "runtime": {
+    "coldStartToHealthyMs": 1576.8841000000002,
+    "firstEmbedCallMs": 1195.4622000000004,
+    "embedLatency": [
+      {
+        "items": 16,
+        "runs": 10,
+        "p50Ms": 214.57350000000224,
+        "p95Ms": 296.1679000000004,
+        "maxMs": 296.1679000000004,
+        "msPerItemP50": 13.41084375000014
+      },
+      {
+        "items": 56,
+        "runs": 10,
+        "p50Ms": 702.6089999999967,
+        "p95Ms": 891.1041000000041,
+        "maxMs": 891.1041000000041,
+        "msPerItemP50": 12.546589285714228
+      },
+      {
+        "items": 97,
+        "runs": 10,
+        "p50Ms": 1191.0046999999977,
+        "p95Ms": 1311.7366000000038,
+        "maxMs": 1311.7366000000038,
+        "msPerItemP50": 12.278398969072141
+      }
+    ],
+    "containerStatsAfterLoad": "474.5MiB / 2GiB|0.01%",
+    "clusterTiming": [
+      {
+        "items": 97,
+        "ms": 57.36579999999958
+      },
+      {
+        "items": 250,
+        "ms": 301.84470000000147
+      },
+      {
+        "items": 500,
+        "ms": 1574.8523999999961
+      }
+    ]
+  }
+}

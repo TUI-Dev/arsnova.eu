@@ -1,0 +1,836 @@
+﻿{
+  "modelVersion": "gatekeeper-hash-nb-v1",
+  "minConfidenceDefault": 0.55,
+  "productionRelease": false,
+  "cascade": {
+    "size": 100,
+    "classifiedCount": 85,
+    "earlyExitRate": 0.49,
+    "fallbackRate": 0.51,
+    "classifiedCoverage": 0.85,
+    "classifiedAccuracy": 0.8705882352941177,
+    "byTag": {
+      "canonical": {
+        "size": 45,
+        "classifiedCount": 41,
+        "earlyExitRate": 0.8666666666666667,
+        "fallbackRate": 0.13333333333333333,
+        "classifiedCoverage": 0.9111111111111111,
+        "classifiedAccuracy": 0.8292682926829268
+      },
+      "short": {
+        "size": 24,
+        "classifiedCount": 19,
+        "earlyExitRate": 0.041666666666666664,
+        "fallbackRate": 0.9583333333333334,
+        "classifiedCoverage": 0.7916666666666666,
+        "classifiedAccuracy": 0.9473684210526315
+      },
+      "typo": {
+        "size": 20,
+        "classifiedCount": 16,
+        "earlyExitRate": 0.2,
+        "fallbackRate": 0.8,
+        "classifiedCoverage": 0.8,
+        "classifiedAccuracy": 0.9375
+      },
+      "slang": {
+        "size": 20,
+        "classifiedCount": 16,
+        "earlyExitRate": 0.35,
+        "fallbackRate": 0.65,
+        "classifiedCoverage": 0.8,
+        "classifiedAccuracy": 0.6875
+      },
+      "code-switch": {
+        "size": 17,
+        "classifiedCount": 15,
+        "earlyExitRate": 0.11764705882352941,
+        "fallbackRate": 0.8823529411764706,
+        "classifiedCoverage": 0.8823529411764706,
+        "classifiedAccuracy": 1
+      }
+    },
+    "byLocale": {
+      "de": {
+        "size": 29,
+        "classifiedCount": 23,
+        "earlyExitRate": 0.41379310344827586,
+        "fallbackRate": 0.5862068965517241,
+        "classifiedCoverage": 0.7931034482758621,
+        "classifiedAccuracy": 0.9130434782608695
+      },
+      "en": {
+        "size": 22,
+        "classifiedCount": 19,
+        "earlyExitRate": 0.6363636363636364,
+        "fallbackRate": 0.36363636363636365,
+        "classifiedCoverage": 0.8636363636363636,
+        "classifiedAccuracy": 0.8421052631578947
+      },
+      "fr": {
+        "size": 15,
+        "classifiedCount": 14,
+        "earlyExitRate": 0.6666666666666666,
+        "fallbackRate": 0.3333333333333333,
+        "classifiedCoverage": 0.9333333333333333,
+        "classifiedAccuracy": 0.7142857142857143
+      },
+      "es": {
+        "size": 15,
+        "classifiedCount": 12,
+        "earlyExitRate": 0.5333333333333333,
+        "fallbackRate": 0.4666666666666667,
+        "classifiedCoverage": 0.8,
+        "classifiedAccuracy": 0.8333333333333334
+      },
+      "it": {
+        "size": 3,
+        "classifiedCount": 3,
+        "earlyExitRate": 1,
+        "fallbackRate": 0,
+        "classifiedCoverage": 1,
+        "classifiedAccuracy": 1
+      },
+      "mixed": {
+        "size": 16,
+        "classifiedCount": 14,
+        "earlyExitRate": 0.125,
+        "fallbackRate": 0.875,
+        "classifiedCoverage": 0.875,
+        "classifiedAccuracy": 1
+      }
+    }
+  },
+  "eval": {
+    "labeledSize": 100,
+    "ambiguousSize": 15,
+    "naiveBayes": {
+      "size": 100,
+      "classifiedCount": 97,
+      "accuracy": 0.82,
+      "classifiedAccuracy": 0.8350515463917526,
+      "classifiedCoverage": 0.97,
+      "macroF1": 0.8182539682539683,
+      "perClass": {
+        "content": {
+          "precision": 0.8157894736842105,
+          "recall": 0.9117647058823529,
+          "f1": 0.861111111111111,
+          "support": 34
+        },
+        "organization": {
+          "precision": 0.8333333333333334,
+          "recall": 0.7575757575757576,
+          "f1": 0.7936507936507938,
+          "support": 33
+        },
+        "technical": {
+          "precision": 0.8125,
+          "recall": 0.7878787878787878,
+          "f1": 0.8,
+          "support": 33
+        }
+      },
+      "confusion": {
+        "content": {
+          "content": 31,
+          "organization": 1,
+          "technical": 2
+        },
+        "organization": {
+          "content": 4,
+          "organization": 25,
+          "technical": 4
+        },
+        "technical": {
+          "content": 3,
+          "organization": 4,
+          "technical": 26
+        }
+      },
+      "uncertainRate": 0.03
+    },
+    "keywordBaseline": {
+      "size": 100,
+      "classifiedCount": 67,
+      "accuracy": 0.73,
+      "classifiedAccuracy": 0.9402985074626866,
+      "classifiedCoverage": 0.67,
+      "macroF1": 0.7266874491732177,
+      "perClass": {
+        "content": {
+          "precision": 0.576271186440678,
+          "recall": 1,
+          "f1": 0.7311827956989247,
+          "support": 34
+        },
+        "organization": {
+          "precision": 0.8888888888888888,
+          "recall": 0.48484848484848486,
+          "f1": 0.6274509803921569,
+          "support": 33
+        },
+        "technical": {
+          "precision": 1,
+          "recall": 0.696969696969697,
+          "f1": 0.8214285714285715,
+          "support": 33
+        }
+      },
+      "confusion": {
+        "content": {
+          "content": 34,
+          "organization": 0,
+          "technical": 0
+        },
+        "organization": {
+          "content": 17,
+          "organization": 16,
+          "technical": 0
+        },
+        "technical": {
+          "content": 8,
+          "organization": 2,
+          "technical": 23
+        }
+      },
+      "uncertainRate": 0.33
+    },
+    "byTag": {
+      "canonical": {
+        "size": 45,
+        "classifiedCount": 45,
+        "accuracy": 0.8222222222222222,
+        "classifiedAccuracy": 0.8222222222222222,
+        "classifiedCoverage": 1,
+        "macroF1": 0.8179866110900594,
+        "perClass": {
+          "content": {
+            "precision": 0.75,
+            "recall": 1,
+            "f1": 0.8571428571428571,
+            "support": 15
+          },
+          "organization": {
+            "precision": 0.9090909090909091,
+            "recall": 0.6666666666666666,
+            "f1": 0.7692307692307692,
+            "support": 15
+          },
+          "technical": {
+            "precision": 0.8571428571428571,
+            "recall": 0.8,
+            "f1": 0.8275862068965518,
+            "support": 15
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 15,
+            "organization": 0,
+            "technical": 0
+          },
+          "organization": {
+            "content": 3,
+            "organization": 10,
+            "technical": 2
+          },
+          "technical": {
+            "content": 2,
+            "organization": 1,
+            "technical": 12
+          }
+        },
+        "uncertainRate": 0
+      },
+      "short": {
+        "size": 24,
+        "classifiedCount": 22,
+        "accuracy": 0.8333333333333334,
+        "classifiedAccuracy": 0.8636363636363636,
+        "classifiedCoverage": 0.9166666666666666,
+        "macroF1": 0.8268907563025211,
+        "perClass": {
+          "content": {
+            "precision": 0.8,
+            "recall": 0.8,
+            "f1": 0.8000000000000002,
+            "support": 5
+          },
+          "organization": {
+            "precision": 1,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "support": 12
+          },
+          "technical": {
+            "precision": 0.7,
+            "recall": 1,
+            "f1": 0.8235294117647058,
+            "support": 7
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 4,
+            "organization": 0,
+            "technical": 1
+          },
+          "organization": {
+            "content": 1,
+            "organization": 9,
+            "technical": 2
+          },
+          "technical": {
+            "content": 0,
+            "organization": 0,
+            "technical": 7
+          }
+        },
+        "uncertainRate": 0.08333333333333333
+      },
+      "typo": {
+        "size": 20,
+        "classifiedCount": 20,
+        "accuracy": 0.9,
+        "classifiedAccuracy": 0.9,
+        "classifiedCoverage": 1,
+        "macroF1": 0.8962962962962964,
+        "perClass": {
+          "content": {
+            "precision": 0.8888888888888888,
+            "recall": 0.8888888888888888,
+            "f1": 0.8888888888888888,
+            "support": 9
+          },
+          "organization": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 6
+          },
+          "technical": {
+            "precision": 0.8,
+            "recall": 0.8,
+            "f1": 0.8000000000000002,
+            "support": 5
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 8,
+            "organization": 0,
+            "technical": 1
+          },
+          "organization": {
+            "content": 0,
+            "organization": 6,
+            "technical": 0
+          },
+          "technical": {
+            "content": 1,
+            "organization": 0,
+            "technical": 4
+          }
+        },
+        "uncertainRate": 0
+      },
+      "slang": {
+        "size": 20,
+        "classifiedCount": 18,
+        "accuracy": 0.6,
+        "classifiedAccuracy": 0.6666666666666666,
+        "classifiedCoverage": 0.9,
+        "macroF1": 0.5777777777777777,
+        "perClass": {
+          "content": {
+            "precision": 0.6666666666666666,
+            "recall": 0.6666666666666666,
+            "f1": 0.6666666666666666,
+            "support": 6
+          },
+          "organization": {
+            "precision": 0.3333333333333333,
+            "recall": 0.5,
+            "f1": 0.4,
+            "support": 4
+          },
+          "technical": {
+            "precision": 0.75,
+            "recall": 0.6,
+            "f1": 0.6666666666666665,
+            "support": 10
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 4,
+            "organization": 1,
+            "technical": 1
+          },
+          "organization": {
+            "content": 1,
+            "organization": 2,
+            "technical": 1
+          },
+          "technical": {
+            "content": 1,
+            "organization": 3,
+            "technical": 6
+          }
+        },
+        "uncertainRate": 0.1
+      },
+      "code-switch": {
+        "size": 17,
+        "classifiedCount": 17,
+        "accuracy": 1,
+        "classifiedAccuracy": 1,
+        "classifiedCoverage": 1,
+        "macroF1": 1,
+        "perClass": {
+          "content": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 6
+          },
+          "organization": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 4
+          },
+          "technical": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 7
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 6,
+            "organization": 0,
+            "technical": 0
+          },
+          "organization": {
+            "content": 0,
+            "organization": 4,
+            "technical": 0
+          },
+          "technical": {
+            "content": 0,
+            "organization": 0,
+            "technical": 7
+          }
+        },
+        "uncertainRate": 0
+      }
+    },
+    "byLocale": {
+      "de": {
+        "size": 29,
+        "classifiedCount": 28,
+        "accuracy": 0.8275862068965517,
+        "classifiedAccuracy": 0.8214285714285714,
+        "classifiedCoverage": 0.9655172413793104,
+        "macroF1": 0.8190261750633269,
+        "perClass": {
+          "content": {
+            "precision": 0.8888888888888888,
+            "recall": 0.8,
+            "f1": 0.8421052631578948,
+            "support": 10
+          },
+          "organization": {
+            "precision": 0.9090909090909091,
+            "recall": 0.9090909090909091,
+            "f1": 0.9090909090909091,
+            "support": 11
+          },
+          "technical": {
+            "precision": 0.6666666666666666,
+            "recall": 0.75,
+            "f1": 0.7058823529411765,
+            "support": 8
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 8,
+            "organization": 0,
+            "technical": 2
+          },
+          "organization": {
+            "content": 0,
+            "organization": 10,
+            "technical": 1
+          },
+          "technical": {
+            "content": 1,
+            "organization": 1,
+            "technical": 6
+          }
+        },
+        "uncertainRate": 0.034482758620689655
+      },
+      "en": {
+        "size": 22,
+        "classifiedCount": 22,
+        "accuracy": 0.8181818181818182,
+        "classifiedAccuracy": 0.8181818181818182,
+        "classifiedCoverage": 1,
+        "macroF1": 0.8190476190476189,
+        "perClass": {
+          "content": {
+            "precision": 0.75,
+            "recall": 0.8571428571428571,
+            "f1": 0.7999999999999999,
+            "support": 7
+          },
+          "organization": {
+            "precision": 0.75,
+            "recall": 0.8571428571428571,
+            "f1": 0.7999999999999999,
+            "support": 7
+          },
+          "technical": {
+            "precision": 1,
+            "recall": 0.75,
+            "f1": 0.8571428571428571,
+            "support": 8
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 6,
+            "organization": 1,
+            "technical": 0
+          },
+          "organization": {
+            "content": 1,
+            "organization": 6,
+            "technical": 0
+          },
+          "technical": {
+            "content": 1,
+            "organization": 1,
+            "technical": 6
+          }
+        },
+        "uncertainRate": 0
+      },
+      "fr": {
+        "size": 15,
+        "classifiedCount": 15,
+        "accuracy": 0.6666666666666666,
+        "classifiedAccuracy": 0.6666666666666666,
+        "classifiedCoverage": 1,
+        "macroF1": 0.6154401154401153,
+        "perClass": {
+          "content": {
+            "precision": 0.7142857142857143,
+            "recall": 1,
+            "f1": 0.8333333333333333,
+            "support": 5
+          },
+          "organization": {
+            "precision": 0.5,
+            "recall": 0.2,
+            "f1": 0.28571428571428575,
+            "support": 5
+          },
+          "technical": {
+            "precision": 0.6666666666666666,
+            "recall": 0.8,
+            "f1": 0.7272727272727272,
+            "support": 5
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 5,
+            "organization": 0,
+            "technical": 0
+          },
+          "organization": {
+            "content": 2,
+            "organization": 1,
+            "technical": 2
+          },
+          "technical": {
+            "content": 0,
+            "organization": 1,
+            "technical": 4
+          }
+        },
+        "uncertainRate": 0
+      },
+      "es": {
+        "size": 15,
+        "classifiedCount": 13,
+        "accuracy": 0.7333333333333333,
+        "classifiedAccuracy": 0.8461538461538461,
+        "classifiedCoverage": 0.8666666666666667,
+        "macroF1": 0.722222222222222,
+        "perClass": {
+          "content": {
+            "precision": 0.7142857142857143,
+            "recall": 1,
+            "f1": 0.8333333333333333,
+            "support": 5
+          },
+          "organization": {
+            "precision": 0.75,
+            "recall": 0.6,
+            "f1": 0.6666666666666665,
+            "support": 5
+          },
+          "technical": {
+            "precision": 0.75,
+            "recall": 0.6,
+            "f1": 0.6666666666666665,
+            "support": 5
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 5,
+            "organization": 0,
+            "technical": 0
+          },
+          "organization": {
+            "content": 1,
+            "organization": 3,
+            "technical": 1
+          },
+          "technical": {
+            "content": 1,
+            "organization": 1,
+            "technical": 3
+          }
+        },
+        "uncertainRate": 0.13333333333333333
+      },
+      "it": {
+        "size": 3,
+        "classifiedCount": 3,
+        "accuracy": 1,
+        "classifiedAccuracy": 1,
+        "classifiedCoverage": 1,
+        "macroF1": 1,
+        "perClass": {
+          "content": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 1
+          },
+          "organization": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 1
+          },
+          "technical": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 1
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 1,
+            "organization": 0,
+            "technical": 0
+          },
+          "organization": {
+            "content": 0,
+            "organization": 1,
+            "technical": 0
+          },
+          "technical": {
+            "content": 0,
+            "organization": 0,
+            "technical": 1
+          }
+        },
+        "uncertainRate": 0
+      },
+      "mixed": {
+        "size": 16,
+        "classifiedCount": 16,
+        "accuracy": 1,
+        "classifiedAccuracy": 1,
+        "classifiedCoverage": 1,
+        "macroF1": 1,
+        "perClass": {
+          "content": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 6
+          },
+          "organization": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 4
+          },
+          "technical": {
+            "precision": 1,
+            "recall": 1,
+            "f1": 1,
+            "support": 6
+          }
+        },
+        "confusion": {
+          "content": {
+            "content": 6,
+            "organization": 0,
+            "technical": 0
+          },
+          "organization": {
+            "content": 0,
+            "organization": 4,
+            "technical": 0
+          },
+          "technical": {
+            "content": 0,
+            "organization": 0,
+            "technical": 6
+          }
+        },
+        "uncertainRate": 0
+      }
+    },
+    "ambiguous": {
+      "size": 15,
+      "classifiedCount": 13,
+      "accuracy": 0.4,
+      "classifiedAccuracy": 0.38461538461538464,
+      "classifiedCoverage": 0.8666666666666667,
+      "macroF1": 0.36111111111111116,
+      "perClass": {
+        "content": {
+          "precision": 0.5714285714285714,
+          "recall": 0.4444444444444444,
+          "f1": 0.5,
+          "support": 9
+        },
+        "organization": {
+          "precision": 0.3333333333333333,
+          "recall": 0.2,
+          "f1": 0.25,
+          "support": 5
+        },
+        "technical": {
+          "precision": 0.2,
+          "recall": 1,
+          "f1": 0.33333333333333337,
+          "support": 1
+        }
+      },
+      "confusion": {
+        "content": {
+          "content": 4,
+          "organization": 2,
+          "technical": 3
+        },
+        "organization": {
+          "content": 3,
+          "organization": 1,
+          "technical": 1
+        },
+        "technical": {
+          "content": 0,
+          "organization": 0,
+          "technical": 1
+        }
+      },
+      "uncertainRate": 0.13333333333333333
+    }
+  },
+  "calibration": {
+    "fallbackBudget": 0.3,
+    "minClassifiedAccuracy": 0.8,
+    "curve": [
+      {
+        "minConfidence": 0.2,
+        "classifiedAccuracy": 0.82,
+        "uncertainRate": 0,
+        "classifiedCoverage": 1,
+        "macroF1": 0.8183
+      },
+      {
+        "minConfidence": 0.3,
+        "classifiedAccuracy": 0.82,
+        "uncertainRate": 0,
+        "classifiedCoverage": 1,
+        "macroF1": 0.8183
+      },
+      {
+        "minConfidence": 0.4,
+        "classifiedAccuracy": 0.82,
+        "uncertainRate": 0,
+        "classifiedCoverage": 1,
+        "macroF1": 0.8183
+      },
+      {
+        "minConfidence": 0.5,
+        "classifiedAccuracy": 0.8351,
+        "uncertainRate": 0.03,
+        "classifiedCoverage": 0.97,
+        "macroF1": 0.8183
+      },
+      {
+        "minConfidence": 0.55,
+        "classifiedAccuracy": 0.8351,
+        "uncertainRate": 0.03,
+        "classifiedCoverage": 0.97,
+        "macroF1": 0.8183
+      },
+      {
+        "minConfidence": 0.6,
+        "classifiedAccuracy": 0.8333,
+        "uncertainRate": 0.04,
+        "classifiedCoverage": 0.96,
+        "macroF1": 0.8183
+      },
+      {
+        "minConfidence": 0.7,
+        "classifiedAccuracy": 0.8696,
+        "uncertainRate": 0.08,
+        "classifiedCoverage": 0.92,
+        "macroF1": 0.8183
+      },
+      {
+        "minConfidence": 0.8,
+        "classifiedAccuracy": 0.875,
+        "uncertainRate": 0.12,
+        "classifiedCoverage": 0.88,
+        "macroF1": 0.8183
+      },
+      {
+        "minConfidence": 0.9,
+        "classifiedAccuracy": 0.9259,
+        "uncertainRate": 0.19,
+        "classifiedCoverage": 0.81,
+        "macroF1": 0.8183
+      }
+    ],
+    "operatingPoint": {
+      "minConfidence": 0.55,
+      "meetsAccuracy": true,
+      "preferredKept": true,
+      "exceedsFallbackBudget": false,
+      "lowestEligibleMinConfidence": 0.2,
+      "classifiedAccuracy": 0.8351,
+      "uncertainRate": 0.03,
+      "rationale": "Default 0.55 bleibt: Classified-Accuracy 0.835, Uncertain-Rate 0.030 unter Fallback-Budget 0.3."
+    }
+  }
+}
