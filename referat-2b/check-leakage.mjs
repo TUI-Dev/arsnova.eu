@@ -19,8 +19,12 @@ const fold = (s) =>
   s
     .normalize('NFKC')
     .toLowerCase()
-    .replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
-    .normalize('NFD').replace(/\p{M}/gu, '')
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+    .replace(/ß/g, 'ss')
+    .normalize('NFD')
+    .replace(/\p{M}/gu, '')
     .replace(/[^\p{L}\p{N}\s]+/gu, ' ')
     .replace(/\s+/g, ' ')
     .trim();
@@ -31,9 +35,9 @@ const jaccard = (a, b) => {
   return inter / (a.size + b.size - inter || 1);
 };
 
-const seed = [...seedSrc.matchAll(/text:\s*'((?:[^'\\]|\\.)*)',\s*category:\s*'(\w+)',\s*split:\s*'(\w+)'/g)].map(
-  (m) => ({ text: m[1].replace(/\\'/g, "'"), category: m[2], split: m[3] }),
-);
+const seed = [
+  ...seedSrc.matchAll(/text:\s*'((?:[^'\\]|\\.)*)',\s*category:\s*'(\w+)',\s*split:\s*'(\w+)'/g),
+].map((m) => ({ text: m[1].replace(/\\'/g, "'"), category: m[2], split: m[3] }));
 
 const errors = [];
 const families = new Map(ref.families.map((f) => [f.id, f]));
@@ -44,7 +48,8 @@ for (const it of ref.items) {
   const fam = families.get(it.family);
   if (fam && fam.category !== it.category) errors.push(`${it.id}: Kategorie ≠ Familienkategorie`);
   if (!fam && !it.family.startsWith('S-')) errors.push(`${it.id}: unbekannte Familie ${it.family}`);
-  for (const tag of it.tags) if (!(tag in ref.meta.tags)) errors.push(`${it.id}: unbekannter Tag ${tag}`);
+  for (const tag of it.tags)
+    if (!(tag in ref.meta.tags)) errors.push(`${it.id}: unbekannter Tag ${tag}`);
 }
 for (const f of ref.families) {
   const n = ref.items.filter((i) => i.family === f.id).length;
@@ -69,15 +74,28 @@ const count = (key) =>
     return m;
   }, {});
 
-console.log(`Referenzset ${ref.meta.version}: ${ref.items.length} Items, ${ref.families.length} Mehrfach-Familien`);
+console.log(
+  `Referenzset ${ref.meta.version}: ${ref.items.length} Items, ${ref.families.length} Mehrfach-Familien`,
+);
 console.log(`SHA-256: ${createHash('sha256').update(raw).digest('hex')}`);
 console.log(`Seed: ${seed.length} Beispiele gelesen`);
-console.log('Kategorie:', count((i) => String(i.category)));
-console.log('Locale:   ', count((i) => i.locale));
-console.log('Tags:     ', count((i) => (i.tags.length ? i.tags : ['(none)'])));
+console.log(
+  'Kategorie:',
+  count((i) => String(i.category)),
+);
+console.log(
+  'Locale:   ',
+  count((i) => i.locale),
+);
+console.log(
+  'Tags:     ',
+  count((i) => (i.tags.length ? i.tags : ['(none)'])),
+);
 console.log(`\nSeed-Nähe (Jaccard ≥ ${LIMIT}): ${hits.length}`);
 for (const h of hits) {
-  console.log(`  ${h.id} ${h.score.toFixed(2)} [${h.seed.split}/${h.seed.category}] "${h.text}"  ~  "${h.seed.text}"`);
+  console.log(
+    `  ${h.id} ${h.score.toFixed(2)} [${h.seed.split}/${h.seed.category}] "${h.text}"  ~  "${h.seed.text}"`,
+  );
 }
 console.log(`\nStrukturfehler: ${errors.length}`);
 for (const e of errors) console.log('  ' + e);

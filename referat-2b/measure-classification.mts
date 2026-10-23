@@ -21,7 +21,8 @@ import { pathToFileURL } from 'node:url';
 
 // ---------- Argumente ----------
 const args = new Map<string, string>();
-for (let i = 2; i < process.argv.length; i += 2) args.set(process.argv[i].replace(/^--/, ''), process.argv[i + 1]);
+for (let i = 2; i < process.argv.length; i += 2)
+  args.set(process.argv[i].replace(/^--/, ''), process.argv[i + 1]);
 const repo = resolve(args.get('repo') ?? '.');
 const refPath = resolve(args.get('ref') ?? 'reference-dataset.v1.json');
 const outRoot = resolve(args.get('out') ?? 'results');
@@ -30,7 +31,8 @@ const BOOTSTRAP = Number(args.get('bootstrap') ?? 2000);
 const SEED = Number(args.get('seed') ?? 456);
 
 // ---------- Releasemodule laden (Kaltstart wird separat gemessen) ----------
-const lib = (name: string) => import(pathToFileURL(join(repo, 'apps/backend/src/lib', `${name}.ts`)).href);
+const lib = (name: string) =>
+  import(pathToFileURL(join(repo, 'apps/backend/src/lib', `${name}.ts`)).href);
 const memBefore = process.memoryUsage();
 const [cfg, nbMod, gkMod, fbMod, cascadeMod, kwMod] = await Promise.all([
   lib('qaNlpConfig'),
@@ -71,7 +73,12 @@ const LOCALES = (args.get('locales') ?? 'de,en,fr,es').split(',').map((s) => s.t
 // Fachdomäne (ab v2.1): Items ohne domain gehören zur Statistik-Vorlesung; 'all' nimmt alle Domänen
 const DOMAIN = args.get('domain') ?? 'statistics';
 const inDomain = (i: Item) => DOMAIN === 'all' || (i.domain ?? 'statistics') === DOMAIN;
-const ref = { ...refAll, items: refAll.items.filter((i) => (i.locale === 'mixed' || LOCALES.includes(i.locale)) && inDomain(i)) };
+const ref = {
+  ...refAll,
+  items: refAll.items.filter(
+    (i) => (i.locale === 'mixed' || LOCALES.includes(i.locale)) && inDomain(i),
+  ),
+};
 const labeled = ref.items.filter((i) => i.category !== null && !i.expectUncertain);
 const abstain = ref.items.filter((i) => i.expectUncertain);
 
@@ -109,7 +116,15 @@ const SYSTEMS: System[] = [
 ];
 
 // ---------- Kontrollierte Variante: Transliteration (Seed/Keywords sind transliteriert) ----------
-const TRANSLIT: Record<string, string> = { ä: 'ae', ö: 'oe', ü: 'ue', Ä: 'Ae', Ö: 'Oe', Ü: 'Ue', ß: 'ss' };
+const TRANSLIT: Record<string, string> = {
+  ä: 'ae',
+  ö: 'oe',
+  ü: 'ue',
+  Ä: 'Ae',
+  Ö: 'Oe',
+  Ü: 'Ue',
+  ß: 'ss',
+};
 const transliterate = (s: string) => s.replace(/[äöüÄÖÜß]/g, (c) => TRANSLIT[c]);
 type Variant = { id: string; label: string; text: (i: Item) => string };
 const VARIANTS: Variant[] = [
@@ -167,7 +182,8 @@ function labeledMetrics(o: Outcome[]) {
     confusion,
   };
 }
-const abstentionRate = (o: Outcome[]) => (o.length ? o.filter((x) => !x.pred.accepted).length / o.length : 0);
+const abstentionRate = (o: Outcome[]) =>
+  o.length ? o.filter((x) => !x.pred.accepted).length / o.length : 0;
 
 function slices(o: Outcome[], key: (i: Item) => string[]) {
   const groups = new Map<string, Outcome[]>();
@@ -175,7 +191,17 @@ function slices(o: Outcome[], key: (i: Item) => string[]) {
   return Object.fromEntries(
     [...groups].map(([k, g]) => {
       const m = labeledMetrics(g);
-      return [k, { n: m.n, bestGuessAccuracy: m.bestGuessAccuracy, coverage: m.coverage, acceptedPrecision: m.acceptedPrecision, usefulRate: m.usefulRate, wrongAcceptedRate: m.wrongAcceptedRate }];
+      return [
+        k,
+        {
+          n: m.n,
+          bestGuessAccuracy: m.bestGuessAccuracy,
+          coverage: m.coverage,
+          acceptedPrecision: m.acceptedPrecision,
+          usefulRate: m.usefulRate,
+          wrongAcceptedRate: m.wrongAcceptedRate,
+        },
+      ];
     }),
   );
 }
@@ -187,16 +213,25 @@ function calibration(o: Outcome[]) {
     const b = o.filter((x) => x.pred.confidence >= lo && x.pred.confidence < hi);
     const meanConf = b.length ? b.reduce((s, x) => s + x.pred.confidence, 0) / b.length : 0;
     const acc = b.length ? b.filter((x) => x.correct).length / b.length : 0;
-    return { range: `[${lo.toFixed(2)}, ${Math.min(hi, 1).toFixed(2)}${hi > 1 ? ']' : ')'}`, n: b.length, meanConfidence: meanConf, accuracy: acc };
+    return {
+      range: `[${lo.toFixed(2)}, ${Math.min(hi, 1).toFixed(2)}${hi > 1 ? ']' : ')'}`,
+      n: b.length,
+      meanConfidence: meanConf,
+      accuracy: acc,
+    };
   });
-  const ece = bins.reduce((s, b) => s + (b.n / o.length) * Math.abs(b.accuracy - b.meanConfidence), 0);
+  const ece = bins.reduce(
+    (s, b) => s + (b.n / o.length) * Math.abs(b.accuracy - b.meanConfidence),
+    0,
+  );
   return { bins, ece };
 }
 
 // Seeded RNG für reproduzierbares Bootstrap
 function mulberry32(a: number) {
   return () => {
-    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    a |= 0;
+    a = (a + 0x6d2b79f5) | 0;
     let t = Math.imul(a ^ (a >>> 15), 1 | a);
     t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
     return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
@@ -204,22 +239,34 @@ function mulberry32(a: number) {
 }
 function bootstrap(o: Outcome[]) {
   const rnd = mulberry32(SEED);
-  const keys = ['usefulRate', 'acceptedPrecision', 'coverage', 'macroF1', 'wrongAcceptedRate'] as const;
+  const keys = [
+    'usefulRate',
+    'acceptedPrecision',
+    'coverage',
+    'macroF1',
+    'wrongAcceptedRate',
+  ] as const;
   const samples: Record<string, number[]> = Object.fromEntries(keys.map((k) => [k, []]));
   for (let b = 0; b < BOOTSTRAP; b += 1) {
     const s = o.map(() => o[Math.floor(rnd() * o.length)]);
     const m = labeledMetrics(s);
     for (const k of keys) samples[k].push(m[k]);
   }
-  const q = (arr: number[], p: number) => arr.sort((a, b) => a - b)[Math.min(arr.length - 1, Math.floor(p * arr.length))];
-  return Object.fromEntries(keys.map((k) => [k, { lo: q(samples[k], 0.025), hi: q(samples[k], 0.975) }]));
+  const q = (arr: number[], p: number) =>
+    arr.sort((a, b) => a - b)[Math.min(arr.length - 1, Math.floor(p * arr.length))];
+  return Object.fromEntries(
+    keys.map((k) => [k, { lo: q(samples[k], 0.025), hi: q(samples[k], 0.975) }]),
+  );
 }
 
 // Exakter zweiseitiger McNemar-Test auf gepaarten binären Ergebnissen
 function mcnemar(a: boolean[], b: boolean[]) {
   let onlyA = 0;
   let onlyB = 0;
-  a.forEach((x, i) => { if (x && !b[i]) onlyA += 1; if (!x && b[i]) onlyB += 1; });
+  a.forEach((x, i) => {
+    if (x && !b[i]) onlyA += 1;
+    if (!x && b[i]) onlyB += 1;
+  });
   const n = onlyA + onlyB;
   let tail = 0;
   let term = Math.pow(0.5, n); // C(n,0)/2^n
@@ -282,29 +329,55 @@ for (const v of VARIANTS) {
           usefulRate: m.usefulRate,
           wrongAcceptedRate: m.wrongAcceptedRate,
           abstention: ab,
-          meetsCriteria: m.acceptedPrecision >= MIN_ACCEPTED_PRECISION && m.uncertainRate <= MAX_UNCERTAIN_RATE,
+          meetsCriteria:
+            m.acceptedPrecision >= MIN_ACCEPTED_PRECISION && m.uncertainRate <= MAX_UNCERTAIN_RATE,
         };
       }),
       cascadePaths:
         sys.id === 'cascade'
-          ? op.reduce<Record<string, number>>((m, x) => ({ ...m, [x.pred.path!]: (m[x.pred.path!] ?? 0) + 1 }), {})
+          ? op.reduce<Record<string, number>>(
+              (m, x) => ({ ...m, [x.pred.path!]: (m[x.pred.path!] ?? 0) + 1 }),
+              {},
+            )
           : undefined,
-      outcomes: [...op, ...opAbstain].map((x) => ({ id: x.item.id, category: x.pred.category, confidence: Number(x.pred.confidence.toFixed(4)), accepted: x.pred.accepted, correct: x.item.category === null ? null : x.correct, path: x.pred.path })),
+      outcomes: [...op, ...opAbstain].map((x) => ({
+        id: x.item.id,
+        category: x.pred.category,
+        confidence: Number(x.pred.confidence.toFixed(4)),
+        accepted: x.pred.accepted,
+        correct: x.item.category === null ? null : x.correct,
+        path: x.pred.path,
+      })),
     };
   }
 }
 
 // Paarvergleiche (Originalschreibung, Betriebspunkt)
-const outcomesFor = (sysId: string) => run(SYSTEMS.find((s) => s.id === sysId)!, labeled, VARIANTS[0], OPERATING);
+const outcomesFor = (sysId: string) =>
+  run(
+    SYSTEMS.find((s) => s.id === sysId)!,
+    labeled,
+    VARIANTS[0],
+    OPERATING,
+  );
 const oKw = outcomesFor('keyword');
 const oGk = outcomesFor('gatekeeper');
 const oCa = outcomesFor('cascade');
 const useful = (o: Outcome[]) => o.map((x) => x.pred.accepted && x.correct);
 const best = (o: Outcome[]) => o.map((x) => x.correct);
 const pairwise = {
-  'cascade vs keyword': { useful: mcnemar(useful(oCa), useful(oKw)), bestGuess: mcnemar(best(oCa), best(oKw)) },
-  'gatekeeper vs keyword': { useful: mcnemar(useful(oGk), useful(oKw)), bestGuess: mcnemar(best(oGk), best(oKw)) },
-  'cascade vs gatekeeper': { useful: mcnemar(useful(oCa), useful(oGk)), bestGuess: mcnemar(best(oCa), best(oGk)) },
+  'cascade vs keyword': {
+    useful: mcnemar(useful(oCa), useful(oKw)),
+    bestGuess: mcnemar(best(oCa), best(oKw)),
+  },
+  'gatekeeper vs keyword': {
+    useful: mcnemar(useful(oGk), useful(oKw)),
+    bestGuess: mcnemar(best(oGk), best(oKw)),
+  },
+  'cascade vs gatekeeper': {
+    useful: mcnemar(useful(oCa), useful(oGk)),
+    bestGuess: mcnemar(best(oCa), best(oGk)),
+  },
 };
 
 const texts = ref.items.map((i) => i.text);
@@ -321,7 +394,11 @@ const runtime = {
 };
 
 const git = (c: string) => {
-  try { return execSync(`git -C "${repo}" ${c}`, { encoding: 'utf8' }).trim(); } catch { return 'n/a'; }
+  try {
+    return execSync(`git -C "${repo}" ${c}`, { encoding: 'utf8' }).trim();
+  } catch {
+    return 'n/a';
+  }
 };
 const manifest = {
   timestamp: new Date().toISOString(),
@@ -332,7 +409,16 @@ const manifest = {
   platform: `${os.platform()} ${os.release()} ${os.arch()}`,
   cpu: `${os.cpus()[0]?.model} × ${os.cpus().length}`,
   totalMemGB: Number((os.totalmem() / 2 ** 30).toFixed(1)),
-  reference: { path: refPath, version: ref.meta.version, sha256: createHash('sha256').update(refRaw).digest('hex'), labeled: labeled.length, expectUncertain: abstain.length, itemsInFile: refAll.items.length, locales: LOCALES, domain: DOMAIN },
+  reference: {
+    path: refPath,
+    version: ref.meta.version,
+    sha256: createHash('sha256').update(refRaw).digest('hex'),
+    labeled: labeled.length,
+    expectUncertain: abstain.length,
+    itemsInFile: refAll.items.length,
+    locales: LOCALES,
+    domain: DOMAIN,
+  },
   releaseConstants: {
     QA_NLP_MIN_CONFIDENCE_DEFAULT: cfg.QA_NLP_MIN_CONFIDENCE_DEFAULT,
     QA_NLP_EARLY_EXIT_MARGIN: cfg.QA_NLP_EARLY_EXIT_MARGIN,
@@ -342,21 +428,50 @@ const manifest = {
     QA_NLP_GATEKEEPER_MODEL_VERSION: cfg.QA_NLP_GATEKEEPER_MODEL_VERSION,
     QA_NLP_FALLBACK_MODEL_VERSION: cfg.QA_NLP_FALLBACK_MODEL_VERSION,
   },
-  criteria: { MIN_ACCEPTED_PRECISION, MAX_UNCERTAIN_RATE, source: 'apps/backend/src/lib/qaNlpCalibrate.ts' },
+  criteria: {
+    MIN_ACCEPTED_PRECISION,
+    MAX_UNCERTAIN_RATE,
+    source: 'apps/backend/src/lib/qaNlpCalibrate.ts',
+  },
   settings: { RUNS, BOOTSTRAP, SEED, SWEEP },
 };
 
 // ---------- Ausgabe ----------
 const stamp = manifest.timestamp.replace(/[:.]/g, '-');
-const outDir = join(outRoot, `classification-${DOMAIN === 'statistics' ? '' : DOMAIN + '-'}${stamp}`);
+const outDir = join(
+  outRoot,
+  `classification-${DOMAIN === 'statistics' ? '' : DOMAIN + '-'}${stamp}`,
+);
 mkdirSync(outDir, { recursive: true });
-writeFileSync(join(outDir, 'results.json'), JSON.stringify({ manifest, results, pairwise, runtime }, null, 2));
+writeFileSync(
+  join(outDir, 'results.json'),
+  JSON.stringify({ manifest, results, pairwise, runtime }, null, 2),
+);
 
 const csvEsc = (s: unknown) => `"${String(s ?? '').replace(/"/g, '""')}"`;
 const csvHead = ['id', 'locale', 'tags', 'family', 'gold', 'expectUncertain', 'text'];
-const csvRows = [[...csvHead, ...VARIANTS.flatMap((v) => SYSTEMS.flatMap((s) => [`${v.id}.${s.id}.category`, `${v.id}.${s.id}.confidence`, `${v.id}.${s.id}.accepted`]))].join(';')];
+const csvRows = [
+  [
+    ...csvHead,
+    ...VARIANTS.flatMap((v) =>
+      SYSTEMS.flatMap((s) => [
+        `${v.id}.${s.id}.category`,
+        `${v.id}.${s.id}.confidence`,
+        `${v.id}.${s.id}.accepted`,
+      ]),
+    ),
+  ].join(';'),
+];
 for (const item of ref.items) {
-  const row: unknown[] = [item.id, item.locale, item.tags.join('|'), item.family, item.category ?? '', item.expectUncertain ? 1 : 0, item.text];
+  const row: unknown[] = [
+    item.id,
+    item.locale,
+    item.tags.join('|'),
+    item.family,
+    item.category ?? '',
+    item.expectUncertain ? 1 : 0,
+    item.text,
+  ];
   for (const v of VARIANTS)
     for (const s of SYSTEMS) {
       const o = results[v.id][s.id].outcomes.find((x: any) => x.id === item.id);
@@ -372,87 +487,188 @@ const ms = (x: number) => (x < 1 ? `${(x * 1000).toFixed(0)} µs` : `${x.toFixed
 const L: string[] = [];
 const R = results.original;
 L.push('# Referat 2B – Klassifikationsmessung 8.9b', '');
-L.push(`Commit \`${manifest.commit.slice(0, 12)}\` (${manifest.describe}), Referenzset ${ref.meta.version} (SHA-256 \`${manifest.reference.sha256.slice(0, 16)}…\`), ${manifest.timestamp}`);
-L.push(`Node ${manifest.node}, ${manifest.cpu}, ${manifest.totalMemGB} GB RAM, ${manifest.platform}`);
-if (manifest.qaNlpSourcesDirty) L.push('', '> **Achtung:** `apps/backend/src/lib` hat lokale Änderungen – keine unveränderte Baseline.');
-L.push('', `Umfang: ${ref.items.length} von ${refAll.items.length} Items, Domäne ${DOMAIN}, Sprachen ${LOCALES.join(', ')} (+ mixed); Italienisch ausgeschlossen (Untersuchungsumfang an Wortwolken-Locales angeglichen).`);
-L.push('', `Gelabelt: ${labeled.length} Items · erwartet unsicher (mehrdeutig/Rauschen): ${abstain.length} · Betriebspunkt \`QA_NLP_MIN_CONFIDENCE\` = ${OPERATING}`);
+L.push(
+  `Commit \`${manifest.commit.slice(0, 12)}\` (${manifest.describe}), Referenzset ${ref.meta.version} (SHA-256 \`${manifest.reference.sha256.slice(0, 16)}…\`), ${manifest.timestamp}`,
+);
+L.push(
+  `Node ${manifest.node}, ${manifest.cpu}, ${manifest.totalMemGB} GB RAM, ${manifest.platform}`,
+);
+if (manifest.qaNlpSourcesDirty)
+  L.push(
+    '',
+    '> **Achtung:** `apps/backend/src/lib` hat lokale Änderungen – keine unveränderte Baseline.',
+  );
+L.push(
+  '',
+  `Umfang: ${ref.items.length} von ${refAll.items.length} Items, Domäne ${DOMAIN}, Sprachen ${LOCALES.join(', ')} (+ mixed); Italienisch ausgeschlossen (Untersuchungsumfang an Wortwolken-Locales angeglichen).`,
+);
+L.push(
+  '',
+  `Gelabelt: ${labeled.length} Items · erwartet unsicher (mehrdeutig/Rauschen): ${abstain.length} · Betriebspunkt \`QA_NLP_MIN_CONFIDENCE\` = ${OPERATING}`,
+);
 L.push('', '## 1. Hauptergebnis (Originalschreibung, Betriebspunkt)', '');
-L.push('| System | Best-Guess-Acc. | Macro-F1 | Abdeckung | Präzision akzeptiert | Nutzbar korrekt | Falsch akzeptiert | Enthaltung mehrdeutig/Rauschen |');
+L.push(
+  '| System | Best-Guess-Acc. | Macro-F1 | Abdeckung | Präzision akzeptiert | Nutzbar korrekt | Falsch akzeptiert | Enthaltung mehrdeutig/Rauschen |',
+);
 L.push('|---|---:|---:|---:|---:|---:|---:|---:|');
 for (const s of SYSTEMS) {
   const m = R[s.id].labeled;
-  L.push(`| ${s.label} | ${pct(m.bestGuessAccuracy)} | ${m.macroF1.toFixed(3)} | ${pct(m.coverage)} | ${pct(m.acceptedPrecision)} | ${pct(m.usefulRate)} | ${pct(m.wrongAcceptedRate)} | ${pct(R[s.id].abstentionOnAmbiguousAndNoise.rate)} |`);
+  L.push(
+    `| ${s.label} | ${pct(m.bestGuessAccuracy)} | ${m.macroF1.toFixed(3)} | ${pct(m.coverage)} | ${pct(m.acceptedPrecision)} | ${pct(m.usefulRate)} | ${pct(m.wrongAcceptedRate)} | ${pct(R[s.id].abstentionOnAmbiguousAndNoise.rate)} |`,
+  );
 }
-L.push('', '*Nutzbar korrekt* = akzeptiert und richtig, bezogen auf alle gelabelten Items. *Falsch akzeptiert* = Lehrperson sieht eine sichere, aber falsche Kategorie.');
+L.push(
+  '',
+  '*Nutzbar korrekt* = akzeptiert und richtig, bezogen auf alle gelabelten Items. *Falsch akzeptiert* = Lehrperson sieht eine sichere, aber falsche Kategorie.',
+);
 L.push('', '### 95-%-Bootstrap-Intervalle', '');
-L.push('| System | Nutzbar korrekt | Präzision akzeptiert | Abdeckung | Macro-F1 |', '|---|---|---|---|---|');
+L.push(
+  '| System | Nutzbar korrekt | Präzision akzeptiert | Abdeckung | Macro-F1 |',
+  '|---|---|---|---|---|',
+);
 for (const s of SYSTEMS) {
   const b = R[s.id].bootstrap95;
-  L.push(`| ${s.label} | ${ci(b.usefulRate)} | ${ci(b.acceptedPrecision)} | ${ci(b.coverage)} | [${b.macroF1.lo.toFixed(3)}; ${b.macroF1.hi.toFixed(3)}] |`);
+  L.push(
+    `| ${s.label} | ${ci(b.usefulRate)} | ${ci(b.acceptedPrecision)} | ${ci(b.coverage)} | [${b.macroF1.lo.toFixed(3)}; ${b.macroF1.hi.toFixed(3)}] |`,
+  );
 }
 L.push('', '### Paarvergleich (exakter McNemar-Test, gepaart über dieselben Items)', '');
 L.push('| Vergleich | Merkmal | nur A richtig | nur B richtig | p |', '|---|---|---:|---:|---:|');
 for (const [name, r] of Object.entries(pairwise))
-  for (const [k, v] of Object.entries(r)) L.push(`| ${name} | ${k === 'useful' ? 'nutzbar korrekt' : 'Best-Guess korrekt'} | ${v.onlyA} | ${v.onlyB} | ${v.p.toFixed(4)} |`);
-L.push('', `Kaskadenpfade: ${Object.entries(R.cascade.cascadePaths).map(([k, v]) => `${k} ${v}`).join(', ')}`);
+  for (const [k, v] of Object.entries(r))
+    L.push(
+      `| ${name} | ${k === 'useful' ? 'nutzbar korrekt' : 'Best-Guess korrekt'} | ${v.onlyA} | ${v.onlyB} | ${v.p.toFixed(4)} |`,
+    );
+L.push(
+  '',
+  `Kaskadenpfade: ${Object.entries(R.cascade.cascadePaths)
+    .map(([k, v]) => `${k} ${v}`)
+    .join(', ')}`,
+);
 
-L.push('', '## 2. Schwellen-Sweep', '', `Vorab festgelegte Kriterien (Releasekonstanten): Präzision akzeptiert ≥ ${pct(MIN_ACCEPTED_PRECISION)}, Unsicher-Rate ≤ ${pct(MAX_UNCERTAIN_RATE)}.`);
+L.push(
+  '',
+  '## 2. Schwellen-Sweep',
+  '',
+  `Vorab festgelegte Kriterien (Releasekonstanten): Präzision akzeptiert ≥ ${pct(MIN_ACCEPTED_PRECISION)}, Unsicher-Rate ≤ ${pct(MAX_UNCERTAIN_RATE)}.`,
+);
 for (const s of SYSTEMS) {
-  L.push('', `**${s.label}**`, '', '| Schwelle | Abdeckung | Präzision akz. | Nutzbar korrekt | Falsch akz. | Enthaltung mehrd. | Kriterien |', '|---:|---:|---:|---:|---:|---:|:---:|');
+  L.push(
+    '',
+    `**${s.label}**`,
+    '',
+    '| Schwelle | Abdeckung | Präzision akz. | Nutzbar korrekt | Falsch akz. | Enthaltung mehrd. | Kriterien |',
+    '|---:|---:|---:|---:|---:|---:|:---:|',
+  );
   for (const p of R[s.id].sweep)
-    L.push(`| ${p.threshold.toFixed(2)}${p.threshold === OPERATING ? ' ◀' : ''} | ${pct(p.coverage)} | ${pct(p.acceptedPrecision)} | ${pct(p.usefulRate)} | ${pct(p.wrongAcceptedRate)} | ${pct(p.abstention)} | ${p.meetsCriteria ? '✓' : '–'} |`);
+    L.push(
+      `| ${p.threshold.toFixed(2)}${p.threshold === OPERATING ? ' ◀' : ''} | ${pct(p.coverage)} | ${pct(p.acceptedPrecision)} | ${pct(p.usefulRate)} | ${pct(p.wrongAcceptedRate)} | ${pct(p.abstention)} | ${p.meetsCriteria ? '✓' : '–'} |`,
+    );
 }
 
 L.push('', '## 3. Slices (Betriebspunkt)', '');
-for (const [title, key] of [['Sprache', 'byLocale'], ['Tag', 'byTag'], ['Gold-Kategorie', 'byGoldCategory']] as const) {
-  L.push(`**${title}** – nutzbar korrekt / falsch akzeptiert (n)`, '', `| ${title} | n | ${SYSTEMS.map((s) => s.id).join(' | ')} |`, `|---|---:|${SYSTEMS.map(() => '---').join('|')}|`);
+for (const [title, key] of [
+  ['Sprache', 'byLocale'],
+  ['Tag', 'byTag'],
+  ['Gold-Kategorie', 'byGoldCategory'],
+] as const) {
+  L.push(
+    `**${title}** – nutzbar korrekt / falsch akzeptiert (n)`,
+    '',
+    `| ${title} | n | ${SYSTEMS.map((s) => s.id).join(' | ')} |`,
+    `|---|---:|${SYSTEMS.map(() => '---').join('|')}|`,
+  );
   for (const k of Object.keys(R.cascade[key]))
-    L.push(`| ${k} | ${R.cascade[key][k].n} | ${SYSTEMS.map((s) => { const x = R[s.id][key][k]; return `${pct(x.usefulRate)} / ${pct(x.wrongAcceptedRate)}`; }).join(' | ')} |`);
+    L.push(
+      `| ${k} | ${R.cascade[key][k].n} | ${SYSTEMS.map((s) => {
+        const x = R[s.id][key][k];
+        return `${pct(x.usefulRate)} / ${pct(x.wrongAcceptedRate)}`;
+      }).join(' | ')} |`,
+    );
   L.push('');
 }
 
 L.push('## 4. Kalibrierung der Konfidenz', '');
 for (const s of SYSTEMS.filter((x) => x.id !== 'keyword')) {
   const c = R[s.id].calibration;
-  L.push(`**${s.label}** – ECE ${c.ece.toFixed(3)}`, '', '| Konfidenzbereich | n | mittlere Konfidenz | tatsächliche Acc. |', '|---|---:|---:|---:|');
-  for (const b of c.bins) L.push(`| ${b.range} | ${b.n} | ${b.n ? b.meanConfidence.toFixed(3) : '–'} | ${b.n ? pct(b.accuracy) : '–'} |`);
+  L.push(
+    `**${s.label}** – ECE ${c.ece.toFixed(3)}`,
+    '',
+    '| Konfidenzbereich | n | mittlere Konfidenz | tatsächliche Acc. |',
+    '|---|---:|---:|---:|',
+  );
+  for (const b of c.bins)
+    L.push(
+      `| ${b.range} | ${b.n} | ${b.n ? b.meanConfidence.toFixed(3) : '–'} | ${b.n ? pct(b.accuracy) : '–'} |`,
+    );
   L.push('');
 }
 
-L.push('## 5. Kontrollierte Variante: Transliteration', '', 'Seed und Keyword-Liste sind transliteriert. Gleiche Items, DE/mixed mit ä→ae usw.', '');
-L.push('| System | Nutzbar korrekt (orig → translit) | Falsch akzeptiert (orig → translit) | Macro-F1 (orig → translit) |', '|---|---|---|---|');
+L.push(
+  '## 5. Kontrollierte Variante: Transliteration',
+  '',
+  'Seed und Keyword-Liste sind transliteriert. Gleiche Items, DE/mixed mit ä→ae usw.',
+  '',
+);
+L.push(
+  '| System | Nutzbar korrekt (orig → translit) | Falsch akzeptiert (orig → translit) | Macro-F1 (orig → translit) |',
+  '|---|---|---|---|',
+);
 for (const s of SYSTEMS) {
   const a = results.original[s.id].labeled;
   const b = results.translit[s.id].labeled;
-  L.push(`| ${s.label} | ${pct(a.usefulRate)} → ${pct(b.usefulRate)} | ${pct(a.wrongAcceptedRate)} → ${pct(b.wrongAcceptedRate)} | ${a.macroF1.toFixed(3)} → ${b.macroF1.toFixed(3)} |`);
+  L.push(
+    `| ${s.label} | ${pct(a.usefulRate)} → ${pct(b.usefulRate)} | ${pct(a.wrongAcceptedRate)} → ${pct(b.wrongAcceptedRate)} | ${a.macroF1.toFixed(3)} → ${b.macroF1.toFixed(3)} |`,
+  );
 }
 
 L.push('', '## 6. Laufzeit und Ressourcen', '');
-L.push(`Kaltstart: Gatekeeper-Training ${ms(runtime.coldStart.gatekeeperTrainMs)}, k-NN-Prototypen ${ms(runtime.coldStart.fallbackPrototypeBuildMs)}, Heap-Δ ${runtime.coldStart.heapUsedDeltaMB.toFixed(1)} MB, RSS-Δ ${runtime.coldStart.rssDeltaMB.toFixed(1)} MB (inkl. Modulimport).`);
-L.push('', `Warm, ${RUNS} Durchläufe × ${texts.length} Texte, ein Thread:`, '', '| System | p50 | p95 | p99 | max | Durchsatz/s |', '|---|---:|---:|---:|---:|---:|');
+L.push(
+  `Kaltstart: Gatekeeper-Training ${ms(runtime.coldStart.gatekeeperTrainMs)}, k-NN-Prototypen ${ms(runtime.coldStart.fallbackPrototypeBuildMs)}, Heap-Δ ${runtime.coldStart.heapUsedDeltaMB.toFixed(1)} MB, RSS-Δ ${runtime.coldStart.rssDeltaMB.toFixed(1)} MB (inkl. Modulimport).`,
+);
+L.push(
+  '',
+  `Warm, ${RUNS} Durchläufe × ${texts.length} Texte, ein Thread:`,
+  '',
+  '| System | p50 | p95 | p99 | max | Durchsatz/s |',
+  '|---|---:|---:|---:|---:|---:|',
+);
 for (const s of SYSTEMS) {
   const l = runtime.warmLatency[s.id];
-  L.push(`| ${s.label} | ${ms(l.p50Ms)} | ${ms(l.p95Ms)} | ${ms(l.p99Ms)} | ${ms(l.maxMs)} | ${Math.round(l.throughputPerSec).toLocaleString('de-DE')} |`);
+  L.push(
+    `| ${s.label} | ${ms(l.p50Ms)} | ${ms(l.p95Ms)} | ${ms(l.p99Ms)} | ${ms(l.maxMs)} | ${Math.round(l.throughputPerSec).toLocaleString('de-DE')} |`,
+  );
 }
-L.push('', `Produktions-Timeout je Job: ${runtime.productionTimeoutMs} ms (Queue/Worker-Overhead hier nicht gemessen).`);
+L.push(
+  '',
+  `Produktions-Timeout je Job: ${runtime.productionTimeoutMs} ms (Queue/Worker-Overhead hier nicht gemessen).`,
+);
 
 L.push('', '## 7. Fehlerfälle (Betriebspunkt, Originalschreibung)', '');
 const byId = new Map(ref.items.map((i) => [i.id, i]));
 for (const s of SYSTEMS) {
-  const wrong = R[s.id].outcomes.filter((o: any) => o.accepted && (o.correct === false || byId.get(o.id)!.expectUncertain));
-  L.push(`**${s.label}** – ${wrong.length} sicher, aber falsch bzw. trotz Mehrdeutigkeit akzeptiert`, '');
+  const wrong = R[s.id].outcomes.filter(
+    (o: any) => o.accepted && (o.correct === false || byId.get(o.id)!.expectUncertain),
+  );
+  L.push(
+    `**${s.label}** – ${wrong.length} sicher, aber falsch bzw. trotz Mehrdeutigkeit akzeptiert`,
+    '',
+  );
   if (wrong.length) {
     L.push('| ID | Text | Gold | Vorhersage | Konfidenz |', '|---|---|---|---|---:|');
     for (const o of wrong) {
       const it = byId.get(o.id)!;
-      L.push(`| ${o.id} | ${it.text.replace(/\|/g, '\\|')} | ${it.category ?? '–'}${it.expectUncertain ? ' (unsicher erwartet)' : ''} | ${o.category} | ${o.confidence.toFixed(3)} |`);
+      L.push(
+        `| ${o.id} | ${it.text.replace(/\|/g, '\\|')} | ${it.category ?? '–'}${it.expectUncertain ? ' (unsicher erwartet)' : ''} | ${o.category} | ${o.confidence.toFixed(3)} |`,
+      );
     }
   }
   L.push('');
 }
 L.push('## Gültigkeitsgrenzen', '');
-L.push('- Synthetisches, kleines Referenzset (Bootstrap-Intervalle beachten); keine Aussage über reale Hörsaalverteilung.');
+L.push(
+  '- Synthetisches, kleines Referenzset (Bootstrap-Intervalle beachten); keine Aussage über reale Hörsaalverteilung.',
+);
 L.push('- Konfidenz ist ohne Kalibrierung keine Erfolgswahrscheinlichkeit (siehe ECE).');
 L.push('- Gemessen ist die In-Process-Klassifikation, nicht Queue, Persistenz oder Worker-Latenz.');
 writeFileSync(join(outDir, 'report.md'), L.join('\n') + '\n');
@@ -460,5 +676,7 @@ writeFileSync(join(outDir, 'report.md'), L.join('\n') + '\n');
 console.log(`Ergebnisse: ${outDir}`);
 for (const s of SYSTEMS) {
   const m = R[s.id].labeled;
-  console.log(`${s.id.padEnd(10)} useful ${pct(m.usefulRate).padStart(7)}  wrongAcc ${pct(m.wrongAcceptedRate).padStart(7)}  cov ${pct(m.coverage).padStart(7)}  prec ${pct(m.acceptedPrecision).padStart(7)}  F1 ${m.macroF1.toFixed(3)}`);
+  console.log(
+    `${s.id.padEnd(10)} useful ${pct(m.usefulRate).padStart(7)}  wrongAcc ${pct(m.wrongAcceptedRate).padStart(7)}  cov ${pct(m.coverage).padStart(7)}  prec ${pct(m.acceptedPrecision).padStart(7)}  F1 ${m.macroF1.toFixed(3)}`,
+  );
 }

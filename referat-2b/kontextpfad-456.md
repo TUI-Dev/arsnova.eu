@@ -8,12 +8,12 @@ zu `apps/backend/src/`, sofern nicht anders angegeben.
 Der #456-Kontext **startet keine neue Analyse**. Er liest nur Ergebnisse, die
 vorher auf anderem Weg entstanden und gespeichert wurden:
 
-| | Kategorien (8.9b) | Themen (1.14c) |
-|---|---|---|
-| Wann entsteht das Ergebnis? | automatisch nach jeder neuen Q&A-Frage, wenn `QA_NLP_ENABLED=true` | nur wenn die Lehrperson in der Wortwolke den Modus **Thema** öffnet und der Encoder ein frisches Ergebnis liefert |
-| Wo wird es gespeichert? | Datenbank, Spalten `nlpStatus`, `nlpCategory`, `nlpConfidence` … an jeder Frage | Redis (flüchtig, mit TTL): letzter Themen-Snapshot je Session, **ohne** Fragetexte, nur IDs und Text-Hashes |
-| Wie liest der Kontext es? | `projectStoredQaNlp()` übersetzt den gespeicherten Status | `collectQaTopicContext()` prüft den Snapshot gegen die aktuelle Datenbank |
-| Was passiert, wenn nichts da ist? | Status `disabled`/`pending`/`failed` mit Begründung | Abschnitt `topics` = `disabled` oder `unavailable` mit ausdrücklicher Einschränkung |
+|                                   | Kategorien (8.9b)                                                               | Themen (1.14c)                                                                                                    |
+| --------------------------------- | ------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| Wann entsteht das Ergebnis?       | automatisch nach jeder neuen Q&A-Frage, wenn `QA_NLP_ENABLED=true`              | nur wenn die Lehrperson in der Wortwolke den Modus **Thema** öffnet und der Encoder ein frisches Ergebnis liefert |
+| Wo wird es gespeichert?           | Datenbank, Spalten `nlpStatus`, `nlpCategory`, `nlpConfidence` … an jeder Frage | Redis (flüchtig, mit TTL): letzter Themen-Snapshot je Session, **ohne** Fragetexte, nur IDs und Text-Hashes       |
+| Wie liest der Kontext es?         | `projectStoredQaNlp()` übersetzt den gespeicherten Status                       | `collectQaTopicContext()` prüft den Snapshot gegen die aktuelle Datenbank                                         |
+| Was passiert, wenn nichts da ist? | Status `disabled`/`pending`/`failed` mit Begründung                             | Abschnitt `topics` = `disabled` oder `unavailable` mit ausdrücklicher Einschränkung                               |
 
 ## Pfad 1: Kategorien
 
@@ -56,8 +56,8 @@ vorher auf anderem Weg entstanden und gespeichert wurden:
    - begrenzt auf 30 Themen, 200 Mitglieder je Thema, 500 Quellen (`:32–35`);
    - markiert den Stand als `analysis-stale`, wenn sich die Q&A-Revision oder
      die Sortierung seit der Analyse geändert hat (`:835–856`).
-   Jedes Thema erhält Stimmen-Aggregate, ein extraktives Label (Text einer
-   Mitgliedsfrage) und die Konfidenz, wieder als `uncalibrated-model-score` (`:796–800`).
+     Jedes Thema erhält Stimmen-Aggregate, ein extraktives Label (Text einer
+     Mitgliedsfrage) und die Konfidenz, wieder als `uncalibrated-model-score` (`:796–800`).
 
 ## Wofür der Kontext die Ergebnisse nutzt
 

@@ -320,9 +320,7 @@
       "family": "C-REG",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Könnten wir noch ein paar Übungsbeispiele zur linearen Regression durchrechnen?",
       "v1Id": "R001",
       "id": "Q001"
@@ -340,9 +338,7 @@
       "family": "C-REG",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Could you walk us through another linear regression example?",
       "v1Id": "R003",
       "id": "Q003"
@@ -351,9 +347,7 @@
       "family": "C-REG",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Pourriez-vous faire un autre exemple de régression linéaire ?",
       "v1Id": "R004",
       "id": "Q004"
@@ -362,9 +356,7 @@
       "family": "C-REG",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Noch ein Regressionsbeispiel?",
       "v1Id": "R006",
       "id": "Q005"
@@ -373,9 +365,7 @@
       "family": "C-REG",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "frame"
-      ],
+      "tags": ["frame"],
       "text": "Kurze Nachfrage: gibt es noch ein Beispiel zur Regression?",
       "v1Id": "R007",
       "id": "Q006"
@@ -416,9 +406,7 @@
       "family": "C-REG",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Podemos resolver otro ejercicio de regresión lineal?",
       "id": "Q011"
     },
@@ -434,9 +422,7 @@
       "family": "C-REG",
       "category": "content",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Können wir noch ein regression example machen?",
       "id": "Q013"
     },
@@ -444,9 +430,7 @@
       "family": "C-HYP",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Sind die Hypothesentests aus Kapitel 5 klausurrelevant?",
       "v1Id": "R008",
       "id": "Q014"
@@ -465,9 +449,7 @@
       "family": "C-HYP",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Will hypothesis testing be on the final exam?",
       "v1Id": "R010",
       "id": "Q016"
@@ -476,9 +458,7 @@
       "family": "C-HYP",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Entran los contrastes de hipótesis en el examen?",
       "v1Id": "R011",
       "id": "Q017"
@@ -487,10 +467,7 @@
       "family": "C-HYP",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "typo",
-        "short"
-      ],
+      "tags": ["typo", "short"],
       "text": "kapitel 5 klausur relevant??",
       "v1Id": "R013",
       "id": "Q018"
@@ -523,9 +500,7 @@
       "family": "C-HYP",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Is chapter 5 on hypothesis tests examinable?",
       "id": "Q022"
     },
@@ -533,9 +508,7 @@
       "family": "C-HYP",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Les tests d'hypothèses tombent-ils à l'examen ?",
       "id": "Q023"
     },
@@ -559,9 +532,7 @@
       "family": "C-HYP",
       "category": "content",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Ist hypothesis testing klausurrelevant?",
       "id": "Q026"
     },
@@ -569,9 +540,7 @@
       "family": "C-PVAL",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Können Sie nochmal erklären, was der p-Wert eigentlich aussagt?",
       "v1Id": "R014",
       "id": "Q027"
@@ -580,9 +549,7 @@
       "family": "C-PVAL",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "slang"
-      ],
+      "tags": ["slang"],
       "text": "Checkt jemand den p-Wert? Ich raff das nicht.",
       "v1Id": "R015",
       "id": "Q028"
@@ -591,9 +558,7 @@
       "family": "C-PVAL",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "What does a p-value actually tell us?",
       "v1Id": "R016",
       "id": "Q029"
@@ -611,9 +576,7 @@
       "family": "C-PVAL",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Puede explicar otra vez qué significa el valor p?",
       "v1Id": "R018",
       "id": "Q031"
@@ -622,9 +585,7 @@
       "family": "C-PVAL",
       "category": "content",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Was genau bedeutet der p-value nochmal?",
       "v1Id": "R019",
       "id": "Q032"
@@ -649,9 +610,7 @@
       "family": "C-PVAL",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "p-Wert noch einmal erklären?",
       "id": "Q035"
     },
@@ -667,10 +626,7 @@
       "family": "C-PVAL",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "typo",
-        "slang"
-      ],
+      "tags": ["typo", "slang"],
       "text": "can u explain p values again",
       "id": "Q037"
     },
@@ -694,9 +650,7 @@
       "family": "C-OVF",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Wie erkenne ich Overfitting in der Praxis?",
       "v1Id": "R020",
       "id": "Q040"
@@ -714,9 +668,7 @@
       "family": "C-OVF",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "How can we tell if a model is overfitting?",
       "v1Id": "R022",
       "id": "Q042"
@@ -725,9 +677,7 @@
       "family": "C-OVF",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Cómo se detecta el sobreajuste de un modelo?",
       "v1Id": "R024",
       "id": "Q043"
@@ -752,10 +702,7 @@
       "family": "C-OVF",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "slang",
-        "short"
-      ],
+      "tags": ["slang", "short"],
       "text": "Overfitting?? check ich nicht",
       "id": "Q046"
     },
@@ -763,9 +710,7 @@
       "family": "C-OVF",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "What's the difference between overfitting and underfitting?",
       "id": "Q047"
     },
@@ -781,9 +726,7 @@
       "family": "C-OVF",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Comment savoir si un modèle fait du surapprentissage ?",
       "id": "Q049"
     },
@@ -807,9 +750,7 @@
       "family": "C-OVF",
       "category": "content",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Wie erkenne ich overfitting bei meinem model?",
       "id": "Q052"
     },
@@ -817,9 +758,7 @@
       "family": "C-DERIV",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Den Schritt von Zeile 2 auf Zeile 3 in der Herleitung auf Folie 17 verstehe ich nicht.",
       "v1Id": "R025",
       "id": "Q053"
@@ -837,9 +776,7 @@
       "family": "C-DERIV",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "On slide 17, how do you get from the second line to the third?",
       "v1Id": "R027",
       "id": "Q055"
@@ -873,9 +810,7 @@
       "family": "C-DERIV",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "typo"
-      ],
+      "tags": ["typo"],
       "text": "folie 17 zeile 3 versteh ich nicht",
       "id": "Q059"
     },
@@ -923,9 +858,7 @@
       "family": "C-BAYES",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Gibt es ein anschauliches Beispiel für den Satz von Bayes?",
       "v1Id": "R030",
       "id": "Q065"
@@ -943,9 +876,7 @@
       "family": "C-BAYES",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Can you give an intuitive example of Bayes' theorem?",
       "v1Id": "R032",
       "id": "Q067"
@@ -954,9 +885,7 @@
       "family": "C-BAYES",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Un ejemplo de Bayes, por favor.",
       "v1Id": "R034",
       "id": "Q068"
@@ -981,9 +910,7 @@
       "family": "C-BAYES",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Bayes nochmal an einem Beispiel?",
       "id": "Q071"
     },
@@ -999,9 +926,7 @@
       "family": "C-BAYES",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "slang"
-      ],
+      "tags": ["slang"],
       "text": "I still don't get Bayes, any simple example?",
       "id": "Q073"
     },
@@ -1009,9 +934,7 @@
       "family": "C-BAYES",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Pouvez-vous donner un exemple concret du théorème de Bayes ?",
       "id": "Q074"
     },
@@ -1035,9 +958,7 @@
       "family": "O-DEAD",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Bis wann müssen wir das zweite Übungsblatt hochladen?",
       "v1Id": "R035",
       "id": "Q077"
@@ -1055,9 +976,7 @@
       "family": "O-DEAD",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "What's the due date for problem set two?",
       "v1Id": "R037",
       "id": "Q079"
@@ -1066,9 +985,7 @@
       "family": "O-DEAD",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Quelle est la date de rendu de la deuxième feuille d'exercices ?",
       "v1Id": "R038",
       "id": "Q080"
@@ -1077,10 +994,7 @@
       "family": "O-DEAD",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "typo",
-        "short"
-      ],
+      "tags": ["typo", "short"],
       "text": "blatt2 abgeben bis freitag?",
       "v1Id": "R040",
       "id": "Q081"
@@ -1089,9 +1003,7 @@
       "family": "O-DEAD",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "frame"
-      ],
+      "tags": ["frame"],
       "text": "Kurze Nachfrage: bis wann ist Blatt 2 fällig?",
       "v1Id": "R041",
       "id": "Q082"
@@ -1108,9 +1020,7 @@
       "family": "O-DEAD",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "When is sheet 2 due?",
       "id": "Q084"
     },
@@ -1134,9 +1044,7 @@
       "family": "O-DEAD",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Cuándo hay que entregar la hoja 2?",
       "id": "Q087"
     },
@@ -1152,9 +1060,7 @@
       "family": "O-DEAD",
       "category": "organization",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Deadline für Blatt 2 ist Freitag, right?",
       "id": "Q089"
     },
@@ -1162,9 +1068,7 @@
       "family": "O-ATT",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Wird in der Vorlesung die Anwesenheit kontrolliert?",
       "v1Id": "R042",
       "id": "Q090"
@@ -1191,9 +1095,7 @@
       "family": "O-ATT",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Es obligatorio venir a todas las clases?",
       "v1Id": "R045",
       "id": "Q093"
@@ -1202,10 +1104,7 @@
       "family": "O-ATT",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "slang",
-        "short"
-      ],
+      "tags": ["slang", "short"],
       "text": "Anwesenheitspflicht oder entspannt?",
       "v1Id": "R047",
       "id": "Q094"
@@ -1230,9 +1129,7 @@
       "family": "O-ATT",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Is attendance taken in the lectures?",
       "id": "Q097"
     },
@@ -1248,9 +1145,7 @@
       "family": "O-ATT",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "La présence en cours est-elle obligatoire ?",
       "id": "Q099"
     },
@@ -1266,9 +1161,7 @@
       "family": "O-ATT",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "¿Pasan lista en clase?",
       "id": "Q101"
     },
@@ -1276,9 +1169,7 @@
       "family": "O-ATT",
       "category": "organization",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Ist attendance hier Pflicht?",
       "id": "Q102"
     },
@@ -1286,9 +1177,7 @@
       "family": "O-ROOM",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Wo findet die Nachklausur statt, wieder im Audimax?",
       "v1Id": "R048",
       "id": "Q103"
@@ -1297,9 +1186,7 @@
       "family": "O-ROOM",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Where is the resit exam being held?",
       "v1Id": "R049",
       "id": "Q104"
@@ -1308,9 +1195,7 @@
       "family": "O-ROOM",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Dans quelle salle a lieu le rattrapage ?",
       "v1Id": "R050",
       "id": "Q105"
@@ -1319,10 +1204,7 @@
       "family": "O-ROOM",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "typo",
-        "short"
-      ],
+      "tags": ["typo", "short"],
       "text": "nachklasur raum??",
       "v1Id": "R052",
       "id": "Q106"
@@ -1371,9 +1253,7 @@
       "family": "O-ROOM",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Où se passe l'examen de rattrapage ?",
       "id": "Q112"
     },
@@ -1381,9 +1261,7 @@
       "family": "O-ROOM",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Dónde se hará la recuperación?",
       "id": "Q113"
     },
@@ -1399,10 +1277,7 @@
       "family": "O-AIDS",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "near-miss"
-      ],
+      "tags": ["canonical", "near-miss"],
       "text": "Dürfen wir in der Klausur eine Formelsammlung benutzen?",
       "note": "Klausur-Schlüsselwort wie C-HYP, aber Rahmenregel → organization.",
       "v1Id": "R053",
@@ -1412,9 +1287,7 @@
       "family": "O-AIDS",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Ist ein Taschenrechner in der Prüfung erlaubt?",
       "v1Id": "R054",
       "id": "Q116"
@@ -1432,9 +1305,7 @@
       "family": "O-AIDS",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Se puede usar calculadora en el examen?",
       "v1Id": "R056",
       "id": "Q118"
@@ -1451,9 +1322,7 @@
       "family": "O-AIDS",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Welche Hilfsmittel sind in der Klausur zugelassen?",
       "id": "Q120"
     },
@@ -1469,9 +1338,7 @@
       "family": "O-AIDS",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Which aids are allowed in the exam?",
       "id": "Q122"
     },
@@ -1495,9 +1362,7 @@
       "family": "O-AIDS",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Quels documents sont autorisés à l'examen ?",
       "id": "Q125"
     },
@@ -1513,9 +1378,7 @@
       "family": "O-CANC",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Fällt die Vorlesung am Donnerstag wegen des Feiertags aus?",
       "v1Id": "R058",
       "id": "Q127"
@@ -1533,9 +1396,7 @@
       "family": "O-CANC",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Is there a lecture next Thursday or is it cancelled?",
       "v1Id": "R060",
       "id": "Q129"
@@ -1544,9 +1405,7 @@
       "family": "O-CANC",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Le cours de jeudi prochain est maintenu ?",
       "v1Id": "R061",
       "id": "Q130"
@@ -1555,9 +1414,7 @@
       "family": "O-CANC",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "¿Hay clase el próximo jueves?",
       "v1Id": "R062",
       "id": "Q131"
@@ -1582,9 +1439,7 @@
       "family": "O-CANC",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Do. Vorlesung oder nicht?",
       "id": "Q134"
     },
@@ -1600,9 +1455,7 @@
       "family": "O-CANC",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Is Thursday's lecture still on?",
       "id": "Q136"
     },
@@ -1626,9 +1479,7 @@
       "family": "O-REC",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Wird die heutige Vorlesung aufgezeichnet?",
       "v1Id": "R063",
       "id": "Q139"
@@ -1646,9 +1497,7 @@
       "family": "O-REC",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Will the recording be uploaded afterwards?",
       "v1Id": "R065",
       "id": "Q141"
@@ -1657,9 +1506,7 @@
       "family": "O-REC",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Est-ce que le cours est enregistré ?",
       "v1Id": "R067",
       "id": "Q142"
@@ -1692,9 +1539,7 @@
       "family": "O-REC",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Are the lectures being recorded?",
       "id": "Q146"
     },
@@ -1718,9 +1563,7 @@
       "family": "O-REC",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Se graba la clase de hoy?",
       "id": "Q149"
     },
@@ -1736,9 +1579,7 @@
       "family": "O-REC",
       "category": "organization",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Kommt das recording später online?",
       "id": "Q151"
     },
@@ -1746,9 +1587,7 @@
       "family": "T-WIFI",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Das WLAN hier im Hörsaal bricht ständig ab.",
       "v1Id": "R068",
       "id": "Q152"
@@ -1757,9 +1596,7 @@
       "family": "T-WIFI",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "slang"
-      ],
+      "tags": ["slang"],
       "text": "eduroam ist schon wieder komplett down",
       "v1Id": "R069",
       "id": "Q153"
@@ -1768,9 +1605,7 @@
       "family": "T-WIFI",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "The eduroam connection keeps dropping in here.",
       "v1Id": "R070",
       "id": "Q154"
@@ -1779,9 +1614,7 @@
       "family": "T-WIFI",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "El wifi del aula se cae todo el rato.",
       "v1Id": "R071",
       "id": "Q155"
@@ -1790,9 +1623,7 @@
       "family": "T-WIFI",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "frame"
-      ],
+      "tags": ["frame"],
       "text": "Kurze Nachfrage: geht das WLAN bei euch auch nicht?",
       "v1Id": "R073",
       "id": "Q156"
@@ -1833,9 +1664,7 @@
       "family": "T-WIFI",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Pas de réseau wifi dans l'amphi.",
       "id": "Q161"
     },
@@ -1859,10 +1688,7 @@
       "family": "T-WIFI",
       "category": "technical",
       "locale": "mixed",
-      "tags": [
-        "code-switch",
-        "short"
-      ],
+      "tags": ["code-switch", "short"],
       "text": "WLAN is down again",
       "id": "Q164"
     },
@@ -1870,9 +1696,7 @@
       "family": "T-AUDIO",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Hinten versteht man Sie kaum, das Mikro ist zu leise.",
       "v1Id": "R074",
       "id": "Q165"
@@ -1890,9 +1714,7 @@
       "family": "T-AUDIO",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "We can't hear you at the back, the mic seems off.",
       "v1Id": "R076",
       "id": "Q167"
@@ -1901,9 +1723,7 @@
       "family": "T-AUDIO",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "On n'entend rien au fond, le micro est trop faible.",
       "v1Id": "R077",
       "id": "Q168"
@@ -1912,10 +1732,7 @@
       "family": "T-AUDIO",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "short",
-        "slang"
-      ],
+      "tags": ["short", "slang"],
       "text": "Ton weg",
       "v1Id": "R079",
       "id": "Q169"
@@ -1964,9 +1781,7 @@
       "family": "T-AUDIO",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "No se oye nada al fondo, ¿puede subir el micro?",
       "id": "Q175"
     },
@@ -1982,9 +1797,7 @@
       "family": "T-BEAM",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Der Beamer schneidet die rechte Hälfte der Folie ab.",
       "v1Id": "R080",
       "id": "Q177"
@@ -1993,9 +1806,7 @@
       "family": "T-BEAM",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Die Projektion ist so blass, dass man die Formeln nicht lesen kann.",
       "note": "‚Formeln‘ deutet auf content, Anliegen ist aber Darstellung.",
       "v1Id": "R081",
@@ -2005,9 +1816,7 @@
       "family": "T-BEAM",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "The projector cuts off the bottom of the slides.",
       "v1Id": "R082",
       "id": "Q179"
@@ -2016,9 +1825,7 @@
       "family": "T-BEAM",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "El proyector no muestra bien las diapositivas.",
       "v1Id": "R083",
       "id": "Q180"
@@ -2027,10 +1834,7 @@
       "family": "T-BEAM",
       "category": "technical",
       "locale": "mixed",
-      "tags": [
-        "code-switch",
-        "short"
-      ],
+      "tags": ["code-switch", "short"],
       "text": "Beamer flackert, slides kaum lesbar",
       "v1Id": "R084",
       "id": "Q181"
@@ -2079,9 +1883,7 @@
       "family": "T-BEAM",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Le vidéoprojecteur coupe le bas des diapos.",
       "id": "Q187"
     },
@@ -2105,9 +1907,7 @@
       "family": "T-VOTE",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Die Abstimmung lädt bei mir seit zwei Minuten nicht.",
       "v1Id": "R085",
       "id": "Q190"
@@ -2125,9 +1925,7 @@
       "family": "T-VOTE",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "The poll won't load on my phone.",
       "v1Id": "R087",
       "id": "Q192"
@@ -2136,9 +1934,7 @@
       "family": "T-VOTE",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Le vote ne s'affiche pas sur mon téléphone.",
       "v1Id": "R088",
       "id": "Q193"
@@ -2147,10 +1943,7 @@
       "family": "T-VOTE",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "typo",
-        "short"
-      ],
+      "tags": ["typo", "short"],
       "text": "abstimung hängt",
       "v1Id": "R090",
       "id": "Q194"
@@ -2215,10 +2008,7 @@
       "family": "T-VOTE",
       "category": "technical",
       "locale": "mixed",
-      "tags": [
-        "code-switch",
-        "short"
-      ],
+      "tags": ["code-switch", "short"],
       "text": "Das voting lädt nicht",
       "id": "Q202"
     },
@@ -2226,9 +2016,7 @@
       "family": "T-PDF",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Das Folien-PDF im Moodle ist beschädigt.",
       "v1Id": "R091",
       "id": "Q203"
@@ -2246,9 +2034,7 @@
       "family": "T-PDF",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "The lecture slides file on Moodle seems corrupted.",
       "v1Id": "R093",
       "id": "Q205"
@@ -2257,9 +2043,7 @@
       "family": "T-PDF",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "El PDF de las diapositivas da error al abrirlo.",
       "v1Id": "R094",
       "id": "Q206"
@@ -2276,9 +2060,7 @@
       "family": "T-PDF",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Das PDF mit den Folien ist kaputt.",
       "id": "Q208"
     },
@@ -2310,9 +2092,7 @@
       "family": "T-PDF",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Le PDF du cours est corrompu.",
       "id": "Q212"
     },
@@ -2336,9 +2116,7 @@
       "family": "S-SLIDE-TYPO",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Auf Folie 12 ist in der Formel ein Fehler, oder?",
       "note": "‚Folie‘ + ‚Fehler‘ klingt technisch, gemeint ist ein inhaltlicher Fehler.",
       "v1Id": "R098",
@@ -2348,9 +2126,7 @@
       "family": "S-SLIDE-TYPO",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "The formula on slide 12 has a mistake, right?",
       "id": "Q216"
     },
@@ -2358,9 +2134,7 @@
       "family": "S-SLIDE-TYPO",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "La formule de la diapo 12 est fausse, non ?",
       "id": "Q217"
     },
@@ -2368,9 +2142,7 @@
       "family": "S-SLIDE-TYPO",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "La fórmula de la diapositiva 12 tiene un error, ¿no?",
       "id": "Q218"
     },
@@ -2378,9 +2150,7 @@
       "family": "C-CI",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Was bedeutet ein 95-%-Konfidenzintervall eigentlich genau?",
       "id": "Q219"
     },
@@ -2412,9 +2182,7 @@
       "family": "C-CI",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Konfidenzintervall – wie deuten?",
       "id": "Q223"
     },
@@ -2422,9 +2190,7 @@
       "family": "C-CI",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "What does a 95% confidence interval actually mean?",
       "id": "Q224"
     },
@@ -2440,9 +2206,7 @@
       "family": "C-CI",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "typo"
-      ],
+      "tags": ["typo"],
       "text": "how do i interpret a confidence interval",
       "id": "Q226"
     },
@@ -2450,9 +2214,7 @@
       "family": "C-CI",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Comment interpréter un intervalle de confiance à 95 % ?",
       "id": "Q227"
     },
@@ -2468,9 +2230,7 @@
       "family": "C-CI",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Qué significa realmente un intervalo de confianza del 95 %?",
       "id": "Q229"
     },
@@ -2486,9 +2246,7 @@
       "family": "C-CI",
       "category": "content",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Was heißt das confidence interval genau?",
       "id": "Q231"
     },
@@ -2504,9 +2262,7 @@
       "family": "C-CORR",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Worin unterscheiden sich Korrelation und Kausalität?",
       "id": "Q233"
     },
@@ -2522,9 +2278,7 @@
       "family": "C-CORR",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Korrelation gleich Kausalität oder nicht?",
       "id": "Q235"
     },
@@ -2540,9 +2294,7 @@
       "family": "C-CORR",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Does correlation imply causation here?",
       "id": "Q237"
     },
@@ -2550,9 +2302,7 @@
       "family": "C-CORR",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "What's the difference between correlation and causation?",
       "id": "Q238"
     },
@@ -2576,9 +2326,7 @@
       "family": "C-CORR",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "En quoi corrélation et causalité sont-elles différentes ?",
       "id": "Q241"
     },
@@ -2586,9 +2334,7 @@
       "family": "C-CORR",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "¿Correlación implica causalidad?",
       "id": "Q242"
     },
@@ -2596,9 +2342,7 @@
       "family": "C-CORR",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Cuál es la diferencia entre correlación y causalidad?",
       "id": "Q243"
     },
@@ -2606,9 +2350,7 @@
       "family": "C-NORM",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Wie berechne ich den z-Wert?",
       "id": "Q244"
     },
@@ -2640,9 +2382,7 @@
       "family": "C-NORM",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "z-Transformation nochmal erklären?",
       "id": "Q248"
     },
@@ -2650,9 +2390,7 @@
       "family": "C-NORM",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "How do I compute a z-score?",
       "id": "Q249"
     },
@@ -2676,9 +2414,7 @@
       "family": "C-NORM",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Comment calcule-t-on le score z ?",
       "id": "Q252"
     },
@@ -2694,9 +2430,7 @@
       "family": "C-NORM",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Cómo se calcula la puntuación z?",
       "id": "Q254"
     },
@@ -2712,9 +2446,7 @@
       "family": "C-NORM",
       "category": "content",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Wie rechnet man den z-score aus?",
       "id": "Q256"
     },
@@ -2722,9 +2454,7 @@
       "family": "C-SAMPLE",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Wie groß muss meine Stichprobe mindestens sein?",
       "id": "Q257"
     },
@@ -2756,9 +2486,7 @@
       "family": "C-SAMPLE",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Stichprobengröße berechnen – wie?",
       "id": "Q261"
     },
@@ -2766,9 +2494,7 @@
       "family": "C-SAMPLE",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "How large does my sample need to be?",
       "id": "Q262"
     },
@@ -2792,9 +2518,7 @@
       "family": "C-SAMPLE",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Comment déterminer la taille de l'échantillon ?",
       "id": "Q265"
     },
@@ -2810,9 +2534,7 @@
       "family": "C-SAMPLE",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Cómo se calcula el tamaño de la muestra?",
       "id": "Q267"
     },
@@ -2836,9 +2558,7 @@
       "family": "O-GRADE",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Wie setzt sich die Note zusammen?",
       "id": "Q270"
     },
@@ -2862,9 +2582,7 @@
       "family": "O-GRADE",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Bonuspunkte – wie viele maximal?",
       "id": "Q273"
     },
@@ -2872,9 +2590,7 @@
       "family": "O-GRADE",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "How is the final grade calculated?",
       "id": "Q274"
     },
@@ -2898,9 +2614,7 @@
       "family": "O-GRADE",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Comment est calculée la note finale ?",
       "id": "Q277"
     },
@@ -2916,9 +2630,7 @@
       "family": "O-GRADE",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Cómo se calcula la nota final?",
       "id": "Q279"
     },
@@ -2934,9 +2646,7 @@
       "family": "O-GRADE",
       "category": "organization",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Zählen die homework points zur Note?",
       "id": "Q281"
     },
@@ -2944,9 +2654,7 @@
       "family": "O-REG",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Bis wann muss man sich zur Klausur anmelden?",
       "id": "Q282"
     },
@@ -2978,9 +2686,7 @@
       "family": "O-REG",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Anmeldefrist Klausur?",
       "id": "Q286"
     },
@@ -2988,9 +2694,7 @@
       "family": "O-REG",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "What's the deadline to sign up for the exam?",
       "id": "Q287"
     },
@@ -3014,9 +2718,7 @@
       "family": "O-REG",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Jusqu'à quand peut-on s'inscrire à l'examen ?",
       "id": "Q290"
     },
@@ -3032,9 +2734,7 @@
       "family": "O-REG",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Hasta cuándo hay que inscribirse al examen?",
       "id": "Q292"
     },
@@ -3050,9 +2750,7 @@
       "family": "O-REG",
       "category": "organization",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Wo ist die registration für die Klausur?",
       "id": "Q294"
     },
@@ -3060,9 +2758,7 @@
       "family": "O-TUT",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Kann ich in eine andere Tutoriumsgruppe wechseln?",
       "id": "Q295"
     },
@@ -3094,10 +2790,7 @@
       "family": "O-TUT",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "typo",
-        "short"
-      ],
+      "tags": ["typo", "short"],
       "text": "tutorium wechseln geht das",
       "id": "Q299"
     },
@@ -3105,9 +2798,7 @@
       "family": "O-TUT",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Can I switch to a different tutorial group?",
       "id": "Q300"
     },
@@ -3131,9 +2822,7 @@
       "family": "O-TUT",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Est-ce qu'on peut changer de groupe de TD ?",
       "id": "Q303"
     },
@@ -3149,9 +2838,7 @@
       "family": "O-TUT",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Puedo cambiarme a otro grupo de prácticas?",
       "id": "Q305"
     },
@@ -3167,9 +2854,7 @@
       "family": "O-OFFICE",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Wann ist Ihre Sprechstunde?",
       "id": "Q307"
     },
@@ -3201,9 +2886,7 @@
       "family": "O-OFFICE",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Sprechstunde wann?",
       "id": "Q311"
     },
@@ -3211,9 +2894,7 @@
       "family": "O-OFFICE",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "When are your office hours?",
       "id": "Q312"
     },
@@ -3237,9 +2918,7 @@
       "family": "O-OFFICE",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Quand sont vos heures de permanence ?",
       "id": "Q315"
     },
@@ -3255,9 +2934,7 @@
       "family": "O-OFFICE",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "¿Cuándo tiene horario de atención?",
       "id": "Q317"
     },
@@ -3273,9 +2950,7 @@
       "family": "T-LOGIN",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Ich komme mit meiner Uni-Kennung nicht ins Moodle.",
       "id": "Q319"
     },
@@ -3307,10 +2982,7 @@
       "family": "T-LOGIN",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "typo",
-        "short"
-      ],
+      "tags": ["typo", "short"],
       "text": "einloggen klappt nicht, fehlermeldung",
       "id": "Q323"
     },
@@ -3318,9 +2990,7 @@
       "family": "T-LOGIN",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "My university account won't let me log into Moodle.",
       "id": "Q324"
     },
@@ -3344,9 +3014,7 @@
       "family": "T-LOGIN",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Je n'arrive pas à me connecter à Moodle avec mon compte.",
       "id": "Q327"
     },
@@ -3362,9 +3030,7 @@
       "family": "T-LOGIN",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "No puedo entrar en Moodle con mi usuario.",
       "id": "Q329"
     },
@@ -3380,9 +3046,7 @@
       "family": "T-LOGIN",
       "category": "technical",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Login ins Moodle failed immer",
       "id": "Q331"
     },
@@ -3390,9 +3054,7 @@
       "family": "T-STREAM",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Der Livestream bleibt ständig hängen.",
       "id": "Q332"
     },
@@ -3424,9 +3086,7 @@
       "family": "T-STREAM",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "stream schwarz",
       "id": "Q336"
     },
@@ -3434,9 +3094,7 @@
       "family": "T-STREAM",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "The livestream keeps freezing.",
       "id": "Q337"
     },
@@ -3460,9 +3118,7 @@
       "family": "T-STREAM",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Le direct se fige tout le temps.",
       "id": "Q340"
     },
@@ -3478,9 +3134,7 @@
       "family": "T-STREAM",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "La transmisión en directo se congela.",
       "id": "Q342"
     },
@@ -3496,9 +3150,7 @@
       "family": "T-STREAM",
       "category": "technical",
       "locale": "mixed",
-      "tags": [
-        "code-switch"
-      ],
+      "tags": ["code-switch"],
       "text": "Der livestream freezed dauernd",
       "id": "Q344"
     },
@@ -3506,9 +3158,7 @@
       "family": "T-QR",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Mein Handy erkennt den QR-Code auf der Leinwand nicht.",
       "id": "Q345"
     },
@@ -3540,9 +3190,7 @@
       "family": "T-QR",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "QR scannt nicht",
       "id": "Q349"
     },
@@ -3550,9 +3198,7 @@
       "family": "T-QR",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "My phone won't pick up the QR code on the screen.",
       "id": "Q350"
     },
@@ -3576,9 +3222,7 @@
       "family": "T-QR",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Mon téléphone ne lit pas le QR code.",
       "id": "Q353"
     },
@@ -3594,9 +3238,7 @@
       "family": "T-QR",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Mi móvil no reconoce el código QR.",
       "id": "Q355"
     },
@@ -3612,9 +3254,7 @@
       "family": "T-POWER",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Die Steckdosen in Reihe 12 haben keinen Strom.",
       "id": "Q357"
     },
@@ -3646,9 +3286,7 @@
       "family": "T-POWER",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Strom an den Plätzen geht nicht",
       "id": "Q361"
     },
@@ -3656,9 +3294,7 @@
       "family": "T-POWER",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "The power sockets in row 12 aren't working.",
       "id": "Q362"
     },
@@ -3682,9 +3318,7 @@
       "family": "T-POWER",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Les prises de la rangée 12 ne marchent pas.",
       "id": "Q365"
     },
@@ -3700,9 +3334,7 @@
       "family": "T-POWER",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Los enchufes de la fila 12 no funcionan.",
       "id": "Q367"
     },
@@ -3718,9 +3350,7 @@
       "family": "T-LIGHT",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Das Licht im hinteren Teil des Hörsaals ist ausgefallen.",
       "id": "Q369"
     },
@@ -3752,9 +3382,7 @@
       "family": "T-LIGHT",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "short"
-      ],
+      "tags": ["short"],
       "text": "Licht hinten kaputt",
       "id": "Q373"
     },
@@ -3762,9 +3390,7 @@
       "family": "T-LIGHT",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "The lights at the back of the hall are out.",
       "id": "Q374"
     },
@@ -3788,9 +3414,7 @@
       "family": "T-LIGHT",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "La lumière au fond de l'amphi ne marche plus.",
       "id": "Q377"
     },
@@ -3806,9 +3430,7 @@
       "family": "T-LIGHT",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "canonical"
-      ],
+      "tags": ["canonical"],
       "text": "Las luces del fondo del aula no funcionan.",
       "id": "Q379"
     },
@@ -3824,9 +3446,7 @@
       "family": "N-ZEXAM",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Kommt die z-Transformation auch in der Klausur dran?",
       "note": "Nah an C-NORM und C-HYP; Anliegen: Klausurrelevanz z-Wert.",
       "id": "Q381"
@@ -3835,9 +3455,7 @@
       "family": "N-ZEXAM",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Le score z sera-t-il à l'examen ?",
       "id": "Q382"
     },
@@ -3845,9 +3463,7 @@
       "family": "N-ZEXAM",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "¿Entra la puntuación z en el examen?",
       "id": "Q383"
     },
@@ -3855,9 +3471,7 @@
       "family": "N-BONUSRETAKE",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Werden die Bonuspunkte auch für die Nachklausur angerechnet?",
       "note": "Nah an O-GRADE und O-ROOM.",
       "id": "Q384"
@@ -3866,9 +3480,7 @@
       "family": "N-BONUSRETAKE",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Les points bonus comptent-ils aussi pour le rattrapage ?",
       "id": "Q385"
     },
@@ -3876,9 +3488,7 @@
       "family": "N-BONUSRETAKE",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "¿Los puntos extra cuentan también en la recuperación?",
       "id": "Q386"
     },
@@ -3886,9 +3496,7 @@
       "family": "N-OFFICECONTENT",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Kann man die Sprechstunde auch für Fragen zu Bayes nutzen?",
       "note": "Nah an O-OFFICE und C-BAYES; Regelfrage → organization.",
       "id": "Q387"
@@ -3897,9 +3505,7 @@
       "family": "N-OFFICECONTENT",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Can we use the office hours to go over the p-value example?",
       "id": "Q388"
     },
@@ -3907,9 +3513,7 @@
       "family": "N-OFFICECONTENT",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Peut-on venir en permanence pour parler de Bayes ?",
       "id": "Q389"
     },
@@ -3917,9 +3521,7 @@
       "family": "N-OFFICECONTENT",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "¿Puedo ir a su horario de atención para preguntar sobre Bayes?",
       "id": "Q390"
     },
@@ -3927,9 +3529,7 @@
       "family": "N-SLIDESUP",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Werden die Folien vor der Vorlesung oder erst danach hochgeladen?",
       "note": "Nah an T-PDF; Bereitstellung → organization.",
       "id": "Q391"
@@ -3938,9 +3538,7 @@
       "family": "N-SLIDESUP",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Are the slides with the regression examples uploaded yet?",
       "id": "Q392"
     },
@@ -3948,9 +3546,7 @@
       "family": "N-SLIDESUP",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Les diapos de la régression sont-elles déjà en ligne ?",
       "id": "Q393"
     },
@@ -3958,9 +3554,7 @@
       "family": "N-SLIDESUP",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "¿Ya están subidas las diapositivas de regresión?",
       "id": "Q394"
     },
@@ -3968,9 +3562,7 @@
       "family": "N-TUTMOODLE",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Muss ich mich für das Tutorium auch extra im Moodle anmelden?",
       "note": "Nah an O-TUT und T-LOGIN.",
       "id": "Q395"
@@ -3979,9 +3571,7 @@
       "family": "N-TUTMOODLE",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Faut-il s'inscrire sur Moodle pour le TD ?",
       "id": "Q396"
     },
@@ -3989,9 +3579,7 @@
       "family": "N-TUTMOODLE",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "¿Hay que apuntarse en Moodle para el grupo de prácticas?",
       "id": "Q397"
     },
@@ -3999,9 +3587,7 @@
       "family": "N-CORREXAM",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Will correlation vs causation be part of the exam?",
       "note": "Nah an C-CORR und C-HYP.",
       "id": "Q398"
@@ -4010,9 +3596,7 @@
       "family": "N-CORREXAM",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Corrélation et causalité, ça tombe à l'examen ?",
       "id": "Q399"
     },
@@ -4020,9 +3604,7 @@
       "family": "N-CORREXAM",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "¿La correlación entra en el examen?",
       "id": "Q400"
     },
@@ -4030,9 +3612,7 @@
       "family": "N-WIFIPASS",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Ist das WLAN-Passwort für Gäste irgendwo hinterlegt?",
       "note": "Nah an T-WIFI; Informationsfrage, keine Störung.",
       "id": "Q401"
@@ -4041,9 +3621,7 @@
       "family": "N-WIFIPASS",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Le mot de passe du wifi invité est affiché où ?",
       "id": "Q402"
     },
@@ -4051,9 +3629,7 @@
       "family": "S-REG-EXAM",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Kommen Regressionsaufgaben auch in der Klausur dran?",
       "note": "Lexikalisch nah an C-REG und C-HYP, Anliegen: Klausurrelevanz Regression – eigenes Thema.",
       "v1Id": "R096",
@@ -4063,9 +3639,7 @@
       "family": "S-FORMULA-VERSION",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Ist die Formelsammlung im Moodle die aktuelle Version?",
       "note": "Nah an O-AIDS und T-PDF; Frage nach Materialstand → organization.",
       "v1Id": "R097",
@@ -4075,9 +3649,7 @@
       "family": "S-EXAM-WIFI",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Will the exam room have Wi-Fi for the online part?",
       "note": "Nah an T-WIFI und O-ROOM; Rahmenfrage, keine Störungsmeldung.",
       "v1Id": "R099",
@@ -4087,9 +3659,7 @@
       "family": "S-REC-PLAYBACK",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Die Aufzeichnung von letzter Woche bricht bei mir nach fünf Minuten ab.",
       "note": "Nah an O-REC; Abspielfehler → technical.",
       "v1Id": "R100",
@@ -4099,9 +3669,7 @@
       "family": "S-CH5-READING",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Gibt es zu Kapitel 5 weiterführende Literatur?",
       "v1Id": "R102",
       "id": "Q407"
@@ -4110,17 +3678,10 @@
       "family": "S-AMB-1",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Gibt es dafür einen anderen Weg?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "organization",
-        "technical"
-      ],
+      "acceptableCategories": ["content", "organization", "technical"],
       "v1Id": "R103",
       "id": "Q408"
     },
@@ -4128,16 +3689,10 @@
       "family": "S-AMB-2",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Kann man das nochmal hochladen?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization",
-        "technical"
-      ],
+      "acceptableCategories": ["organization", "technical"],
       "v1Id": "R104",
       "id": "Q409"
     },
@@ -4145,15 +3700,10 @@
       "family": "S-AMB-3",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Is this going to be on it?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "v1Id": "R105",
       "id": "Q410"
     },
@@ -4161,16 +3711,10 @@
       "family": "S-AMB-4",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Klappt irgendwie nicht.",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "technical",
-        "content"
-      ],
+      "acceptableCategories": ["technical", "content"],
       "v1Id": "R106",
       "id": "Q411"
     },
@@ -4178,15 +3722,10 @@
       "family": "S-AMB-5",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "On peut décaler ?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "v1Id": "R107",
       "id": "Q412"
     },
@@ -4194,16 +3733,10 @@
       "family": "S-AMB-6",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Folie 17?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "technical"
-      ],
+      "acceptableCategories": ["content", "technical"],
       "v1Id": "R108",
       "id": "Q413"
     },
@@ -4211,10 +3744,7 @@
       "family": "S-NOISE-1",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Danke, super erklärt!",
       "expectUncertain": true,
       "v1Id": "R109",
@@ -4224,11 +3754,7 @@
       "family": "S-NOISE-2",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise",
-        "short",
-        "slang"
-      ],
+      "tags": ["noise", "short", "slang"],
       "text": "lol",
       "expectUncertain": true,
       "v1Id": "R110",
@@ -4238,10 +3764,7 @@
       "family": "S-NOISE-3",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Hallo zusammen",
       "expectUncertain": true,
       "v1Id": "R111",
@@ -4251,10 +3774,7 @@
       "family": "S-NOISE-4",
       "category": null,
       "locale": "es",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "¡Gracias!",
       "expectUncertain": true,
       "v1Id": "R112",
@@ -4264,9 +3784,7 @@
       "family": "S-NM-01",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Gibt es zur Regression auch eine Aufzeichnung aus dem letzten Semester?",
       "note": "Nah an O-REC und C-REG.",
       "id": "Q418"
@@ -4275,9 +3793,7 @@
       "family": "S-NM-02",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Die Formel für den z-Wert auf Folie 9 ist anders als im Skript, welche stimmt?",
       "note": "Nah an C-NORM und T-PDF.",
       "id": "Q419"
@@ -4286,9 +3802,7 @@
       "family": "S-NM-03",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Zählt die Anwesenheit im Tutorium für die Note?",
       "note": "Nah an O-ATT und O-GRADE.",
       "id": "Q420"
@@ -4297,9 +3811,7 @@
       "family": "S-NM-04",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Kann man im Stream auch Fragen stellen?",
       "note": "Nah an T-STREAM; Informationsfrage.",
       "id": "Q421"
@@ -4308,9 +3820,7 @@
       "family": "S-NM-05",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Kommt Overfitting nur in der Übung oder auch in der Vorlesung dran?",
       "note": "Nah an C-OVF; Frage nach Veranstaltungsablauf.",
       "id": "Q422"
@@ -4319,9 +3829,7 @@
       "family": "S-NM-06",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Gibt es einen QR-Code für die Anmeldung zur Klausur?",
       "note": "Nah an T-QR und O-REG.",
       "id": "Q423"
@@ -4330,9 +3838,7 @@
       "family": "S-NM-07",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Ist das Konfidenzintervall auf dem Übungsblatt mit 95 oder 99 % gemeint?",
       "note": "Nah an C-CI und O-DEAD.",
       "id": "Q424"
@@ -4341,9 +3847,7 @@
       "family": "S-NM-08",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Ist der Raum für die Nachklausur barrierefrei?",
       "note": "Nah an O-ROOM; anderes Anliegen.",
       "id": "Q425"
@@ -4352,9 +3856,7 @@
       "family": "S-NM-09",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Will the z-table be provided in the exam?",
       "note": "Nah an O-AIDS und C-NORM.",
       "id": "Q426"
@@ -4363,9 +3865,7 @@
       "family": "S-NM-10",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Does the attendance app need a separate login?",
       "note": "Nah an T-LOGIN und O-ATT.",
       "id": "Q427"
@@ -4374,9 +3874,7 @@
       "family": "S-NM-11",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Do bonus points expire after this semester?",
       "note": "Nah an O-GRADE.",
       "id": "Q428"
@@ -4385,9 +3883,7 @@
       "family": "S-NM-12",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Is there a tutorial session on hypothesis tests this week?",
       "note": "Nah an O-TUT und C-HYP.",
       "id": "Q429"
@@ -4396,9 +3892,7 @@
       "family": "S-NM-13",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Is the sample size question from the exercise sheet graded?",
       "note": "Nah an C-SAMPLE und O-GRADE.",
       "id": "Q430"
@@ -4407,9 +3901,7 @@
       "family": "S-NM-14",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "near-miss"
-      ],
+      "tags": ["near-miss"],
       "text": "Where can I find the QR code if I arrive late?",
       "note": "Nah an T-QR; Informationsfrage.",
       "id": "Q431"
@@ -4418,609 +3910,397 @@
       "family": "S-AMB2-01",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Ist das wichtig?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "organization"
-      ],
+      "acceptableCategories": ["content", "organization"],
       "id": "Q432"
     },
     {
       "family": "S-AMB2-02",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Und was heißt das jetzt?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q433"
     },
     {
       "family": "S-AMB2-03",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Kommt das noch?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "organization"
-      ],
+      "acceptableCategories": ["content", "organization"],
       "id": "Q434"
     },
     {
       "family": "S-AMB2-04",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Wo finde ich das?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization",
-        "technical"
-      ],
+      "acceptableCategories": ["organization", "technical"],
       "id": "Q435"
     },
     {
       "family": "S-AMB2-05",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Geht das schon?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "technical",
-        "organization"
-      ],
+      "acceptableCategories": ["technical", "organization"],
       "id": "Q436"
     },
     {
       "family": "S-AMB2-06",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Wann ist das fällig?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q437"
     },
     {
       "family": "S-AMB2-07",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Gilt das auch für uns?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q438"
     },
     {
       "family": "S-AMB2-08",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Kann man das ändern?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization",
-        "technical"
-      ],
+      "acceptableCategories": ["organization", "technical"],
       "id": "Q439"
     },
     {
       "family": "S-AMB2-09",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Hä?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q440"
     },
     {
       "family": "S-AMB2-10",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Das verstehe ich nicht ganz.",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q441"
     },
     {
       "family": "S-AMB2-11",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Ist das so richtig?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q442"
     },
     {
       "family": "S-AMB2-12",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Noch einmal, bitte?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "technical"
-      ],
+      "acceptableCategories": ["content", "technical"],
       "id": "Q443"
     },
     {
       "family": "S-AMB2-13",
       "category": "organization",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Wird das noch hochgeladen?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q444"
     },
     {
       "family": "S-AMB2-14",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Brauchen wir das für später?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q445"
     },
     {
       "family": "S-AMB2-15",
       "category": "content",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Warum?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q446"
     },
     {
       "family": "S-AMB2-16",
       "category": "technical",
       "locale": "de",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Funktioniert das bei euch?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "technical"
-      ],
+      "acceptableCategories": ["technical"],
       "id": "Q447"
     },
     {
       "family": "S-AMB2-17",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Does that matter?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "organization"
-      ],
+      "acceptableCategories": ["content", "organization"],
       "id": "Q448"
     },
     {
       "family": "S-AMB2-18",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Where can I find it?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization",
-        "technical"
-      ],
+      "acceptableCategories": ["organization", "technical"],
       "id": "Q449"
     },
     {
       "family": "S-AMB2-19",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Does this apply to us too?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q450"
     },
     {
       "family": "S-AMB2-20",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Can you repeat that?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "technical"
-      ],
+      "acceptableCategories": ["content", "technical"],
       "id": "Q451"
     },
     {
       "family": "S-AMB2-21",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "How come?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q452"
     },
     {
       "family": "S-AMB2-22",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Until when?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q453"
     },
     {
       "family": "S-AMB2-23",
       "category": "organization",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Will that be uploaded?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q454"
     },
     {
       "family": "S-AMB2-24",
       "category": "technical",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Is it working for anyone else?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "technical"
-      ],
+      "acceptableCategories": ["technical"],
       "id": "Q455"
     },
     {
       "family": "S-AMB2-25",
       "category": "content",
       "locale": "en",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Do we need to know this?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q456"
     },
     {
       "family": "S-AMB2-26",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "C'est important ?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "organization"
-      ],
+      "acceptableCategories": ["content", "organization"],
       "id": "Q457"
     },
     {
       "family": "S-AMB2-27",
       "category": "technical",
       "locale": "fr",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Ça marche chez vous ?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "technical"
-      ],
+      "acceptableCategories": ["technical"],
       "id": "Q458"
     },
     {
       "family": "S-AMB2-28",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Jusqu'à quand ?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q459"
     },
     {
       "family": "S-AMB2-29",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Vous pouvez répéter ?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "technical"
-      ],
+      "acceptableCategories": ["content", "technical"],
       "id": "Q460"
     },
     {
       "family": "S-AMB2-30",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "Pourquoi ?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q461"
     },
     {
       "family": "S-AMB2-31",
       "category": "content",
       "locale": "fr",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "On doit savoir ça ?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q462"
     },
     {
       "family": "S-AMB2-32",
       "category": "organization",
       "locale": "fr",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "C'est où ?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q463"
     },
     {
       "family": "S-AMB2-33",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "¿Es importante?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "organization"
-      ],
+      "acceptableCategories": ["content", "organization"],
       "id": "Q464"
     },
     {
       "family": "S-AMB2-34",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "¿Hasta cuándo?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization"
-      ],
+      "acceptableCategories": ["organization"],
       "id": "Q465"
     },
     {
       "family": "S-AMB2-35",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "¿Puede repetir?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content",
-        "technical"
-      ],
+      "acceptableCategories": ["content", "technical"],
       "id": "Q466"
     },
     {
       "family": "S-AMB2-36",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "¿Por qué?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q467"
     },
     {
       "family": "S-AMB2-37",
       "category": "organization",
       "locale": "es",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "¿Dónde lo encuentro?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "organization",
-        "technical"
-      ],
+      "acceptableCategories": ["organization", "technical"],
       "id": "Q468"
     },
     {
       "family": "S-AMB2-38",
       "category": "content",
       "locale": "es",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "¿Eso entra?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "content"
-      ],
+      "acceptableCategories": ["content"],
       "id": "Q469"
     },
     {
       "family": "S-AMB2-39",
       "category": "technical",
       "locale": "es",
-      "tags": [
-        "ambiguous",
-        "short"
-      ],
+      "tags": ["ambiguous", "short"],
       "text": "¿A alguien más le funciona?",
       "expectUncertain": true,
-      "acceptableCategories": [
-        "technical"
-      ],
+      "acceptableCategories": ["technical"],
       "id": "Q470"
     },
     {
       "family": "S-NOISE2-01",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Danke!",
       "expectUncertain": true,
       "id": "Q471"
@@ -5029,9 +4309,7 @@
       "family": "S-NOISE2-02",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise"
-      ],
+      "tags": ["noise"],
       "text": "Super Vorlesung heute",
       "expectUncertain": true,
       "id": "Q472"
@@ -5040,10 +4318,7 @@
       "family": "S-NOISE2-03",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Guten Morgen",
       "expectUncertain": true,
       "id": "Q473"
@@ -5052,11 +4327,7 @@
       "family": "S-NOISE2-04",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short",
-        "slang"
-      ],
+      "tags": ["noise", "short", "slang"],
       "text": "Hahaha",
       "expectUncertain": true,
       "id": "Q474"
@@ -5065,10 +4336,7 @@
       "family": "S-NOISE2-05",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Test",
       "expectUncertain": true,
       "id": "Q475"
@@ -5077,10 +4345,7 @@
       "family": "S-NOISE2-06",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "👍",
       "expectUncertain": true,
       "id": "Q476"
@@ -5089,11 +4354,7 @@
       "family": "S-NOISE2-07",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short",
-        "slang"
-      ],
+      "tags": ["noise", "short", "slang"],
       "text": "Moin",
       "expectUncertain": true,
       "id": "Q477"
@@ -5102,9 +4363,7 @@
       "family": "S-NOISE2-08",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise"
-      ],
+      "tags": ["noise"],
       "text": "Sehr gut erklärt, danke",
       "expectUncertain": true,
       "id": "Q478"
@@ -5113,10 +4372,7 @@
       "family": "S-NOISE2-09",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "slang"
-      ],
+      "tags": ["noise", "slang"],
       "text": "Wer ist noch wach?",
       "expectUncertain": true,
       "id": "Q479"
@@ -5125,11 +4381,7 @@
       "family": "S-NOISE2-10",
       "category": null,
       "locale": "de",
-      "tags": [
-        "noise",
-        "short",
-        "slang"
-      ],
+      "tags": ["noise", "short", "slang"],
       "text": "Mahlzeit",
       "expectUncertain": true,
       "id": "Q480"
@@ -5138,10 +4390,7 @@
       "family": "S-NOISE2-11",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Thanks!",
       "expectUncertain": true,
       "id": "Q481"
@@ -5150,10 +4399,7 @@
       "family": "S-NOISE2-12",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Great lecture",
       "expectUncertain": true,
       "id": "Q482"
@@ -5162,9 +4408,7 @@
       "family": "S-NOISE2-13",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise"
-      ],
+      "tags": ["noise"],
       "text": "Good morning everyone",
       "expectUncertain": true,
       "id": "Q483"
@@ -5173,11 +4417,7 @@
       "family": "S-NOISE2-14",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise",
-        "short",
-        "slang"
-      ],
+      "tags": ["noise", "short", "slang"],
       "text": "lmao",
       "expectUncertain": true,
       "id": "Q484"
@@ -5186,10 +4426,7 @@
       "family": "S-NOISE2-15",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "test 123",
       "expectUncertain": true,
       "id": "Q485"
@@ -5198,10 +4435,7 @@
       "family": "S-NOISE2-16",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Nice",
       "expectUncertain": true,
       "id": "Q486"
@@ -5210,10 +4444,7 @@
       "family": "S-NOISE2-17",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Hi",
       "expectUncertain": true,
       "id": "Q487"
@@ -5222,10 +4453,7 @@
       "family": "S-NOISE2-18",
       "category": null,
       "locale": "en",
-      "tags": [
-        "noise",
-        "slang"
-      ],
+      "tags": ["noise", "slang"],
       "text": "Who else is here?",
       "expectUncertain": true,
       "id": "Q488"
@@ -5234,10 +4462,7 @@
       "family": "S-NOISE2-19",
       "category": null,
       "locale": "fr",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Merci !",
       "expectUncertain": true,
       "id": "Q489"
@@ -5246,10 +4471,7 @@
       "family": "S-NOISE2-20",
       "category": null,
       "locale": "fr",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Bonjour à tous",
       "expectUncertain": true,
       "id": "Q490"
@@ -5258,10 +4480,7 @@
       "family": "S-NOISE2-21",
       "category": null,
       "locale": "fr",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Super cours",
       "expectUncertain": true,
       "id": "Q491"
@@ -5270,11 +4489,7 @@
       "family": "S-NOISE2-22",
       "category": null,
       "locale": "fr",
-      "tags": [
-        "noise",
-        "short",
-        "slang"
-      ],
+      "tags": ["noise", "short", "slang"],
       "text": "mdr",
       "expectUncertain": true,
       "id": "Q492"
@@ -5283,11 +4498,7 @@
       "family": "S-NOISE2-23",
       "category": null,
       "locale": "fr",
-      "tags": [
-        "noise",
-        "short",
-        "slang"
-      ],
+      "tags": ["noise", "short", "slang"],
       "text": "Coucou",
       "expectUncertain": true,
       "id": "Q493"
@@ -5296,10 +4507,7 @@
       "family": "S-NOISE2-24",
       "category": null,
       "locale": "fr",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Bravo",
       "expectUncertain": true,
       "id": "Q494"
@@ -5308,10 +4516,7 @@
       "family": "S-NOISE2-25",
       "category": null,
       "locale": "es",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Buenos días",
       "expectUncertain": true,
       "id": "Q495"
@@ -5320,10 +4525,7 @@
       "family": "S-NOISE2-26",
       "category": null,
       "locale": "es",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Muy buena clase",
       "expectUncertain": true,
       "id": "Q496"
@@ -5332,11 +4534,7 @@
       "family": "S-NOISE2-27",
       "category": null,
       "locale": "es",
-      "tags": [
-        "noise",
-        "short",
-        "slang"
-      ],
+      "tags": ["noise", "short", "slang"],
       "text": "jajaja",
       "expectUncertain": true,
       "id": "Q497"
@@ -5345,10 +4543,7 @@
       "family": "S-NOISE2-28",
       "category": null,
       "locale": "es",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Hola a todos",
       "expectUncertain": true,
       "id": "Q498"
@@ -5357,10 +4552,7 @@
       "family": "S-NOISE2-29",
       "category": null,
       "locale": "es",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Genial",
       "expectUncertain": true,
       "id": "Q499"
@@ -5369,10 +4561,7 @@
       "family": "S-NOISE2-30",
       "category": null,
       "locale": "es",
-      "tags": [
-        "noise",
-        "short"
-      ],
+      "tags": ["noise", "short"],
       "text": "Gracias, profe",
       "expectUncertain": true,
       "id": "Q500"
@@ -5382,10 +4571,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Können Sie den Unterschied zwischen Lichtreaktion und Calvin-Zyklus nochmal erklären?",
       "id": "Q501"
     },
@@ -5394,9 +4580,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Wozu braucht der Calvin-Zyklus eigentlich das ATP aus der Lichtreaktion?",
       "id": "Q502"
     },
@@ -5405,10 +4589,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "typo",
-        "out-of-domain"
-      ],
+      "tags": ["typo", "out-of-domain"],
       "text": "lichtreaktion vs calvin zyklus versteh ich nicht",
       "id": "Q503"
     },
@@ -5417,10 +4598,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Could you explain again how the light reactions feed the Calvin cycle?",
       "id": "Q504"
     },
@@ -5429,9 +4607,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Why does the Calvin cycle need ATP and NADPH?",
       "id": "Q505"
     },
@@ -5440,10 +4616,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Pouvez-vous réexpliquer le lien entre la phase lumineuse et le cycle de Calvin ?",
       "id": "Q506"
     },
@@ -5452,10 +4625,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Puede explicar otra vez la relación entre la fase luminosa y el ciclo de Calvin?",
       "id": "Q507"
     },
@@ -5464,10 +4634,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Woran erkenne ich, ob eine Pflanze monokotyl oder dikotyl ist?",
       "id": "Q508"
     },
@@ -5476,9 +4643,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Ist die parallele Blattaderung wirklich das sicherste Merkmal für Einkeimblättrige?",
       "id": "Q509"
     },
@@ -5487,10 +4652,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "short",
-        "out-of-domain"
-      ],
+      "tags": ["short", "out-of-domain"],
       "text": "Einkeimblättrig oder zweikeimblättrig – wie bestimmen?",
       "id": "Q510"
     },
@@ -5499,10 +4661,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "How do I tell monocots from dicots?",
       "id": "Q511"
     },
@@ -5511,9 +4670,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Are parallel leaf veins always a sign of a monocot?",
       "id": "Q512"
     },
@@ -5522,10 +4679,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Comment distinguer une monocotylédone d'une dicotylédone ?",
       "id": "Q513"
     },
@@ -5534,10 +4688,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Cómo se distingue una monocotiledónea de una dicotiledónea?",
       "id": "Q514"
     },
@@ -5546,10 +4697,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Wie kommt das Wasser eigentlich von der Wurzel bis in die Blätter?",
       "id": "Q515"
     },
@@ -5558,9 +4706,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Welche Rolle spielt der Caspary-Streifen bei der Wasseraufnahme?",
       "id": "Q516"
     },
@@ -5569,9 +4715,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Reicht der Transpirationssog allein für den Wassertransport aus?",
       "id": "Q517"
     },
@@ -5580,10 +4724,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "How does water get from the roots up to the leaves?",
       "id": "Q518"
     },
@@ -5592,9 +4733,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "What does the Casparian strip actually do?",
       "id": "Q519"
     },
@@ -5603,10 +4742,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Comment l'eau monte-t-elle des racines jusqu'aux feuilles ?",
       "id": "Q520"
     },
@@ -5615,10 +4751,7 @@
       "category": "content",
       "domain": "botany",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Cómo sube el agua desde la raíz hasta las hojas?",
       "id": "Q521"
     },
@@ -5627,10 +4760,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Wann ist die Exkursion in den Botanischen Garten und wo treffen wir uns?",
       "id": "Q522"
     },
@@ -5639,9 +4769,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Ist die Exkursion zum Botanischen Garten verpflichtend?",
       "id": "Q523"
     },
@@ -5650,9 +4778,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Brauchen wir für die Exkursion feste Schuhe oder eine Lupe?",
       "id": "Q524"
     },
@@ -5661,10 +4787,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "When and where do we meet for the botanical garden field trip?",
       "id": "Q525"
     },
@@ -5673,10 +4796,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "À quelle heure est le rendez-vous pour la sortie au jardin botanique ?",
       "id": "Q526"
     },
@@ -5685,10 +4805,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Cuándo es la excursión al jardín botánico y dónde quedamos?",
       "id": "Q527"
     },
@@ -5697,10 +4814,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Bis wann müssen wir unser Herbarium abgeben?",
       "id": "Q528"
     },
@@ -5709,9 +4823,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Wie viele Belege muss das Herbarium mindestens enthalten?",
       "id": "Q529"
     },
@@ -5720,9 +4832,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "What's the deadline for handing in the herbarium?",
       "id": "Q530"
     },
@@ -5731,10 +4841,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Combien de planches faut-il rendre pour l'herbier ?",
       "id": "Q531"
     },
@@ -5743,10 +4850,7 @@
       "category": "organization",
       "domain": "botany",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Cuándo hay que entregar el herbario?",
       "id": "Q532"
     },
@@ -5755,10 +4859,7 @@
       "category": "technical",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Das Bild der Mikroskopkamera kommt auf der Leinwand nicht an.",
       "id": "Q533"
     },
@@ -5767,9 +4868,7 @@
       "category": "technical",
       "domain": "botany",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Die Übertragung vom Mikroskop ist nur noch schwarz.",
       "id": "Q534"
     },
@@ -5778,10 +4877,7 @@
       "category": "technical",
       "domain": "botany",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "The microscope camera isn't showing on the screen.",
       "id": "Q535"
     },
@@ -5790,10 +4886,7 @@
       "category": "technical",
       "domain": "botany",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "La caméra du microscope n'affiche rien sur l'écran.",
       "id": "Q536"
     },
@@ -5802,10 +4895,7 @@
       "category": "technical",
       "domain": "botany",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "La cámara del microscopio no se ve en la pantalla.",
       "id": "Q537"
     },
@@ -5814,10 +4904,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Welche Gründe waren für das Scheitern der Weimarer Republik am wichtigsten?",
       "id": "Q538"
     },
@@ -5826,9 +4913,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Lag das Ende von Weimar eher an der Verfassung oder an der Wirtschaftskrise?",
       "id": "Q539"
     },
@@ -5837,9 +4922,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Welche Rolle spielte Artikel 48 beim Ende der Republik?",
       "id": "Q540"
     },
@@ -5848,10 +4931,7 @@
       "category": "content",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Why did the Weimar Republic fail?",
       "id": "Q541"
     },
@@ -5860,9 +4940,7 @@
       "category": "content",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Was Article 48 the main reason Weimar collapsed?",
       "id": "Q542"
     },
@@ -5871,10 +4949,7 @@
       "category": "content",
       "domain": "history",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Pourquoi la république de Weimar a-t-elle échoué ?",
       "id": "Q543"
     },
@@ -5883,10 +4958,7 @@
       "category": "content",
       "domain": "history",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Por qué fracasó la República de Weimar?",
       "id": "Q544"
     },
@@ -5895,10 +4967,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Worin unterscheiden sich Primär- und Sekundärquellen?",
       "id": "Q545"
     },
@@ -5907,9 +4976,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Zählt ein Zeitzeugeninterview von 1990 als Primärquelle?",
       "id": "Q546"
     },
@@ -5918,9 +4985,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Ist ein Schulbuch von 1935 eine Primär- oder eine Sekundärquelle?",
       "id": "Q547"
     },
@@ -5929,10 +4994,7 @@
       "category": "content",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "What's the difference between a primary and a secondary source?",
       "id": "Q548"
     },
@@ -5941,9 +5003,7 @@
       "category": "content",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Is a memoir written decades later a primary source?",
       "id": "Q549"
     },
@@ -5952,10 +5012,7 @@
       "category": "content",
       "domain": "history",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Quelle différence entre source primaire et source secondaire ?",
       "id": "Q550"
     },
@@ -5964,10 +5021,7 @@
       "category": "content",
       "domain": "history",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Qué diferencia hay entre una fuente primaria y una secundaria?",
       "id": "Q551"
     },
@@ -5976,10 +5030,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Was hat der Westfälische Frieden von 1648 konkret verändert?",
       "id": "Q552"
     },
@@ -5988,9 +5039,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Warum gilt der Westfälische Frieden als Beginn des modernen Staatensystems?",
       "id": "Q553"
     },
@@ -5999,11 +5048,7 @@
       "category": "content",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "typo",
-        "short",
-        "out-of-domain"
-      ],
+      "tags": ["typo", "short", "out-of-domain"],
       "text": "westfälischer frieden folgen??",
       "id": "Q554"
     },
@@ -6012,10 +5057,7 @@
       "category": "content",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "What did the Peace of Westphalia actually change?",
       "id": "Q555"
     },
@@ -6024,9 +5066,7 @@
       "category": "content",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Why is the Peace of Westphalia seen as the start of the modern state system?",
       "id": "Q556"
     },
@@ -6035,10 +5075,7 @@
       "category": "content",
       "domain": "history",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Qu'a changé concrètement la paix de Westphalie ?",
       "id": "Q557"
     },
@@ -6047,10 +5084,7 @@
       "category": "content",
       "domain": "history",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Qué cambió realmente con la Paz de Westfalia?",
       "id": "Q558"
     },
@@ -6059,10 +5093,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Müssen wir uns für den Archivbesuch vorher anmelden?",
       "id": "Q559"
     },
@@ -6071,9 +5102,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Um wie viel Uhr treffen wir uns vor dem Stadtarchiv?",
       "id": "Q560"
     },
@@ -6082,10 +5111,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Is there a sign-up list for the archive visit?",
       "id": "Q561"
     },
@@ -6094,10 +5120,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Faut-il s'inscrire avant la visite aux archives ?",
       "id": "Q562"
     },
@@ -6106,10 +5129,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Hay que inscribirse antes de la visita al archivo?",
       "id": "Q563"
     },
@@ -6118,10 +5138,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Wie viele Seiten soll die Hausarbeit haben und bis wann ist sie fällig?",
       "id": "Q564"
     },
@@ -6130,9 +5147,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Sollen wir in der Hausarbeit mit Fußnoten zitieren?",
       "id": "Q565"
     },
@@ -6141,10 +5156,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "How long should the term paper be, and when is it due?",
       "id": "Q566"
     },
@@ -6153,10 +5165,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Quelle longueur pour le dossier, et pour quand ?",
       "id": "Q567"
     },
@@ -6165,10 +5174,7 @@
       "category": "organization",
       "domain": "history",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "¿Cuántas páginas tiene que tener el trabajo y para cuándo es?",
       "id": "Q568"
     },
@@ -6177,10 +5183,7 @@
       "category": "technical",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "Die Zeitungsdatenbank für die Übung lädt seit heute Morgen nicht.",
       "id": "Q569"
     },
@@ -6189,9 +5192,7 @@
       "category": "technical",
       "domain": "history",
       "locale": "de",
-      "tags": [
-        "out-of-domain"
-      ],
+      "tags": ["out-of-domain"],
       "text": "Beim Öffnen der digitalen Zeitungsarchive kommt nur eine Fehlerseite.",
       "id": "Q570"
     },
@@ -6200,10 +5201,7 @@
       "category": "technical",
       "domain": "history",
       "locale": "en",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "The newspaper archive database won't load.",
       "id": "Q571"
     },
@@ -6212,10 +5210,7 @@
       "category": "technical",
       "domain": "history",
       "locale": "fr",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "La base de données de presse ne s'ouvre pas.",
       "id": "Q572"
     },
@@ -6224,10 +5219,7 @@
       "category": "technical",
       "domain": "history",
       "locale": "es",
-      "tags": [
-        "canonical",
-        "out-of-domain"
-      ],
+      "tags": ["canonical", "out-of-domain"],
       "text": "La base de datos de periódicos no carga.",
       "id": "Q573"
     }
