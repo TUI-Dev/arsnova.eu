@@ -1299,7 +1299,7 @@ export function normalizeTimerAccommodation(value: unknown): TimerAccommodation 
   return 'DEFAULT';
 }
 
-/** Host-Schalter im Quiz; fehlend oder nicht `false` bleibt an (Default). */
+/** Host-Schalter im Quiz. Neue Quizzes speichern `false`; fehlender Legacy-Wert bleibt an. */
 export function isTimerAccommodationEnabled(value: boolean | null | undefined): boolean {
   return value !== false;
 }
@@ -1386,7 +1386,7 @@ export const CreateQuizInputSchema = z.object({
   allowCustomNicknames: z.boolean().optional().default(false),
   defaultTimer: z.number().int().min(5).max(300).nullable().optional(),
   timerScaleByDifficulty: z.boolean().optional().default(true),
-  enableTimerAccommodation: z.boolean().optional().default(true),
+  enableTimerAccommodation: z.boolean().optional().default(false),
   enableSoundEffects: z.boolean().optional().default(true),
   enableRewardEffects: z.boolean().optional().default(true),
   enableMotivationMessages: z.boolean().optional().default(true),
@@ -3780,6 +3780,7 @@ export const ConfidenceResultDTOSchema = z.object({
 export type ConfidenceResultDTO = z.infer<typeof ConfidenceResultDTOSchema>;
 
 export const ConfidenceQuestionSummaryDTOSchema = z.object({
+  questionId: z.uuid(),
   questionOrder: z.number().int().min(0),
   questionTextShort: z.string(),
   questionType: QuestionTypeEnum,
@@ -6576,10 +6577,15 @@ export const QaQuestionsListDTOSchema = z.object({
   sessionRemaining: z.number().int().min(0).max(QA_MAX_QUESTIONS_PER_SESSION).optional(),
   quota: QaQuestionQuotaDTOSchema.optional(),
   /**
-   * Presenter-Projektion: aktuelle Host-Sortierung der Warteschlange
+   * Presenter-Projektion: aktuelle Bühnen-Sortierung der Warteschlange
    * (`qa.setPresenterSortMode` → `qa.presentProjection`).
    */
   sortMode: QaQuestionSortModeEnum.optional(),
+  /**
+   * Wer die Bühnen-Sortierung zuletzt gesetzt hat. Fehlt der Wert, ist die
+   * Sortierung nur der implizite Default (z. B. nach einem Backend-Neustart).
+   */
+  sortModeSource: z.enum(['host', 'presenter']).optional(),
   /**
    * Von der Moderation für das Q&A-Forum hinterlegte Aufträge (nur `session`- oder
    * `qa-question`-bezogene manuelle Einträge, keine Quiz-Lernziele).
@@ -6638,17 +6644,24 @@ export const GetQaPresentProjectionInputSchema = z.object({
 });
 export type GetQaPresentProjectionInput = z.infer<typeof GetQaPresentProjectionInputSchema>;
 
+export const QaPresenterSortSourceSchema = z.enum(['host', 'presenter']);
+export type QaPresenterSortSource = z.infer<typeof QaPresenterSortSourceSchema>;
+
 /**
- * Host publiziert die aktuelle Q&A-Sortierung an die Presenter-Projektion
- * (ephemer, session-code-gebunden; analog zur Wortwolken-Projektion).
- * Optional: präsentierbarer Such-/Pin-/Autor-Filter, damit Host-Navigator und
- * Beamer dieselbe Bühnenliste teilen.
+ * Host oder Presenter publiziert die aktuelle Q&A-Sortierung an die
+ * Presenter-Projektion (ephemer, session-code-gebunden; analog zur
+ * Wortwolken-Projektion). Optional: präsentierbarer Such-/Pin-/Autor-Filter,
+ * damit Host-Navigator und Beamer dieselbe Bühnenliste teilen.
+ * `source: 'presenter'` ändert nur die Sortierung und behält den Filter.
+ * Ein Host-Schreiben überschreibt eine Presenter-Sortierung nur mit `takeover`.
  */
 export const SetQaPresenterSortModeInputSchema = GetSessionInfoInputSchema.extend({
   sortMode: QaQuestionSortModeEnum,
   search: z.string().trim().max(100).optional().default(''),
   pinnedOnly: z.boolean().optional().default(false),
   authorNickname: z.string().trim().min(1).max(30).optional(),
+  source: QaPresenterSortSourceSchema.optional(),
+  takeover: z.boolean().optional(),
 });
 export type SetQaPresenterSortModeInput = z.infer<typeof SetQaPresenterSortModeInputSchema>;
 
@@ -6657,6 +6670,7 @@ export const SetQaPresenterSortModeOutputSchema = z.object({
   search: z.string(),
   pinnedOnly: z.boolean(),
   authorNickname: z.string().nullable(),
+  source: QaPresenterSortSourceSchema.optional(),
 });
 export type SetQaPresenterSortModeOutput = z.infer<typeof SetQaPresenterSortModeOutputSchema>;
 
