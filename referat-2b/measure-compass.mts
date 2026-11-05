@@ -22,6 +22,9 @@
  * Aufruf aus dem Repo-Root:
  *   npx tsx referat-2b/measure-compass.mts --repo . --ref referat-2b/reference-dataset.v2.2.json \
  *     --out referat-2b/results [--url http://127.0.0.1:8790/embed]
+ *
+ * Nur Last wiederholen (Teil 3, Einreichungsraten 200/s und 1000/s je N-mal, Bericht load-*):
+ *   npx tsx referat-2b/measure-compass.mts --load-repeats 20 --out referat-2b/results
  */
 import { execSync } from 'node:child_process';
 import { createHash, randomUUID } from 'node:crypto';
@@ -38,6 +41,7 @@ const repo = resolve(args.get('repo') ?? '.');
 const refPath = resolve(args.get('ref') ?? 'referat-2b/reference-dataset.v2.2.json');
 const outRoot = resolve(args.get('out') ?? 'referat-2b/results');
 const ENCODER_URL = args.get('url') ?? 'http://127.0.0.1:8790/embed';
+const LOAD_REPEATS = Number(args.get('load-repeats') ?? 0);
 
 const lib = (name: string) =>
   import(pathToFileURL(join(repo, 'apps/backend/src/lib', `${name}.ts`)).href);
@@ -292,7 +296,7 @@ await semanticEntries(ref.items.slice(0, 20), 'de'); // Aufwärmen
 // ---------- Teil 1: Fächer (deutsche Sitzungen) ----------
 const DOMAINS = ['statistics', 'botany', 'history', 'police'];
 const subjects: Record<string, any> = {};
-for (const d of DOMAINS) {
+for (const d of LOAD_REPEATS ? [] : DOMAINS) {
   const items = ref.items.filter((i) => dom(i) === d && i.locale === 'de');
   console.log(`Teil 1 – ${d}: ${items.length} Fragen`);
   subjects[d] = await sessionReport(items, 'de');
@@ -301,7 +305,7 @@ for (const d of DOMAINS) {
 // ---------- Teil 2: Sprachen (wie das Produkt sie behandelt) ----------
 const LANGS = ['de', 'en', 'fr', 'es', 'mixed'];
 const languages: Record<string, any> = {};
-for (const d of ['statistics', 'police']) {
+for (const d of LOAD_REPEATS ? [] : ['statistics', 'police']) {
   languages[d] = {};
   for (const l of LANGS) {
     const items = ref.items.filter((i) => dom(i) === d && i.locale === l);
@@ -434,6 +438,91 @@ async function arrivalRun(
   };
 }
 
+if (LOAD_REPEATS) {
+  // Nur Teil 3 wiederholen: Anteil der Läufe, in denen die Queue überläuft
+  const runs: Record<string, any[]> = {};
+  for (const rate of [200, 1000] as const) {
+    runs[rate] = [];
+    for (let k = 0; k < LOAD_REPEATS; k++) {
+      console.log(`Last ${rate}/s – Lauf ${k + 1}/${LOAD_REPEATS}`);
+      runs[rate].push(await arrivalRun(`500 Fragen, ${rate}/s`, 500, rate));
+    }
+  }
+  const wilson = (x: number, n: number) => {
+    const z = 1.96;
+    const p = x / n;
+    const d = 1 + (z * z) / n;
+    const c = (p + (z * z) / (2 * n)) / d;
+    const h = (z * Math.sqrt((p * (1 - p)) / n + (z * z) / (4 * n * n))) / d;
+    return [Math.max(0, c - h), Math.min(1, c + h)];
+  };
+  const summary = Object.fromEntries(
+    Object.entries(runs).map(([rate, rs]) => {
+      const overflow = rs.filter((r) => r.rejectedAtEnqueue > 0).length;
+      const unavailable = rs.filter((r) => r.finalStatusMode !== 'classified').length;
+      return [
+        rate,
+        {
+          runs: rs.length,
+          runsWithOverflow: overflow,
+          overflowShare: overflow / rs.length,
+          overflowWilson95: wilson(overflow, rs.length),
+          runsNotSorted: unavailable,
+          finalStatusLines: rs.reduce(
+            (c: Record<string, number>, r) => (
+              (c[r.finalStatusLine] = (c[r.finalStatusLine] ?? 0) + 1),
+              c
+            ),
+            {},
+          ),
+          rejectedPerRun: rs.map((r) => r.rejectedAtEnqueue),
+          maxPendingPerRun: rs.map((r) => r.maxPending),
+          maxEventLoopGapMs: rs.map((r) => r.maxEventLoopGapMs),
+        },
+      ];
+    }),
+  );
+  const ts = new Date().toISOString();
+  const loadManifest = {
+    timestamp: ts,
+    commit: execSync(`git -C "${repo}" rev-parse HEAD`, { encoding: 'utf8' }).trim(),
+    node: process.version,
+    platform: `${os.platform()} ${os.release()} ${os.arch()}`,
+    cpu: `${os.cpus()[0]?.model} × ${os.cpus().length}`,
+    repeats: LOAD_REPEATS,
+    queueLimit: configMod.resolveQaNlpConfig({ ...process.env, QA_NLP_ENABLED: 'true' }),
+  };
+  const ldir = join(outRoot, `load-${ts.replace(/[:.]/g, '-')}`);
+  mkdirSync(ldir, { recursive: true });
+  writeFileSync(
+    join(ldir, 'results.json'),
+    JSON.stringify({ manifest: loadManifest, summary, runs }, null, 2) + '\n',
+  );
+  const pc = (x: number) => `${(x * 100).toFixed(0)} %`;
+  const LL = [
+    '# Referat 2B – Last wiederholt: Queue-Überlauf bei hoher Einreichungsrate',
+    '',
+    `Commit \`${loadManifest.commit.slice(0, 12)}\`, ${ts}, ${loadManifest.cpu}, Node ${loadManifest.node}. Je Rate ${LOAD_REPEATS} Läufe à 500 Fragen (Release-Queue, Klassifikator 8.9b).`,
+    '',
+    '| Rate | Läufe | mit Queue-Überlauf | Anteil [95-%-Wilson] | Statuszeile am Ende | abgewiesene Fragen je Lauf (min–max) | max. offen (min–max) | max. Event-Loop-Lücke ms (min–max) |',
+    '|---|---:|---:|---|---|---|---|---|',
+    ...Object.entries(summary).map(([rate, x]: [string, any]) => {
+      const mm = (a: number[]) => `${Math.min(...a)}–${Math.max(...a)}`;
+      return `| ${rate}/s | ${x.runs} | ${x.runsWithOverflow} | ${pc(x.overflowShare)} [${pc(x.overflowWilson95[0])}; ${pc(x.overflowWilson95[1])}] | ${Object.entries(
+        x.finalStatusLines,
+      )
+        .map(([k, v]) => `${k} ×${v}`)
+        .join(
+          ', ',
+        )} | ${mm(x.rejectedPerRun)} | ${mm(x.maxPendingPerRun)} | ${mm(x.maxEventLoopGapMs)} |`;
+    }),
+    '',
+    'Gültigkeitsgrenze: ein Prozess auf dem Messrechner; die Überlaufgrenze hängt von der CPU-Zeit je Klassifikation ab.',
+  ];
+  writeFileSync(join(ldir, 'report.md'), LL.join('\n') + '\n');
+  console.log(LL.join('\n'));
+  process.exit(0);
+}
 console.log('Teil 3 – Einreichungsraten …');
 const load = {
   arrival: [] as any[],

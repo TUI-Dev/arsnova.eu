@@ -85,10 +85,11 @@ _Erreichbar_ = Anteil aller Fragen hinter den drei sichtbaren Quellen.
    en 57,1 %, fr 55,6 %, es 52,9 %, kleine Stichproben).
 5. **Last:** Bei 50 und 200 Fragen/s hält die Queue mit (höchstens 3 wartend);
    »Die Fragen werden noch sortiert.« steht über den ganzen Lauf zusammen rund
-   1–2 s. Bei 1000 Fragen/s liegt die Grenze: In 1 von 5 Läufen stauten sich
-   107 Fragen über das Queue-Limit 100, 56 scheiterten und die Statuszeile
-   meldete am Ende »nicht verfügbar«; in den anderen 4 blieben höchstens 27
-   wartend. Kommen 500 Fragen im selben Moment,
+   1–2 s. Bei 1000 Fragen/s liegt die Grenze: In 4 von 20 wiederholten Läufen
+   (20 %, 95-%-Wilson-Intervall 8–42 %; bei 200/s 0 von 20, Bericht
+   `results/load-2026-11-05T11-06-14-854Z/`) lief die Queue über (abgewiesen je Lauf 0–88 Fragen, höchstens 18–112
+   gleichzeitig offen); in jedem Überlauf-Lauf meldete die Statuszeile am Ende
+   »nicht verfügbar«, sonst »sortiert«. Kommen 500 Fragen im selben Moment,
    scheitern 400 (`failed:queue-limit`) und die Statuszeile wechselt zu »Die
    automatische Sortierung ist gerade nicht verfügbar.« – **auch in einer
    Nachbarsitzung**, weil es eine Queue je Backend-Prozess gibt. Fordern mehrere
@@ -121,7 +122,16 @@ wären die Encoder-Themen im Kompass nicht sichtbar.
    Statistik im Kompass bei 0 von 3 schlüssigen Themen-Quellen, die
    Polizeischule fällt von 2 auf 1; Encoder-Themen erreichen 2 von 3. Ist der
    Sidecar an, verdrängen die Lemma-Terme sogar die Encoder-Themen, außer im
-   Modus »Thema« (`moderationCompassQaTerms`). Bericht `results/spacy-2026-11-04T18-19-26-231Z/`.
+   Modus »Thema« (`moderationCompassQaTerms`). Bericht `results/spacy-2026-11-04T18-19-26-231Z/`;
+   über den Release-Client und den Unix-Socket identisch (`results/spacy-socket-2026-11-05T11-08-03-560Z/`).
+9. **Robustheit:** Über je 100 zufällige Teilsitzungen hat der Encoder in
+   94–100 % mindestens so viele schlüssige Kompass-Quellen wie »Wörter« mit
+   spaCy und in 84–100 % den höheren Anteil gleicher Anliegen; der Befund hängt
+   nicht an einer Sitzung (`results/robustness-2026-11-05T11-16-54-552Z/`).
+10. **Zusatz fr/es (hypothetisch):** Mit geöffnetem Locale-Gate wäre der Encoder
+    in Französisch schlechter als der lexikalische Modus (ARI 0,18 statt 0,23),
+    in Spanisch nur teilweise besser (0,32 statt 0,26; in 67 % der
+    Teilsitzungen). Die Release-Beschränkung auf de/en ist gedeckt (`results/robustness-locales-2026-11-05T11-12-59-547Z/`).
 
 ## 1. Transparenz zur Reihenfolge
 
@@ -274,6 +284,38 @@ wie im Host gemischt (`mergeThemePhrasesWithLemmaUnigrams`). Bericht `results/sp
 - Laufzeit 0,7–1,2 ms je Frage (200 Fragen 130–200 ms), Image 751 MB, rund
   460 MiB Arbeitsspeicher.
 
+- Gegenprobe über den Produktionspfad: Release-Client `normalizeWithSpacySidecar`
+  über den Unix-Socket in einem Linux-Node-Container (gemeinsames Socket-Volume)
+  liefert identische Werte; 0,8–1,0 ms je Frage (`results/spacy-socket-2026-11-05T11-08-03-560Z/`).
+
+### Robustheit über Teilsitzungen
+
+`measure-robustness.mts`: je Sitzung 100 zufällige Teilsitzungen (Seed 2026), dieselben
+Release-Funktionen; Kontrolllauf über die ganze Sitzung reproduziert die Tabelle oben.
+Median [95-%-Perzentil] und gepaarte Anteile (`results/robustness-2026-11-05T11-16-54-552Z/`):
+
+| Sitzung (Teil/Pool)      | schlüssige Quellen Wörter → + spaCy → Encoder | Encoder ≥ + spaCy | Paare Encoder > + spaCy | ARI lex. → Encoder (Encoder besser) |
+| ------------------------ | --------------------------------------------- | ----------------: | ----------------------: | ----------------------------------- |
+| Statistik de (60/201)    | 0 [0; 1,5] → 0 [0; 1] → 1 [0; 3]              |             100 % |                    99 % | 0,32 → 0,47 (93 %)                  |
+| Polizeischule de (45/90) | 0 [0; 2] → 1 [0; 2,5] → 2 [0; 3]              |              94 % |                    84 % | 0,38 → 0,43 (66 %)                  |
+| Statistik en (60/120)    | 0 [0; 0] → 0 [0; 0] → 1 [0; 3]                |             100 % |                   100 % | 0,33 → 0,52 (95 %)                  |
+
+- spaCy ändert die Zahl schlüssiger Quellen meist nicht; Statistik de in 15 %
+  der Teilsitzungen schlechter, Polizeischule in 21 % besser.
+- Einzelne Teilsitzungen zeigen auch mit Encoder 0 schlüssige Quellen; die
+  Aussage gilt für die Verteilung, nicht für jede Vorlesung.
+
+### Zusatz: Encoder für fr/es (hypothetisch, Gate geöffnet)
+
+Release: fr/es → Status `fallback`. Gemessen mit Sitzungs-Locale de (einzige
+Stelle, an der die Analyse die Sitzungssprache auswertet), 100 Teilsitzungen à 40
+(`results/robustness-locales-2026-11-05T11-12-59-547Z/`):
+
+| Sitzung      | ARI lex. → Encoder (Encoder besser) | Top-12-Paare + spaCy → Encoder (Encoder besser) |
+| ------------ | ----------------------------------- | ----------------------------------------------- |
+| Statistik fr | 0,23 → 0,18 (24 %)                  | 17,3 % → 12,0 % (16 %)                          |
+| Statistik es | 0,26 → 0,32 (67 %)                  | 18,2 % → 25,0 % (66 %)                          |
+
 ### Übertragbarkeit auf andere Fächer (Zusatzprüfung, v2.2)
 
 Der 8.9b-Seed (`qaNlpSeed.ts`) enthält nur Statistik- und ML-Inhalte; das
@@ -384,7 +426,11 @@ kein Slot für 8.9b laut ADR-0035 (`:143`). Zeilen für 1.3 (`a657798e`); die Ze
   0,87 liegt im Plateau, und die Themen-Kriterien wurden nachträglich gebildet.
   Die Zusatzprüfungen stützen das: gleiche Ähnlichkeitsstruktur in Botanik und
   Geschichte; der Fallback greift bei gestopptem (10 ms) und hängendem (8 s)
-  Encoder, danach schützt der Circuit-Breaker.
+  Encoder, danach schützt der Circuit-Breaker. Über 100 Teilsitzungen je Sitzung
+  bleibt der Vorsprung bestehen (93–95 % der Teilsitzungen mit höherem ARI in
+  Statistik de/en). Die Beschränkung auf de/en ist gedeckt: Mit geöffnetem Gate
+  wäre der Encoder in fr schlechter (ARI 0,18 statt 0,23), in es nur teilweise
+  besser.
 - **Folge und Risiken, die der Lehrperson bekannt sein sollten:**
   gemischtsprachige Fragen bilden getrennte Themen; nur 12 Themen sichtbar;
   Themen können je nach Eingangsreihenfolge leicht variieren. Bei fachfremdem
@@ -427,8 +473,8 @@ wurden nicht erhoben.
 ## 7. Gültigkeitsgrenzen
 
 - Referenzfragen synthetisch, von einem KI-Assistenten entworfen; Kategorien
-  KI-gestützt zugeordnet und von mir ohne Zweitannotation übernommen; keine
-  Übereinstimmungsmessung. Set am 04.11.2026 eingefroren (SHA-256 im Bericht).
+  KI-gestützt zugeordnet und von mir übernommen. Zweitannotation vorbereitet
+  (`zweitannotation/`, Auswertung `measure-agreement.mjs`), Ergebnis steht aus. Set am 04.11.2026 eingefroren (SHA-256 im Bericht).
 - Bewusst schwierige Mischung (Near-Miss, Mehrdeutigkeit, Rauschen): Werte
   beschreiben Verhalten in schwierigen Fällen, nicht eine typische Vorlesung.
 - Modellkonfidenz ist ohne Kalibrierung keine Erfolgswahrscheinlichkeit;
@@ -436,8 +482,10 @@ wurden nicht erhoben.
 - Laborbetrieb (Encoder über loopback-HTTP statt Unix-Socket). Queue und
   Timeout in-process mit Testadaptern gemessen, ohne HTTP, Datenbank und echte
   Parallelnutzer; Cache-Latenzen nicht gemessen.
-- spaCy-Sidecar per `docker exec` im Container aufgerufen (nur Unix-Socket);
-  gemessen wird nur der HTTP-Aufruf im Container.
+- spaCy-Sidecar unter Windows per `docker exec` aufgerufen; ein Kontrolllauf über
+  den Release-Client und den Unix-Socket (Linux-Container) liefert identische Werte.
+- Teilsitzungen stammen aus demselben Referenzset: Die Intervalle zeigen Streuung
+  über Sitzungszusammensetzungen, nicht über unabhängige Lehrveranstaltungen.
 - Fachfremde Prüfung: Botanik und Geschichte klein und ohne Near-Miss-Fragen,
   Polizeischule größer; Richtungsbefund für die Übertragbarkeit.
 

@@ -21,6 +21,10 @@
  * ihn per `docker exec` im Container auf (Injektionspunkt `options.sidecar` des Releasecodes).
  * Die gemessene Sidecar-Zeit ist die Zeit des HTTP-Aufrufs im Container, ohne `docker exec`.
  *
+ * --sidecar socket: kein Injektionspunkt, sondern der Release-Client normalizeWithSpacySidecar
+ * über NLP_SOCKET_PATH (nur unter Linux, z. B. in einem Node-Container, der das Socket-Volume
+ * des Sidecars einbindet). Gemessen wird dann die Zeit des Release-Client-Aufrufs.
+ *
  * Aufruf aus dem Repo-Root:
  *   docker build -t arsnova-spacy:3.8.15 docker/spacy
  *   docker run -d --name arsnova-2b-spacy --read-only --tmpfs /tmp --tmpfs /run/spacy:uid=1000 \
@@ -33,6 +37,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import os from 'node:os';
 import { join, resolve } from 'node:path';
+import { performance } from 'node:perf_hooks';
 import { pathToFileURL } from 'node:url';
 
 const args = new Map<string, string>();
@@ -43,6 +48,8 @@ const refPath = resolve(args.get('ref') ?? 'referat-2b/reference-dataset.v2.2.js
 const outRoot = resolve(args.get('out') ?? 'referat-2b/results');
 const ENCODER_URL = args.get('url') ?? 'http://127.0.0.1:8790/embed';
 const CONTAINER = args.get('container') ?? 'arsnova-2b-spacy';
+const SIDECAR_MODE = args.get('sidecar') ?? 'exec'; // exec | socket
+const SOCKET_PATH = args.get('socket') ?? '/run/spacy/nlp.sock';
 const TOP = 12;
 
 const lib = (name: string) =>
@@ -54,9 +61,10 @@ const merge = await import(pathToFileURL(join(hostDir, 'qa-word-cloud-theme-merg
 const routerMod = await import(
   pathToFileURL(join(repo, 'apps/backend/src/routers/wordCloud.ts')).href
 );
-const [analyzeMod, normMod] = await Promise.all([
+const [analyzeMod, normMod, spacyClient] = await Promise.all([
   lib('wordCloudSemanticAnalyze'),
   lib('wordCloudNormalization'),
+  lib('spacyClient'),
 ]);
 const LEMMA_MAX_ENTRIES = 80; // session-host.component.ts: WORD_CLOUD_LEMMA_MAX_ENTRIES
 const VISIBLE: number = shared.MODERATION_COMPASS_VISIBLE_SOURCE_COUNT;
@@ -94,7 +102,19 @@ async function dockerSidecar(locale: string, texts: readonly { id: string; text:
   sidecarCalls.push({ locale, texts: texts.length, ms: Number(res.stderr.toString()) });
   return JSON.parse(res.stdout.toString('utf8'));
 }
-const lemmaEnv = { ...process.env, NLP_ENABLED: 'true', NLP_SOCKET_PATH: '/run/spacy/nlp.sock' };
+// Release-Client über den Unix-Socket; der Wrapper misst nur die Zeit
+async function socketSidecar(
+  locale: string,
+  texts: readonly { id: string; text: string }[],
+  config: unknown,
+) {
+  const t = performance.now();
+  const out = await spacyClient.normalizeWithSpacySidecar(locale, texts, config);
+  sidecarCalls.push({ locale, texts: texts.length, ms: performance.now() - t });
+  return out;
+}
+const sidecar = SIDECAR_MODE === 'socket' ? socketSidecar : dockerSidecar;
+const lemmaEnv = { ...process.env, NLP_ENABLED: 'true', NLP_SOCKET_PATH: SOCKET_PATH };
 const encoderEnv = {
   ...process.env,
   WORD_CLOUD_SEMANTIC_ENABLED: 'true',
@@ -118,7 +138,7 @@ const input = (items: Item[], mode: string, locale: string, normalization: strin
 async function lexical(items: Item[], locale: string, lemma: boolean) {
   const out = await routerMod.analyzeWordCloudSnapshot(
     input(items, 'LEXICAL', locale, lemma ? 'LEMMA' : 'NONE'),
-    lemma ? { env: lemmaEnv, sidecar: dockerSidecar } : {},
+    lemma ? { env: lemmaEnv, sidecar } : {},
   );
   return {
     entries: out.entries as any[],
@@ -305,8 +325,9 @@ const sidecarResources = {
 };
 const manifest = {
   timestamp: new Date().toISOString(),
-  commit: git('rev-parse HEAD'),
-  describe: git('describe --tags --always --dirty'),
+  // im Linux-Container ohne git: --commit/--describe vom Host übergeben
+  commit: args.get('commit') ?? git('rev-parse HEAD'),
+  describe: args.get('describe') ?? git('describe --tags --always --dirty'),
   node: process.version,
   platform: `${os.platform()} ${os.release()} ${os.arch()}`,
   cpu: `${os.cpus()[0]?.model} × ${os.cpus().length}`,
@@ -316,6 +337,7 @@ const manifest = {
     sha256: createHash('sha256').update(refRaw).digest('hex'),
   },
   spacy: {
+    sidecarMode: SIDECAR_MODE,
     runtime: shared.WORD_CLOUD_SPACY_RUNTIME_VERSION,
     models: shared.WORD_CLOUD_LEMMA_MODELS,
     container: image,
@@ -323,7 +345,10 @@ const manifest = {
   },
   normalizationVersion: shared.WORD_CLOUD_NORMALIZATION_ANALYSIS_VERSION,
 };
-const dir = join(outRoot, `spacy-${manifest.timestamp.replace(/[:.]/g, '-')}`);
+const dir = join(
+  outRoot,
+  `spacy-${SIDECAR_MODE === 'socket' ? 'socket-' : ''}${manifest.timestamp.replace(/[:.]/g, '-')}`,
+);
 mkdirSync(dir, { recursive: true });
 writeFileSync(
   join(dir, 'results.json'),
@@ -408,7 +433,9 @@ const L: string[] = [
   '',
   '## Gültigkeitsgrenzen',
   '',
-  '- Sidecar per `docker exec` statt über den Produktions-Socket; die Zeitangabe misst nur den HTTP-Aufruf im Container.',
+  SIDECAR_MODE === 'socket'
+    ? '- Sidecar über den Release-Client und den Unix-Socket (Linux-Node-Container mit gemeinsamem Socket-Volume); die Zeitangabe misst den Release-Client-Aufruf.'
+    : '- Sidecar per `docker exec` statt über den Produktions-Socket; die Zeitangabe misst nur den HTTP-Aufruf im Container.',
   '- Kompass ohne Kategorien (8.9b aus), ohne Stimmen; Sortierung TOP; drei sichtbare Quellen wie im Release.',
   '- Top-12-Paarmaß ist ein Hilfsmaß für überlappende Wortwolken-Einträge, keine Partition (daher kein ARI).',
 ];
