@@ -34,7 +34,7 @@ vorher auf anderem Weg entstanden und gespeichert wurden:
 ## Pfad 2: Themen
 
 1. **Erzeugung:** Nur wenn der Host den Themenmodus der Q&A-Wortwolke abruft
-   (`routers/wordCloud.ts:458`, Callback `onFreshOutput`), wird nach einer
+   (`routers/wordCloud.ts:458` (auf `84a5614e`: `:463`), Callback `onFreshOutput`), wird nach einer
    frischen Encoder-Analyse `recordLatestQaSemanticTopicSnapshot()`
    (`lib/qaSemanticTopicSnapshot.ts:240`) aufgerufen.
 2. **Was gespeichert wird:** `buildQaSemanticTopicSnapshot()` (`:150`) speichert

@@ -5,13 +5,123 @@
 Encoder-Themen in Release 1.3 gegenüber dessen lexikalischer beziehungsweise
 regelbasierter Baseline?
 
-**Baseline:** unveränderter Stand `a657798e` (neuester Commit `main`,
-`kqc-real/arsnova.eu`), Referenzset v2 (500 Fragen; de, en, fr, es, gemischt;
-SHA-256 siehe Messbericht), Messläufe vom 21.10.2026. Ergänzung vom
-23.10.2026: Referenzset v2.1 (+ 73 fachfremde Fragen aus Botanik und
-Geschichte) und Laufzeitpfad-Messung (`check-runtime-paths.mts`).
+**Baseline:** unveränderter Releasecode von 1.3. Erste Messungen am
+21./23.10.2026 auf `a657798e` (Referenzset v2 und v2.1). Maßgebliche Läufe vom
+04.11.2026 auf `84a5614e` (Fork mit Upstream `9f230abc`; gemessener Code
+unverändert) mit dem eingefrorenen Referenzset **v2.2**: 723 Fragen aus
+Statistik (500), Botanik (37), Geschichte (36) und Polizeischule (150); de, en,
+fr, es, gemischt; SHA-256 `717bdb17…` (vollständig in jedem Messbericht). Alle
+Vorhersagen der Klassifikation je Frage sind zwischen beiden Ständen identisch.
+
+**Blickrichtung:** Alles wird vom Moderationskompass her gelesen – was sieht die
+Lehrperson dort zusätzlich, wenn 8.9b und 1.14c an sind, und wie verlässlich ist
+es? Die isolierten Messungen (Abschnitt 4) erklären, warum der Kompass so
+aussieht.
 
 ---
+
+## Frage und Antwort (TL;DR)
+
+**Leitfrage 2B** (`docs/didaktik/CLOUD-COMPUTING-REFERAT-PRUEFUNG.md`, §4.4):
+»Welchen nachweisbaren Qualitätsgewinn liefern Klassifikation und
+Encoder-Themen in Release 1.3 gegenüber dessen lexikalischer beziehungsweise
+regelbasierter Baseline?«
+
+**Schwerpunkt:** Clustering – Encoder-Themen (1.14c) gegen die lexikalische
+Baseline ohne und mit spaCy-Glättung (1.14b). Klassifikation (8.9b) als
+Schnittstelle, mit derselben Messkette erfasst.
+
+**Antwort in vier Sätzen:**
+
+1. **Encoder-Themen (1.14c)** gruppieren in Deutsch und Englisch stabil besser
+   (ARI 0,29 → 0,44 bzw. 0,53) und liefern schlüssigere Themen-Quellen im Kompass;
+   bei Ausfall oder Last greift der lexikalische Fallback – deshalb für de/en
+   aktivierbar (E2).
+2. **spaCy (1.14b)** glättet Wortformen, bündelt aber keine Anliegen; im Kompass
+   bringt es gegenüber der ungeglätteten Baseline keinen Gewinn (E4).
+3. **Kategorien (8.9b)** sind messbar besser als Keyword-Regeln (61,3 % statt
+   35,2 % nutzbar korrekt), aber im Kompass ist jede vierte bis jede zweite Frage
+   hinter einer Kategorie-Quelle falsch eingeordnet, die Statuszeile meldet
+   trotzdem »sortiert«, und die Kategorien verdrängen die Themen – deshalb
+   bleiben sie aus (E1).
+4. Die **Entscheidungstiefe** steigt nicht: »Als Nächstes« bleibt gleich; unter
+   Last zeigt der Kompass »nicht verfügbar« statt falscher Sicherheit, und das
+   Label nach `qa.submit` ist kein LLM-Auftrag (ADR-0035).
+
+## 0. Kernbefund: was im Moderationskompass ankommt
+
+Kategorien erscheinen im Kompass als Quellen der Karte »Häufige Themen«
+(»Inhaltliche Fragen · n«, »Fragen zum Ablauf · n«, »Technische Fragen · n«)
+und als Statuszeile; Encoder-Themen als Themen-Quellen derselben Karte. Gemessen
+mit den Release-Funktionen des Kompasses (`measure-compass.mts`, Bericht
+`results/compass-2026-11-04T17-14-44-975Z/`; fünf Wiederholungen `results/compass-2026-11-04T17-*`), je Fach eine
+deutsche Sitzung. Teil 1 und 2 sind in allen Wiederholungen identisch.
+
+| Fach (de)     | Statuszeile mit 8.9b | Kategorie-Quellen korrekt | Themen-Quellen schlüssig: lexikalisch → Encoder | über 3 Quellen erreichbar: 2B aus → mit Kategorien |
+| ------------- | -------------------- | ------------------------: | ----------------------------------------------: | -------------------------------------------------: |
+| Statistik     | »… sortiert.«        |        75,5 % (40 falsch) |                                       0/3 → 2/3 |                                    16,9 % → 81,1 % |
+| Botanik       | »… sortiert.«        |         57,1 % (6 falsch) |                                       3/3 → 3/3 |                                    50,0 % → 87,5 % |
+| Geschichte    | »… sortiert.«        |         71,4 % (4 falsch) |                                       3/3 → 3/3 |                                   46,7 % → 100,0 % |
+| Polizeischule | »… sortiert.«        |        51,2 % (40 falsch) |                                       2/3 → 2/3 |                                    16,7 % → 91,1 % |
+
+_Schlüssig_ = Quelle mit ≥ 2 Fragen, davon ≥ 80 % ein Anliegen (Familie).
+_Erreichbar_ = Anteil aller Fragen hinter den drei sichtbaren Quellen.
+
+1. **Kategorien vergrößern die Reichweite, aber jede vierte bis jede zweite
+   Frage dahinter ist falsch einsortiert.** Die Statuszeile lautet trotzdem
+   »Die Fragen sind grob nach Inhalt, Ablauf und Technik sortiert.« Beispiel
+   Polizeischule, »Fragen zum Ablauf · 41«: nur 41,5 % sind Ablauffragen, darunter
+   »Ist die vorläufige Festnahme basically dasselbe wie eine Ingewahrsamnahme?«.
+2. **Kategorien verdrängen die Themen.** Sind beide an, belegen die drei
+   Kategorie-Quellen alle sichtbaren Plätze (`selectModerationCompassTopicSourceIds`
+   nimmt klassifizierte Quellen zuerst); Encoder-Themen stehen nur noch hinter
+   »Weitere Wortwolken-Themen«.
+3. **Encoder-Themen machen die Themen-Quellen schlüssiger, nicht breiter.** In
+   der Statistik werden aus 0 von 3 schlüssigen Quellen 2 von 3; erreichbar sind
+   aber nur 9,0 % statt 16,9 % der Fragen, weil Encoder-Themen enger sind.
+4. **Sprachen (Statistik):** Kategorie-Quellen korrekt de 75,5 %, en 66,0 %,
+   fr 53,8 %, es 47,6 % – bei gleicher Statuszeile. Encoder-Themen gibt es nur
+   in de/en; fr/es-Sitzungen zeigen lexikalische Terme (Polizeischule: de 51,2 %,
+   en 57,1 %, fr 55,6 %, es 52,9 %, kleine Stichproben).
+5. **Last:** Bei 50 und 200 Fragen/s hält die Queue mit (höchstens 3 wartend);
+   »Die Fragen werden noch sortiert.« steht über den ganzen Lauf zusammen rund
+   1–2 s. Bei 1000 Fragen/s liegt die Grenze: In 1 von 5 Läufen stauten sich
+   107 Fragen über das Queue-Limit 100, 56 scheiterten und die Statuszeile
+   meldete am Ende »nicht verfügbar«; in den anderen 4 blieben höchstens 27
+   wartend. Kommen 500 Fragen im selben Moment,
+   scheitern 400 (`failed:queue-limit`) und die Statuszeile wechselt zu »Die
+   automatische Sortierung ist gerade nicht verfügbar.« – **auch in einer
+   Nachbarsitzung**, weil es eine Queue je Backend-Prozess gibt. Fordern mehrere
+   Sitzungen gleichzeitig Themen an, bekommt nur die erste Encoder-Themen, die
+   anderen sofort den lexikalischen Fallback (»Themenanalyse fehlgeschlagen. Es
+   gelten Wörter und Phrasen.«); die nächste Anfrage danach klappt wieder.
+
+6. **Entscheidungstiefe:** Der vorgeschlagene nächste Schritt (»Als Nächstes«)
+   ist in allen Fächern und Varianten derselbe. 2B ändert den Inhalt der Karte
+   »Häufige Themen«, nicht die Empfehlung des Kompasses.
+7. **Gemeinsames Szenario (#456 §12, nur Kontexttest):** Mit der 2A-Rubrik
+   erreicht der Kompass ohne 2B 4 von 8 Punkten, mit Kategorien, mit
+   Encoder-Themen oder mit beidem jeweils 5 (D2 nicht bewertet, weil 2B keine
+   Stimmen deutet). Kategorien machen Übungswunsch und Prüfung/Kontroverse
+   sichtbar, mischen aber D (Prüfung) und E (Anwesenheit) in »Fragen zum
+   Ablauf · 2«; C und F bleiben `uncertain` und fehlen, die Statuszeile meldet
+   trotzdem »sortiert«. Encoder-Themen trennen sauber (A+B, E+F), C und D
+   bleiben Einzelfragen (Kosinus 0,864 < 0,87) und damit unsichtbar. **Die
+   Prüfungsorganisation wird in keiner Variante als eigenes Anliegen
+   sichtbar**, und keine Variante kennzeichnet die Lücke (D4 = 0). Bericht
+   `results/group-scenario-2026-11-04T17-11-43-084Z/`.
+
+**Folge für die Entscheidungen:** E1 wird gestützt (falsche Quellen ohne
+Warnung, Statuszeile maskiert). E2 gilt nur, solange E1 gilt: Mit Kategorien
+wären die Encoder-Themen im Kompass nicht sichtbar.
+
+---
+
+8. **spaCy-Glättung (1.14b):** Mit dem Release-Sidecar lemmatisiert, bleibt die
+   Statistik im Kompass bei 0 von 3 schlüssigen Themen-Quellen, die
+   Polizeischule fällt von 2 auf 1; Encoder-Themen erreichen 2 von 3. Ist der
+   Sidecar an, verdrängen die Lemma-Terme sogar die Encoder-Themen, außer im
+   Modus »Thema« (`moderationCompassQaTerms`). Bericht `results/spacy-2026-11-04T18-19-26-231Z/`.
 
 ## 1. Transparenz zur Reihenfolge
 
@@ -22,6 +132,8 @@ Geschichte) und Laufzeitpfad-Messung (`check-runtime-paths.mts`).
 | Operationalisierung H1a, H2a, H2b                                          | **nach** den Messungen                                                    |
 | Prüfung auf fachfremde Fragen (Abschnitt 4, Übertragbarkeit)               | **nach** den Messungen, als Zusatzprüfung                                 |
 | Laufzeitpfade und Fallback (Abschnitt 4, Laufzeitpfade)                    | **nach** den Messungen, als Fehlerinjektion an Queue, Timeout und Encoder |
+| Polizeischule als viertes Fach (Abschnitt 4, Übertragbarkeit)              | **nach** den Messungen, als Zusatzprüfung; Set danach eingefroren         |
+| Kompass-Messung, Sprachvergleich und Last (Abschnitt 0)                    | **nach** dem Einfrieren, auf dem unveränderten Set v2.2                   |
 
 Konsequenz: Änderungsempfehlungen stützen sich nur auf vorab festgelegte
 Kriterien. Die nachträglich operationalisierten Teilhypothesen werden als
@@ -48,7 +160,7 @@ Varianten: Schwellen-Sweep (0,35–0,90 bzw. 0,80–0,92), Transliteration
 (ä → ae), zehn Läufe mit zufälliger Batch-Zusammensetzung → Vergleich mit
 95-%-Bootstrap-Intervallen bzw. Median [min–max] → Befund mit
 Gültigkeitsgrenze → Entscheidung. Zusatz: dieselben Messungen je Fachdomäne
-(`--domain statistics|botany|history`) sowie Fehlerinjektion an Queue,
+(`--domain statistics|botany|history|police`) sowie Fehlerinjektion an Queue,
 Timeout und Encoder. Skripte und Rohdaten: `referat-2b/`.
 
 ### Baseline, Versuchsvariante und Ergebnis getrennt
@@ -83,7 +195,12 @@ abzustimmen.
 | Kontext-Packing, Kompass-Karten, `qa.ts`                                    | geändert; Zeilennummern weichen ab                                         |
 
 **Folge:** Die Qualitätsbefunde zu Kategorien und Themen gelten für beide
-Stände. Die Zeilenverweise und die Aussage »drei Slot-Aufträge inklusive
+Stände. Wiederholt am 04.11.2026 auf `a5dc74fc` (Upstream bis `cf522c63`)
+und erneut auf `84a5614e` (Upstream bis `9f230abc`, #642: stabile
+Themen-Schlüssel und Anzeige-Schemas der Wortwolke, Schwelle und Clustering
+unverändert): Klassifikation, Seed, Queue, Encoder, Clustering und die beiden
+Kompass-Funktionen sind dort unverändert; neu sind u. a. ein Kompass-Signal aus
+Quiz-Ergebnissen (2A) und UI-Korrekturen der Wortwolke. Die Zeilenverweise und die Aussage »drei Slot-Aufträge inklusive
 Themenname« gelten für `a657798e`.
 
 ## 4. Befunde
@@ -113,11 +230,11 @@ Themenname« gelten für `a657798e`.
 
 | Fragen              | Lexikalisch ARI |          Encoder ARI | Falsch zusammengeführte Paare (lex. → Encoder) |
 | ------------------- | --------------: | -------------------: | ---------------------------------------------- |
-| Deutsch (201)       |            0,30 | **0,44** [0,40–0,49] | 211 → 81 [66–90]                               |
+| Deutsch (201)       |            0,29 | **0,44** [0,40–0,48] | 211 → 81 [66–90]                               |
 | Englisch (120)      |            0,29 | **0,53** [0,52–0,57] | 119 → 27 [21–27]                               |
-| Spanisch (81)*      |            0,24 |     0,38 [0,32–0,44] | 70 → 33                                        |
-| Französisch (82)*   |            0,21 |     0,22 [0,18–0,26] | 66 → 92                                        |
-| Alle gemischt (500) |            0,18 |     0,21 [0,19–0,23] | 758 → 201                                      |
+| Spanisch (81)*      |            0,24 |     0,38 [0,32–0,44] | 70 → 33 [27–44]                                |
+| Französisch (82)*   |            0,21 |     0,22 [0,18–0,26] | 66 → 92 [76–103]                               |
+| Alle gemischt (500) |            0,18 |     0,21 [0,19–0,23] | 758 → 201 [186–232]                            |
 
 \* Das Produkt ruft den Encoder für fr/es-Sitzungen nicht auf (`WORD_CLOUD_SEMANTIC_LOCALES = de, en`).
 
@@ -132,53 +249,90 @@ Themenname« gelten für `a657798e`.
   leicht andere Vektoren; Themen können von der Eingangsreihenfolge abhängen.
 - **Anzeige:** Nur 12 Themen werden gezeigt; bei 500 Fragen decken sie 13–32 %
   der Fragen ab.
-- **Ressourcen:** 500 Fragen in 6,6 s auf 1 CPU, ≈ 600 MB RAM, Image 1,5 GB;
-  Clustering in Node 2,0 s für 500 Fragen auf einem Thread.
+- **Ressourcen:** 500 Fragen in 6,6–7,2 s auf 1 CPU (zwei Läufe), ≈ 600 MB RAM, Image 1,5 GB;
+  Clustering in Node 1,5–2,0 s für 500 Fragen auf einem Thread.
 
-### Übertragbarkeit auf andere Fächer (Zusatzprüfung, v2.1)
+### Lexikalische Baseline mit spaCy-Glättung (Release-Sidecar)
+
+Gegenprobe zur Frage, ob die lexikalische Baseline nur deshalb schwach ist,
+weil sie ungeglättet gemessen wurde. spaCy 3.8.15 (Release-Image
+`docker/spacy`, Modelle `*_core_*_sm` 3.8.0) über den Host-Pfad
+`analyzeWordCloudSnapshot` mit `LEXICAL` + `LEMMA`; »Wörter & Phrasen« mit spaCy
+wie im Host gemischt (`mergeThemePhrasesWithLemmaUnigrams`). Bericht `results/spacy-2026-11-04T18-19-26-231Z/`.
+
+| Sitzung (Kompass ohne Kategorien) | schlüssige Quellen: ohne spaCy → mit spaCy → Encoder | Top-12-Paare gleiches Anliegen: ohne → mit spaCy → Encoder |
+| --------------------------------- | ---------------------------------------------------- | ---------------------------------------------------------- |
+| Statistik de (201)                | 0/3 → 0/3 → 2/3                                      | 23,9 % → 20,7 % → 66,4 %                                   |
+| Polizeischule de (90)             | 2/3 → 1/3 → 2/3                                      | 40,0 % → 46,9 % → 71,0 %                                   |
+| Statistik en (120)                | 0/3 → 0/3 → 0/3                                      | 13,4 % → 14,9 % → 65,9 %                                   |
+| Statistik es (81)                 | 0/3 → 0/3 → (Fallback)                               | 7,9 % → 14,4 % → (Fallback)                                |
+
+- spaCy fasst Wortformen zusammen (»Beispiele« → »Beispiel«, en »slides« →
+  »slide«), bündelt aber keine Anliegen; der Abstand zum Encoder bleibt groß.
+- In fr/es ist spaCy die einzige Glättung, weil der Encoder dort nicht
+  aufgerufen wird; nur in es steigt der Anteil gleicher Anliegen spürbar.
+- Laufzeit 0,7–1,2 ms je Frage (200 Fragen 130–200 ms), Image 751 MB, rund
+  460 MiB Arbeitsspeicher.
+
+### Übertragbarkeit auf andere Fächer (Zusatzprüfung, v2.2)
 
 Der 8.9b-Seed (`qaNlpSeed.ts`) enthält nur Statistik- und ML-Inhalte; das
 Referenzset v2 ebenfalls. Deshalb je 6 Familien aus Botanik (37 Fragen) und
-Geschichte (36 Fragen), jede Domäne getrennt gemessen.
+Geschichte (36 Fragen) sowie 150 Fragen aus dem Unterricht einer Polizeischule
+(18 Familien, dazu Near-Miss-, mehrdeutige und Rausch-Fragen; Eingriffs- und
+Strafrecht, Schießtraining, Praktikum, Simulator, Digitalfunk). Jede Domäne
+getrennt gemessen.
 
-| Anteil nutzbar korrekt (Kaskade) |      Statistik |           Botanik |      Geschichte |
-| -------------------------------- | -------------: | ----------------: | --------------: |
-| content                          | 66 % (n = 140) | **48 %** (n = 21) |   62 % (n = 21) |
-| organization                     | 57 % (n = 155) |     82 % (n = 11) |   90 % (n = 10) |
-| technical                        | 61 % (n = 126) |      60 % (n = 5) | **0 %** (n = 5) |
-| Keyword-Baseline, gesamt         |           35 % |          **14 %** |         **8 %** |
+| Anteil nutzbar korrekt (Kaskade) |      Statistik |           Botanik |      Geschichte |   Polizeischule |
+| -------------------------------- | -------------: | ----------------: | --------------: | --------------: |
+| content                          | 66 % (n = 140) | **48 %** (n = 21) |   62 % (n = 21) |   49 % (n = 65) |
+| organization                     | 57 % (n = 155) |     82 % (n = 11) |   90 % (n = 10) |   57 % (n = 44) |
+| technical                        | 61 % (n = 126) |      60 % (n = 5) | **0 %** (n = 5) |   42 % (n = 26) |
+| Kaskade gesamt / sicher falsch   |    61 % / 30 % |       60 % / 32 % |     61 % / 36 % | 50 % / **46 %** |
+| Keyword-Baseline, gesamt         |           35 % |          **14 %** |         **8 %** |         **6 %** |
 
 - Fehler fachfremder Inhaltsfragen kommen **sicher**: »lichtreaktion vs calvin
   zyklus versteh ich nicht« → `technical` (0,998), »Woran erkenne ich, ob eine
   Pflanze monokotyl …« → `organization` (0,993), »La base de datos de
   periódicos no carga« → `content` (0,999). Keine höhere Schwelle fängt das ab.
 - Organisatorisches überträgt sich, weil Fristen und Anmeldung fachunabhängig
-  formuliert sind.
+  formuliert sind – weniger, wenn die Organisation fachspezifisch klingt
+  (Schießstand, Dienststelle, Kleiderkammer: 57 %).
+- **Polizeischule:** Die Kaskade akzeptiert 96 % der Fragen, aber fast jedes
+  zweite akzeptierte Label ist falsch (45,9 %). Technikfragen zu Simulator,
+  Digitalfunk und Vorgangsbearbeitung sind zu 54 % sicher falsch, weil dieses
+  Vokabular im Seed fehlt. Der Gewinn gegenüber den Keyword-Regeln bleibt
+  signifikant (62 zu 2 Fragen, McNemar p < 0,001).
 - Die Keyword-Baseline bricht außerhalb der Statistik ein. Der relative Vorsprung
   der Kaskade wächst, ihre absolute Qualität nicht.
 - **Encoder-Themen bleiben stabil:** Median-Kosinus gleicher Familie 0,848 /
-  0,851 / 0,848 (Statistik / Botanik / Geschichte). Etwa zwei Drittel der
-  zusammengehörigen Paare liegen in allen drei Fächern unter 0,87.
-- **Grenze:** kleine Stichproben (≈ 20 Inhalts-, 5 Technikfragen je Fach), keine
-  Near-Miss-Fragen in den fachfremden Sets; Richtungsbefund, kein
-  Signifikanznachweis. ARI/BCubed sind wegen anderer Setgröße und -struktur
+  0,851 / 0,848 / 0,834 (Statistik / Botanik / Geschichte / Polizeischule).
+  Ein großer Teil der zusammengehörigen Paare liegt in allen Fächern unter 0,87.
+- **Polizeischule de – Grenze von E2:** Der Encoder erreicht in keinem der 10
+  Läufe den ARI des lexikalischen Modus (0,36 [0,35–0,39] gegenüber 0,41), führt
+  aber deutlich weniger fremde Fragen zusammen (37 → 13 Paare; BCubed-F1 72,6 →
+  73,0 %). Er trennt also vorsichtiger. In en ist er klar besser (ARI −0,01 →
+  0,33; Fehlzusammenführungen 12 → 4).
+- **Grenze:** kleine Stichproben in Botanik und Geschichte (≈ 20 Inhalts-, 5
+  Technikfragen je Fach, keine Near-Miss-Fragen); Polizeischule größer (135
+  gelabelte Fragen inkl. 15 Near-Miss). Richtungsbefund. ARI/BCubed sind wegen anderer Setgröße und -struktur
   nicht mit Statistik vergleichbar.
 
 ### Laufzeitpfade und Fallback (Fehlerinjektion)
 
-Bericht: `results/paths-2026-10-23T12-08-38-102Z/`. Releaseanker: Submit plant
+Bericht: `results/paths-2026-11-04T17-04-30-174Z/`. Releaseanker: Submit plant
 nur (`routers/qa.ts:1905`, `qaNlpQueue.ts:271`); Timeout `qaNlpQueue.ts:179`;
 Encoder-Timeout und Circuit-Breaker `wordCloudSemanticConfig.ts:12`, `:19–20`;
 Kompass `moderation-compass.ts:702–712`, `moderation-compass-rules.ts:1010–1033`;
-kein Slot für 8.9b laut ADR-0035 (`:143`).
+kein Slot für 8.9b laut ADR-0035 (`:143`). Zeilen für 1.3 (`a657798e`); die Zeilen auf `main` stehen im README.
 
-- **8.9b hält den Submit nicht auf:** enqueue p50 0,78 ms; 0 Netzaufrufe bei
-  201 Klassifikationen; Ergebnis p50 1,6 ms später.
+- **8.9b hält den Submit nicht auf:** enqueue p50 0,80 ms; 0 Netzaufrufe bei
+  201 Klassifikationen; Ergebnis p50 1,4 ms später.
 - **Timeout 2 s** greift bei asynchron hängenden Jobs (`failed:timeout`). Bei
   CPU-blockierender Arbeit greift er nicht (2,5 s Blockade → trotzdem
   `classified`).
 - **Queue-Limit 100:** 150 Einreichungen im selben Tick → 50 `failed:queue-limit`.
-- **Encoder-Ausfall:** gestoppt → 10 ms bis zum lexikalischen Fallback; hängend →
+- **Encoder-Ausfall:** gestoppt → 9 ms bis zum lexikalischen Fallback; hängend →
   8 s (Timeout); nach 3 Fehlern öffnet der Circuit-Breaker → ab der 4. Analyse
   3 ms.
 - **Kompass:** Nur `classified`-Fragen gehen in die Kategorie-Quellen ein. Die
@@ -202,7 +356,8 @@ kein Slot für 8.9b laut ADR-0035 (`:143`).
   (`moderationPromptContextPacking.ts:458–463`). Verstärkt durch die
   Zusatzprüfungen: Außerhalb der Statistik kommen falsche Labels mit Konfidenz
   bis 0,999, und der Kompass zeigt in gemischten Sitzungen »classified« ohne
-  Hinweis auf diese Fehler.
+  Hinweis auf diese Fehler. In der Polizeischule sind 45,9 % der angezeigten
+  Labels falsch.
 - **Folge:** Keine Queue-Last. Die Listen für organisatorische und technische
   Fragen bleiben im Packing leer; diese Fragen konkurrieren in den allgemeinen
   Listen (kontrovers, gut bewertet, unbewertet). Ob der Regelkern organisatorische
@@ -222,6 +377,8 @@ kein Slot für 8.9b laut ADR-0035 (`:143`).
 - **Entscheidung:** Aktivierung für de/en-Sitzungen ist durch die Messung
   gedeckt; Schwelle **unverändert**. Der lexikalische Themenmodus bleibt
   automatischer Fallback (Encoder-Ausfall, fr/es-Sitzung, zu wenige Fragen).
+  Im Kompass sind die Encoder-Themen nur sichtbar, solange E1 gilt; mit
+  Kategorien belegen deren Quellen alle drei sichtbaren Plätze (Abschnitt 0).
 - **Begründung:** Deutlicher, über alle Läufe stabiler Qualitätsgewinn in de
   und en bei moderaten Ressourcen. Eine andere Schwelle ist nicht begründbar:
   0,87 liegt im Plateau, und die Themen-Kriterien wurden nachträglich gebildet.
@@ -230,9 +387,11 @@ kein Slot für 8.9b laut ADR-0035 (`:143`).
   Encoder, danach schützt der Circuit-Breaker.
 - **Folge und Risiken, die der Lehrperson bekannt sein sollten:**
   gemischtsprachige Fragen bilden getrennte Themen; nur 12 Themen sichtbar;
-  Themen können je nach Eingangsreihenfolge leicht variieren.
+  Themen können je nach Eingangsreihenfolge leicht variieren. Bei fachfremdem
+  deutschem Vokabular (Polizeischule) ist der Gewinn kleiner: weniger
+  Fehlzusammenführungen, aber kein höherer ARI.
 - **Betrieb:** eigener Container, 1 CPU / 2 GB, ohne Netz. Offener Prüfpunkt an
-  Thema 1: Das Clustering dauert bei 500 Fragen 2 s in Node; ob das den
+  Thema 1: Das Clustering dauert bei 500 Fragen 1,5–2 s in Node; ob das den
   Live-Betrieb verzögert, wurde hier nicht gemessen.
 - **Rückweg:** `WORD_CLOUD_SEMANTIC_ENABLED=false` → lexikalischer Modus.
 
@@ -245,18 +404,31 @@ kein Slot für 8.9b laut ADR-0035 (`:143`).
   vorher geöffnet hat. Das ist der Preis dafür, dass der Kontextabruf schnell
   und begrenzt bleibt; beibehalten.
 
+### E4 – spaCy-Glättung: optional lassen, nicht als Ersatz für den Encoder
+
+- Gemessen: kein Gewinn an schlüssigen Kompass-Quellen gegenüber der
+  ungeglätteten Baseline; Encoder-Themen bleiben deutlich besser.
+- Ist der Sidecar an, nimmt der Kompass Lemma-Terme vor Encoder-Themen, außer im
+  Modus »Thema«. Wer E2 nutzt, sollte die Wortwolke deshalb im Modus »Thema«
+  betreiben; spaCy ist keine Voraussetzung dafür.
+- `NLP_ENABLED` bleibt eine Lesbarkeitsentscheidung (Wortformen), keine
+  Qualitätsentscheidung für Anliegen.
+
 ## 6. Cloud-Bezug (QZ 5)
 
 Die Klassifikation kostet praktisch keine Rechenzeit; die Entscheidung gegen sie
 ist eine Qualitätsentscheidung, keine Ressourcenentscheidung. Der Encoder ist
 ein isolierter Sidecar mit festen Grenzen und ohne externen Dienst; für die
-gemessene Last ist weder GPU noch ein Managed-Dienst nötig. Kosten in Euro
+gemessene Last ist weder GPU noch ein Managed-Dienst nötig. Der spaCy-Sidecar
+wäre ein dritter privater Dienst (Image 751 MB, rund 460 MiB) ohne messbaren
+Gewinn für den Kompass. Kosten in Euro
 wurden nicht erhoben.
 
 ## 7. Gültigkeitsgrenzen
 
-- Referenzfragen synthetisch, von einem KI-Assistenten entworfen; meine
-  Prüfung der Zuordnung steht noch aus; ein Annotator, keine Übereinstimmungsmessung.
+- Referenzfragen synthetisch, von einem KI-Assistenten entworfen; Kategorien
+  KI-gestützt zugeordnet und von mir ohne Zweitannotation übernommen; keine
+  Übereinstimmungsmessung. Set am 04.11.2026 eingefroren (SHA-256 im Bericht).
 - Bewusst schwierige Mischung (Near-Miss, Mehrdeutigkeit, Rauschen): Werte
   beschreiben Verhalten in schwierigen Fällen, nicht eine typische Vorlesung.
 - Modellkonfidenz ist ohne Kalibrierung keine Erfolgswahrscheinlichkeit;
@@ -264,14 +436,16 @@ wurden nicht erhoben.
 - Laborbetrieb (Encoder über loopback-HTTP statt Unix-Socket). Queue und
   Timeout in-process mit Testadaptern gemessen, ohne HTTP, Datenbank und echte
   Parallelnutzer; Cache-Latenzen nicht gemessen.
-- Fachfremde Prüfung mit kleinen Stichproben und ohne Near-Miss-Fragen;
-  zeigt eine Richtung, keinen Signifikanznachweis.
+- spaCy-Sidecar per `docker exec` im Container aufgerufen (nur Unix-Socket);
+  gemessen wird nur der HTTP-Aufruf im Container.
+- Fachfremde Prüfung: Botanik und Geschichte klein und ohne Near-Miss-Fragen,
+  Polizeischule größer; Richtungsbefund für die Übertragbarkeit.
 
 ## 8. Beitrag zur Gruppensynthese
 
 Für die Stufenempfehlung der Gruppe liefert 2B:
 **Regelkern (2A) immer · Encoder-Themen zusätzlich in de/en-Sitzungen ·
-Klassifikation vorerst aus.** Schnittstelle zu 2C: Die Kurzfassung erhält
+spaCy optional · Klassifikation vorerst aus.** Schnittstelle zu 2C: Die Kurzfassung erhält
 Themen nur aus dem gespeicherten Snapshot und ohne Kategorien-Listen, solange
 E1 gilt.
 
@@ -334,3 +508,9 @@ von Unsicherheit, Informationsumfang). Beitrag von 2B je Kriterium:
 Kategorien, Themen und Kurzfassung bleiben dabei getrennte Teilfunktionen und
 werden nicht als austauschbare Klassifikatoren verglichen. Ihr gemeinsamer
 Maßstab ist die Rubrik.
+
+Angewandt auf das gemeinsame Sechs-Fragen-Szenario im Kompass (§0, Befund 7;
+`check-group-scenario.mts`): ohne 2B 4 von 8 Punkten, mit Kategorien,
+Encoder-Themen oder beidem jeweils 5. Der Gewinn liegt im Umfang (D5), der
+Verlust bei Kategorien in der Trennung (D3); die Kennzeichnung von Lücken (D4)
+leistet keine Variante.
