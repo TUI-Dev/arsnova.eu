@@ -87,7 +87,7 @@ const members = (e: any) =>
 for (const mode of ['THEME', 'SEMANTIC'] as const) {
   const out: any = await run(mode);
   console.log(
-    `\nWortwolke ${mode === 'THEME' ? '»Wörter & Phrasen« (lexikalisch)' : '»Thema« (Encoder)'}: status ${out.status}${out.fallbackUsed ? ', Fallback' : ''}`,
+    `\nWortwolke ${mode === 'THEME' ? '»Wortgruppen« (lexikalisch)' : '»Themen« (Encoder)'}: status ${out.status}${out.fallbackUsed ? ', Fallback' : ''}`,
   );
   for (const e of out.entries)
     console.log(`  ${String(e.label).slice(0, 60).padEnd(60)} Mitglieder ${members(e)}`);
@@ -125,7 +125,7 @@ for (const [a, b] of [
   console.log(`  ${a}–${b} ${cos(v.get(a)!, v.get(b)!).toFixed(3)}`);
 
 // ---------- Kompass V0–V3 wie in measure-compass.mts ----------
-// V0/V1 nutzen die lexikalische Wortwolke (»Wörter & Phrasen«), V2/V3 die Encoder-Themen (»Thema«).
+// V0/V1 nutzen die lexikalische Wortwolke (»Wortgruppen«), V2/V3 die Encoder-Themen (»Themen«).
 const LABELS = {
   content: 'Inhaltliche Fragen',
   organization: 'Fragen zum Ablauf',
@@ -133,10 +133,10 @@ const LABELS = {
 };
 const STATUS_TEXT: Record<string, string> = {
   disabled: 'Die automatische Sortierung der Fragen ist aus.',
-  pending: 'Die Fragen werden noch sortiert.',
-  uncertain: 'Die Sortierung der Fragen ist unsicher.',
-  failed: 'Die automatische Sortierung ist gerade nicht verfügbar.',
-  classified: 'Die Fragen sind grob nach Inhalt, Ablauf und Technik sortiert.',
+  pending: 'Die Fragen werden gerade geordnet.',
+  uncertain: 'Einige Fragen konnten nicht eindeutig zugeordnet werden.',
+  failed: 'Die Fragen können gerade nicht automatisch geordnet werden.',
+  classified: 'Die Fragen sind nach Inhalt, Organisation und Technik geordnet.',
 };
 const VISIBLE: number = shared.MODERATION_COMPASS_VISIBLE_SOURCE_COUNT;
 const ANLIEGEN = new Map(S.map((q) => [q.k, q.g]));
@@ -151,7 +151,7 @@ const idsOf = (src: any, entries: any[]): string[] => {
     .filter((id: string) => ANLIEGEN.has(id));
 };
 const VARIANTS = [
-  { id: 'V0', name: '2B aus (Regelkern, »Wörter & Phrasen«)', cat: false, enc: false },
+  { id: 'V0', name: '2B aus (Regelkern, »Wortgruppen«)', cat: false, enc: false },
   { id: 'V1', name: '+ Kategorien (8.9b)', cat: true, enc: false },
   { id: 'V2', name: '+ Encoder-Themen (1.14c)', cat: false, enc: true },
   { id: 'V3', name: '+ beides', cat: true, enc: true },
@@ -302,8 +302,8 @@ const H: string[] = [
   '',
   '## Wortwolke',
   '',
-  `- »Wörter & Phrasen« (lexikalisch): ${lexical.entries.map((e: any) => `${e.label} (${members(e)})`).join(' · ')}`,
-  `- »Thema« (Encoder, Status ${encoder.status}): ${encoder.entries.map((e: any) => members(e)).join(' · ')}`,
+  `- »Wortgruppen« (lexikalisch): ${lexical.entries.map((e: any) => `${e.label} (${members(e)})`).join(' · ')}`,
+  `- »Themen« (Encoder, Status ${encoder.status}): ${encoder.entries.map((e: any) => members(e)).join(' · ')}`,
   `- Kosinus (Schwelle ${shared.WORD_CLOUD_SEMANTIC_COSINE_THRESHOLD}): ${Object.entries(pairs)
     .map(([k, x]) => `${k} ${x}`)
     .join(' · ')}`,

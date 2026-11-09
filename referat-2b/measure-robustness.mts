@@ -8,10 +8,10 @@
  *
  *   L0 »Wörter« ohne spaCy   LEXICAL, normalization NONE      (Host-Pfad analyzeWordCloudSnapshot)
  *   L1 »Wörter« mit spaCy    LEXICAL, normalization LEMMA     (Release-Sidecar docker/spacy)
- *   S  »Thema« (Encoder)     SEMANTIC, e5-Encoder             (analyzeSemanticWordCloudSnapshot)
+ *   S  »Themen« (Encoder)     SEMANTIC, e5-Encoder             (analyzeSemanticWordCloudSnapshot)
  *
  * Kennzahlen je Teilsitzung: schlüssige Themen-Quellen im Kompass (von 3), Top-12-Paare
- * gleiches Anliegen, sowie ARI der Partition »Wörter & Phrasen« (lexikalischer Fallback) und
+ * gleiches Anliegen, sowie ARI der Partition »Wortgruppen« (lexikalischer Fallback) und
  * der Encoder-Partition gegen die Anliegen (wie measure-topics.mts). Ausgegeben werden Median,
  * 95-%-Perzentilintervall und gepaarte Anteile (»S besser als L1 in x % der Teilsitzungen«).
  *
@@ -483,11 +483,11 @@ const L: string[] = [
   `Commit \`${manifest.commit.slice(0, 12)}\` (${manifest.describe}), Referenzset ${ref.meta.version} (SHA-256 \`${manifest.reference.sha256.slice(0, 16)}…\`), ${manifest.timestamp}`,
   `${manifest.cpu}, Node ${manifest.node}. ${DRAWS} Teilsitzungen je Sitzung, Seed ${SEED}, Encoder-Schwelle ${THRESHOLD}, spaCy ${manifest.spacy.runtime}. Dauer ${manifest.durationSeconds} s.`,
   '',
-  '**Lesart:** Median [2,5 %; 97,5 %-Perzentil] über die Teilsitzungen. _Schlüssig_ = sichtbare Kompass-Quelle mit ≥ 2 Fragen, davon ≥ 80 % ein Anliegen. _Paare_ = Anteil der Fragenpaare in einem der zwölf größten Wortwolken-Einträge, die zum selben Anliegen gehören. _ARI_ = Übereinstimmung der Partition mit den Anliegen (lexikalisch = »Wörter & Phrasen«-Fallback).',
+  '**Lesart:** Median [2,5 %; 97,5 %-Perzentil] über die Teilsitzungen. _Schlüssig_ = sichtbare Kompass-Quelle mit ≥ 2 Fragen, davon ≥ 80 % ein Anliegen. _Paare_ = Anteil der Fragenpaare in einem der zwölf größten Wortwolken-Einträge, die zum selben Anliegen gehören. _ARI_ = Übereinstimmung der Partition mit den Anliegen (lexikalisch = »Wortgruppen«-Fallback).',
   '',
   '## 1. Verteilungen',
   '',
-  '| Sitzung (Teilsitzung/Pool) | Kennzahl | L0 »Wörter« | L1 »Wörter« + spaCy | S »Thema« (Encoder) |',
+  '| Sitzung (Teilsitzung/Pool) | Kennzahl | L0 »Wörter« | L1 »Wörter« + spaCy | S »Themen« (Encoder) |',
   '|---|---|---|---|---|',
 ];
 for (const r of Object.values(results) as any[]) {

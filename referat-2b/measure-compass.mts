@@ -5,8 +5,8 @@
  * Misst nicht die Funktionen isoliert, sondern ihr Ergebnis dort, wo die Lehrperson es sieht:
  * Statuszeile und Karte »Häufige Themen« des Kompasses. Verwendet unveränderten Releasecode:
  *   - Klassifikation: runQaNlpClassifier (qaNlpWorker.ts) über die Release-Queue (Last)
- *   - Themen: buildLexicalSemanticFallbackEntries (»Wörter & Phrasen«) und
- *     analyzeSemanticWordCloudSnapshot (»Thema«, Encoder) aus wordCloudSemanticAnalyze.ts
+ *   - Themen: buildLexicalSemanticFallbackEntries (»Wortgruppen«) und
+ *     analyzeSemanticWordCloudSnapshot (»Themen«, Encoder) aus wordCloudSemanticAnalyze.ts
  *   - Kompass: collectQaNlpCategorySources, compassTermsFromAnalysisEntries,
  *     buildModerationCompassView (Frontend moderation-compass.ts) und
  *     resolveModerationCompassAnalysisMode (shared-types)
@@ -72,10 +72,10 @@ const LABEL_TO_CAT = new Map(Object.entries(LABELS).map(([k, v]) => [v, k]));
 // Statuszeilen wie im Dialog (moderation-compass-dialog.component.html)
 const STATUS_TEXT: Record<string, string> = {
   disabled: 'Die automatische Sortierung der Fragen ist aus.',
-  pending: 'Die Fragen werden noch sortiert.',
-  uncertain: 'Die Sortierung der Fragen ist unsicher.',
-  failed: 'Die automatische Sortierung ist gerade nicht verfügbar.',
-  classified: 'Die Fragen sind grob nach Inhalt, Ablauf und Technik sortiert.',
+  pending: 'Die Fragen werden gerade geordnet.',
+  uncertain: 'Einige Fragen konnten nicht eindeutig zugeordnet werden.',
+  failed: 'Die Fragen können gerade nicht automatisch geordnet werden.',
+  classified: 'Die Fragen sind nach Inhalt, Organisation und Technik geordnet.',
   'rule-based': '(keine Statuszeile)',
 };
 
@@ -148,12 +148,12 @@ type Variant = { id: string; name: string; categories: boolean; topics: boolean 
 const VARIANTS: Variant[] = [
   {
     id: 'V0',
-    name: '2B aus (Regelkern, Wortwolke »Wörter & Phrasen«)',
+    name: '2B aus (Regelkern, Wortwolke »Wortgruppen«)',
     categories: false,
     topics: false,
   },
   { id: 'V1', name: '+ Kategorien (8.9b)', categories: true, topics: false },
-  { id: 'V2', name: '+ Encoder-Themen (1.14c, »Thema«)', categories: false, topics: true },
+  { id: 'V2', name: '+ Encoder-Themen (1.14c, »Themen«)', categories: false, topics: true },
   { id: 'V3', name: '+ beides', categories: true, topics: true },
 ];
 

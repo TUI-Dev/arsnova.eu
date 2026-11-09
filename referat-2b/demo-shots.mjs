@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Referat 2B – Demo-Check im laufenden arsnova.eu: Q&A-Session anlegen, Fragen einspeisen,
-// Host-Ansicht öffnen und Kompass sowie Wortwolke im Modus »Thema« als Screenshots ablegen.
+// Host-Ansicht öffnen und Kompass sowie Wortwolke im Modus »Themen« als Screenshots ablegen.
 // Nur für eine lokale Dev-Instanz (Frontend :4200, Backend :3000).
 // Aufruf aus dem Repo-Root: node referat-2b/demo-shots.mjs <out-dir> [domain] [count]
 import { execFileSync } from 'node:child_process';

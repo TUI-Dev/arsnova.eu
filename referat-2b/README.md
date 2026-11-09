@@ -13,8 +13,9 @@ spaCy-Glättung (Story 1.14b); Klassifikation als Schnittstelle.
 
 **Gültigkeit:** Release 1.3 (Klassifikation, Seed, Queue, Encoder-Client,
 Clustering, Schwellen und die Kompass-Funktionen sind identisch zwischen Tag
-`v1.3.0`, dem gemessenen Stand `a657798e` und dem aktuellen Fork-Stand
-`84a5614e` mit Upstream `9f230abc`), Issue #456, ADR-0035. Referenzset v2.2, eingefroren am
+`v1.3.0`, dem frühen Messstand `a657798e` und dem letzten 1.3-Stand vor Release 1.4,
+Upstream `efd71b44` (Version 1.3.0); maßgeblich gemessen auf `efd71b44`, Fork-Merge
+`74091b0a` = `efd71b44` + nur `referat-2b/`), Issue #456, ADR-0035. Referenzset v2.2, eingefroren am
 04.11.2026, SHA-256
 `717bdb17dc2e94d56275e2ea5b17d74c2fd602b56ea3a90abcae767d8faa0d87`.
 
@@ -60,29 +61,29 @@ Statuszeile speist und die sichtbaren Quellen belegt.
 3. **Kategorien (8.9b)** sind messbar besser als Keyword-Regeln (61,3 % statt
    35,2 % nutzbar korrekt), aber im Kompass ist jede vierte bis jede zweite Frage
    hinter einer Kategorie-Quelle falsch eingeordnet, die Statuszeile meldet
-   trotzdem »sortiert«, und die Kategorien verdrängen die Themen – deshalb
+   trotzdem »geordnet«, und die Kategorien verdrängen die Themen – deshalb
    bleiben sie aus (E1).
 4. Die **Entscheidungstiefe** steigt nicht: »Als Nächstes« bleibt gleich; unter
-   Last zeigt der Kompass »nicht verfügbar« statt falscher Sicherheit, und das
+   Last zeigt der Kompass »nicht automatisch geordnet« statt falscher Sicherheit, und das
    Label nach `qa.submit` ist kein LLM-Auftrag (ADR-0035).
 
 ## Kurzantwort – aus Sicht des Moderationskompasses
 
 Was sieht die Lehrperson im Kompass zusätzlich, wenn 8.9b und 1.14c an sind?
 Gemessen mit den Release-Funktionen des Kompasses (`measure-compass.mts`,
-Bericht `results/compass-2026-11-04T17-14-44-975Z/`):
+Bericht `results/compass-2026-11-08T23-18-20-657Z/`):
 
-| Im Kompass                                                     | Ohne 2B                                  | Mit Kategorien (8.9b)                                                                                                                                                                                | Mit Encoder-Themen (1.14c)                                                             |
-| -------------------------------------------------------------- | ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| Statuszeile                                                    | »Die automatische Sortierung … ist aus.« | »Die Fragen sind grob nach Inhalt, Ablauf und Technik sortiert.« – in jedem Fach                                                                                                                     | unverändert                                                                            |
-| Karte »Häufige Themen«: Fragen hinter den 3 sichtbaren Quellen | 17 % (Statistik), 17 % (Polizeischule)   | 81 % bzw. 91 %                                                                                                                                                                                       | 9 % bzw. 11 % – enger                                                                  |
-| davon richtig eingeordnet                                      | –                                        | 75,5 % (Statistik), 51,2 % (Polizeischule) – **ohne Warnung**                                                                                                                                        | –                                                                                      |
-| sichtbare Themen-Quellen, die ein Anliegen bündeln             | Statistik 0 von 3                        | keine sichtbar: Kategorien belegen alle drei Plätze                                                                                                                                                  | Statistik 2 von 3                                                                      |
-| Sprachen (Statistik)                                           | –                                        | korrekt de 75,5 % · en 66,0 % · fr 53,8 % · es 47,6 %                                                                                                                                                | nur de/en; fr/es zeigen lexikalische Terme                                             |
-| unter Last                                                     | –                                        | 50–200 Fragen/s: hält mit; 1000/s: in 4 von 20 Läufen (20 %, 95-%-Intervall 8–42 %) Queue-Überlauf → »nicht verfügbar«; 500 gleichzeitig: 400 `failed` → »nicht verfügbar«, auch in Nachbarsitzungen | mehrere Sitzungen gleichzeitig: nur die erste bekommt Themen, die anderen den Fallback |
+| Im Kompass                                                     | Ohne 2B                                  | Mit Kategorien (8.9b)                                                                                                                                                                                                      | Mit Encoder-Themen (1.14c)                                                             |
+| -------------------------------------------------------------- | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Statuszeile                                                    | »Die automatische Sortierung … ist aus.« | »Die Fragen sind nach Inhalt, Organisation und Technik geordnet.« – in jedem Fach                                                                                                                                          | unverändert                                                                            |
+| Karte »Häufige Themen«: Fragen hinter den 3 sichtbaren Quellen | 17 % (Statistik), 17 % (Polizeischule)   | 81 % bzw. 91 %                                                                                                                                                                                                             | 9 % bzw. 11 % – enger                                                                  |
+| davon richtig eingeordnet                                      | –                                        | 75,5 % (Statistik), 51,2 % (Polizeischule) – **ohne Warnung**                                                                                                                                                              | –                                                                                      |
+| sichtbare Themen-Quellen, die ein Anliegen bündeln             | Statistik 0 von 3                        | keine sichtbar: Kategorien belegen alle drei Plätze                                                                                                                                                                        | Statistik 2 von 3                                                                      |
+| Sprachen (Statistik)                                           | –                                        | korrekt de 75,5 % · en 66,0 % · fr 53,8 % · es 47,6 %                                                                                                                                                                      | nur de/en; fr/es zeigen lexikalische Terme                                             |
+| unter Last                                                     | –                                        | 50–200 Fragen/s: hält mit; 1000/s: in 3 von 20 Läufen (15 %, 95-%-Intervall 5–36 %) Queue-Überlauf → »nicht automatisch geordnet«; 500 gleichzeitig: 400 `failed` → »nicht automatisch geordnet«, auch in Nachbarsitzungen | mehrere Sitzungen gleichzeitig: nur die erste bekommt Themen, die anderen den Fallback |
 
 **Entscheidungen:** E1 Kategorien bleiben aus – sie füllen den Kompass, aber
-mit bis zu jeder zweiten Frage falsch und einer Statuszeile, die »sortiert«
+mit bis zu jeder zweiten Frage falsch und einer Statuszeile, die »geordnet«
 meldet. E2 Encoder-Themen für de/en aktivierbar – im Kompass nur sichtbar,
 solange E1 gilt. E3 der #456-Kontext übernimmt nur Gespeichertes. E4 spaCy bleibt
 optional – es glättet Wortformen, bündelt aber keine Anliegen.
@@ -92,7 +93,7 @@ optional – es glättet Wortformen, bündelt aber keine Anliegen.
 Die sechs Fragen aus #456 §12 (A/B Übungswunsch, C/D Prüfungsorganisation, E/F
 Kontroverse Anwesenheit) laufen durch 8.9b, Wortwolke und die Kompass-Funktionen
 des Release (`check-group-scenario.mts`, Bericht
-`results/group-scenario-2026-11-04T17-11-43-084Z/`). Kein Gütenachweis – die
+`results/group-scenario-2026-11-08T23-18-23-462Z/`). Kein Gütenachweis – die
 Paare dienen laut Kursrahmen nur als Kontexttest. Bewertet mit der Rubrik aus 2A
 (je 0–2; Regeln mechanisch im Skript):
 
@@ -106,7 +107,7 @@ Paare dienen laut Kursrahmen nur als Kontexttest. Bewertet mit der Rubrik aus 2A
 D2 (Bedeutung der Bewertungen) ist nicht bewertet: Kategorien und Themen
 ignorieren Stimmen. Befund: Kategorien zeigen mehr Anliegen, mischen aber
 Prüfung (D) und Anwesenheit (E) unter »Ablauf« und melden trotz zweier
-`uncertain`-Fragen »sortiert«. Encoder-Themen trennen sauber, verlieren aber C/D
+`uncertain`-Fragen »geordnet«. Encoder-Themen trennen sauber, verlieren aber C/D
 knapp unter der Schwelle (Kosinus 0,864 < 0,87). Die Prüfungsorganisation wird in
 keiner Variante als eigenes Anliegen sichtbar; die Lücke kennzeichnet keine
 Variante.
@@ -128,7 +129,7 @@ in de/en-Sitzungen · spaCy optional · Kategorien vorerst aus.** Ausführlich:
 Nach `qa.submit` erscheint bei `QA_NLP_ENABLED=true` automatisch ein Label wie
 `organization`. Dieses Label ist **kein LLM-Auftrag**:
 
-| Behauptung                                       | Releaseanker (1.3 `a657798e` → `main` `84a5614e`)                                                        | Eigene Messung (`check-runtime-paths.mts`)                                                          |
+| Behauptung                                       | Releaseanker (1.3 `a657798e` → letzter 1.3-Stand `efd71b44`)                                             | Eigene Messung (`check-runtime-paths.mts`)                                                          |
 | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
 | Submit speichert zuerst, plant dann nur          | `apps/backend/src/routers/qa.ts:1857 → :1995` (`submit`), `:1905 → :2043` (`enqueueQaNlpJob`)            | A1: enqueue p50 < 1 ms, Ergebnis erst danach                                                        |
 | Submit wartet nicht auf die Analyse              | `apps/backend/src/lib/qaNlpQueue.ts:271` »Wartet nicht auf Inferenz«, Start per `setImmediate` (`:149`)  | A1                                                                                                  |
@@ -144,7 +145,7 @@ bleibt eine Frage `uncertain` und gespeichert.
 
 |           | Kategorie (8.9b)                  | Thema (1.14c)                                                                   | Kompasskarte (8.9a)             |
 | --------- | --------------------------------- | ------------------------------------------------------------------------------- | ------------------------------- |
-| Auslöser  | jede Einreichung, automatisch     | Host-Aktion `wordCloud.analyzeQa` (`hostProcedure`, `routers/wordCloud.ts:306`) | Host öffnet den Kompass         |
+| Auslöser  | jede Einreichung, automatisch     | Host-Aktion `wordCloud.analyzeQa` (`hostProcedure`, `routers/wordCloud.ts:380`) | Host öffnet den Kompass         |
 | Bezug     | eine Frage                        | Gruppe sinngleicher Fragen einer Sitzung                                        | Lage der Sitzung                |
 | Werte     | 3 feste Labels + Status           | offen, aus den Fragen gebildet                                                  | regelbasierte Karte mit Quellen |
 | Verfahren | Naive Bayes + k-NN im App-Prozess | e5-Sidecar + Kosinus-Clustering (0,87)                                          | deterministische Regeln         |
@@ -159,29 +160,30 @@ unabhängige Signale.
 
 spaCy ist die optionale Stufe der **lexikalischen** Baseline, nicht Teil der
 Encoder-Themen: Es lemmatisiert nur im Modus »Wörter« (`LEXICAL` + `LEMMA`,
-`apps/backend/src/lib/wordCloudNormalizer.ts:152`); »Wörter & Phrasen« und
-»Thema« bleiben ohne Sidecar. Ist der Sidecar an (`NLP_ENABLED=true`), fordert der
+`apps/backend/src/lib/wordCloudNormalizer.ts:152`); »Wortgruppen« und
+»Themen« bleiben ohne Sidecar. Ist der Sidecar an (`NLP_ENABLED=true`), fordert der
 Host die Glättung beim Öffnen der Q&A-Wortwolke automatisch an
-(`qaWordCloudLemmaPreferred`, `session-host.component.ts:1172`), und der Kompass
-nimmt **Lemma-Terme vor allen Themen** (`moderationCompassQaTerms`, `:3235`).
-Encoder-Themen erreichen den Kompass nur im Modus »Thema« ohne Fallback.
+(`qaWordCloudLemmaPreferred`, `session-host.component.ts:1181`), und der Kompass
+nimmt **Lemma-Terme vor allen Themen** (`moderationCompassQaTerms`, `:3325`).
+Encoder-Themen erreichen den Kompass nur nach einer Host-Analyse im Modus »Themen«
+ohne Fallback; in de/en wählt der Kompass diesen Modus seit `e6270901` selbst.
 
 Gemessen mit dem Release-Image `docker/spacy` (spaCy 3.8.15) über den Host-Pfad
-`analyzeWordCloudSnapshot` (`measure-spacy.mts`, Bericht `results/spacy-2026-11-04T18-19-26-231Z/`):
+`analyzeWordCloudSnapshot` (`measure-spacy.mts`, Bericht `results/spacy-2026-11-08T23-18-38-589Z/`):
 
-| Statistik, deutsche Sitzung                         | »Wörter« ohne spaCy | »Wörter« mit spaCy | »Thema« (Encoder) |
-| --------------------------------------------------- | ------------------: | -----------------: | ----------------: |
-| schlüssige Themen-Quellen im Kompass                |               0 / 3 |              0 / 3 |             2 / 3 |
-| Top-12 der Wortwolke: Fragenpaare gleiches Anliegen |              23,9 % |             20,7 % |            66,4 % |
-| Polizeischule: schlüssige Quellen                   |               2 / 3 |              1 / 3 |             2 / 3 |
-| Polizeischule: Paare gleiches Anliegen              |              40,0 % |             46,9 % |            71,0 % |
+| Statistik, deutsche Sitzung                         | »Wörter« ohne spaCy | »Wörter« mit spaCy | »Themen« (Encoder) |
+| --------------------------------------------------- | ------------------: | -----------------: | -----------------: |
+| schlüssige Themen-Quellen im Kompass                |               0 / 3 |              0 / 3 |              2 / 3 |
+| Top-12 der Wortwolke: Fragenpaare gleiches Anliegen |              23,9 % |             20,7 % |             66,4 % |
+| Polizeischule: schlüssige Quellen                   |               2 / 3 |              1 / 3 |              2 / 3 |
+| Polizeischule: Paare gleiches Anliegen              |              40,0 % |             46,9 % |             71,0 % |
 
 spaCy greift in de, en, fr und es (Encoder nur de/en) und braucht rund 0,7–1,2 ms
 je Frage (200 Fragen: 130–200 ms); Image 751 MB, rund 460 MiB Arbeitsspeicher.
 Gegenprobe über den echten Produktionspfad: derselbe Lauf mit dem Release-Client
 `normalizeWithSpacySidecar` über den Unix-Socket (Linux-Node-Container mit
 gemeinsamem Socket-Volume, `--sidecar socket`) liefert in allen Fächern, Sprachen
-und im Szenario **identische** Werte, 0,8–1,0 ms je Frage (Bericht `results/spacy-socket-2026-11-05T11-08-03-560Z/`).
+und im Szenario **identische** Werte, 0,7–1,0 ms je Frage (Bericht `results/spacy-socket-2026-11-08T23-27-07-239Z/`).
 Im Sechs-Fragen-Szenario fasst spaCy »Beispiele« und »Beispiel« zusammen
 (A+B über »Beispiel«); Prüfung (C/D) und Anwesenheit (E/F) bleiben unsichtbar.
 **E4:** spaCy bleibt eine optionale Lesbarkeitsstufe der Baseline; für die
@@ -194,7 +196,7 @@ Die Kompass-Befunde oben beruhen je Fach auf **einer** Sitzung. `measure-robustn
 zieht deshalb je Sitzung 100 zufällige Teilsitzungen (ohne Zurücklegen, Seed 2026)
 und bewertet jede mit denselben Release-Funktionen. Die ganze Sitzung läuft als
 Kontrolle mit und reproduziert `measure-spacy.mts` exakt. Median [95-%-Perzentil],
-Bericht `results/robustness-2026-11-05T11-16-54-552Z/`:
+Bericht `results/robustness-2026-11-08T23-31-51-740Z/`:
 
 | Sitzung (Teilsitzung/Pool) | schlüssige Quellen: Wörter → + spaCy → Encoder | Top-12-Paare gleiches Anliegen: Wörter → + spaCy → Encoder | ARI lexikalisch → Encoder |
 | -------------------------- | ---------------------------------------------- | ---------------------------------------------------------- | ------------------------- |
@@ -221,7 +223,7 @@ Das Release ruft den Encoder in fr/es-Sitzungen nicht auf (`WORD_CLOUD_SEMANTIC_
 = de, en; Status `fallback`). Ist das eine verpasste Chance? `measure-robustness.mts
 --set locales` führt dieselbe Analyse mit Sitzungs-Locale de aus – so, als stünden
 fr/es in der Liste; die Locale-Prüfung ist die einzige Stelle, an der die Analyse
-die Sitzungssprache auswertet. Releasecode unverändert; Bericht `results/robustness-locales-2026-11-05T11-12-59-547Z/`.
+die Sitzungssprache auswertet. Releasecode unverändert; Bericht `results/robustness-locales-2026-11-08T23-24-19-543Z/`.
 
 | Sitzung (40 aus 81/82) | ARI lexikalisch → Encoder | Encoder-ARI besser | Top-12-Paare: Wörter + spaCy → Encoder | Encoder-Paare besser |
 | ---------------------- | ------------------------- | -----------------: | -------------------------------------- | -------------------: |
@@ -232,15 +234,6 @@ Für Französisch wäre der Encoder schlechter, für Spanisch nur teilweise bess
 Die Beschränkung auf de/en ist damit gedeckt; eine Ausweitung bräuchte eigene
 Prüfung je Sprache (E2).
 
-### Zweitannotation der Referenzlabels (vorbereitet)
-
-Alle Labels stammen von einer Person. `build-label-sheet.mjs` erzeugt mit festem Seed
-zwei Blätter ohne Lösungen (`zweitannotation/`): 80 Fragen zur Kategorie (I/O/T/X,
-geschichtet) und 60 Fragenpaare »gleiches Anliegen?« (24 gleiche Familie, 18
-andere Familie gleicher Kategorie, 18 beliebig). `measure-agreement.mjs` berechnet
-daraus Cohens κ, Konfusionsmatrix und Abweichungen; `--selftest` prüft die
-Auswertung (κ = 1). **Stand:** Blätter erstellt, Zweitannotation steht aus.
-
 ### Wie der Moderationskompass 2B verwendet
 
 Der Kompass ruft weder Klassifikator noch Encoder noch LLM auf; er liest
@@ -249,17 +242,18 @@ gespeicherte Ergebnisse.
 1. **Statuszeile:** `resolveModerationCompassAnalysisMode`
    (`libs/shared-types/src/moderation-compass-rules.ts:1010 → :1080`):
    `pending` > `failed` > `classified` > `uncertain`. Eine einzige klassifizierte
-   Frage genügt für »Die Fragen sind grob nach Inhalt, Ablauf und Technik
-   sortiert.«
+   Frage genügt für »Die Fragen sind nach Inhalt, Organisation und Technik geordnet.«
 2. **Kategorie-Quellen:** `collectQaNlpCategorySources`
-   (`apps/frontend/src/app/features/session/session-host/moderation-compass.ts:702 → :850`)
+   (`apps/frontend/src/app/features/session/session-host/moderation-compass.ts:702 → :854`)
    übernimmt nur `classified`-Fragen. `uncertain` fehlt, sicher-falsche Labels
    erscheinen ohne Hinweis (gemessen A6).
 3. **Reihenfolge der Themen-Karte:** `selectModerationCompassTopicSourceIds`
    (`moderation-compass-rules.ts:579 → :642`): Kategorie-Quellen zuerst, dann
    Q&A- und Freitext-Terme.
-4. **Encoder-Themen:** `moderationCompassQaTerms` (`session-host.component.ts:2989 → :3235`)
-   nimmt Themen nur, wenn der Host »Thema« gewählt hat und kein Fallback vorliegt.
+4. **Encoder-Themen:** `moderationCompassQaTerms` (`session-host.component.ts:2989 → :3325`)
+   nimmt in de/en bevorzugt Encoder-Themen, sofern eine Host-Analyse vorliegt und kein
+   Fallback greift; seit `e6270901` stellt ein Sprung aus dem Kompass die Wortwolke
+   in de/en selbst auf »Themen« (vorher nur, wenn der Host »Thema« gewählt hatte).
 5. **#456-Kontext:** `projectStoredQaNlp` und `collectQaTopicContext`
    (`apps/backend/src/lib/moderationQaContext.ts:250`, `:625`) übernehmen
    gespeicherte Kategorien und Themen-Snapshots für die Kurzfassung (2C). Details:
@@ -275,8 +269,8 @@ gespeicherte Ergebnisse.
 | Encoder-Pfad | Encoder läuft                           | Encoder gestoppt; Encoder antwortet nicht; Circuit-Breaker                                      | `results/paths-2026-11-04*`                      |
 | #456-Kontext | Codepfad am Release                     | Codeanalyse                                                                                     | `kontextpfad-456.md`                             |
 | Robustheit   | je Fach eine ganze Sitzung              | 100 zufällige Teilsitzungen je Sitzung; fr/es mit Encoder (hypothetisch)                        | `results/robustness-*-2026-11-05*`               |
-| Last         | 5 Läufe je Rate                         | 20 Läufe je Rate (200/s, 1000/s)                                                                | `results/load-2026-11-05T11-06-14-854Z/`         |
-| spaCy-Pfad   | `docker exec` im Sidecar-Container      | Release-Client über den Unix-Socket (Linux-Container)                                           | `results/spacy-socket-2026-11-05T11-08-03-560Z/` |
+| Last         | 5 Läufe je Rate                         | 20 Läufe je Rate (200/s, 1000/s)                                                                | `results/load-2026-11-08T23-26-27-135Z/`         |
+| spaCy-Pfad   | `docker exec` im Sidecar-Container      | Release-Client über den Unix-Socket (Linux-Container)                                           | `results/spacy-socket-2026-11-08T23-27-07-239Z/` |
 
 Alle Varianten laufen außerhalb des Produktcodes (Messskripte, Umgebungsvariablen,
 Testadapter). Jeder Bericht dokumentiert Commit, Referenzset-SHA-256 und ob
@@ -331,10 +325,6 @@ docker run --rm --user 1000:1000 -e HOME=/tmp --network container:arsnova-2b-enc
   referat-2b/measure-spacy.mts --repo /src --ref $REF --out /out --sidecar socket \
   --commit "$(git rev-parse HEAD)" --describe "$(git describe --tags --always --dirty)"
 
-# Zweitannotation: Blätter erzeugen, ausgefüllt auswerten
-node referat-2b/build-label-sheet.mjs
-node referat-2b/measure-agreement.mjs --rater "<Name>"
-
 # Referenzset prüfen: Struktur und Nähe zum Trainings-Seed
 node referat-2b/check-leakage.mjs $REF apps/backend/src/lib/qaNlpSeed.ts
 ```
@@ -342,14 +332,19 @@ node referat-2b/check-leakage.mjs $REF apps/backend/src/lib/qaNlpSeed.ts
 Die Klassifikation ist deterministisch (Seed 456); ein Lauf dauert wenige
 Sekunden. Themen benötigen je Fach einige Minuten. Am 04.11.2026 zuerst auf
 `a5dc74fc` und nach dem Upstream-Merge (#642, Wortwolke) erneut auf `84a5614e`
-wiederholt: Alle Vorhersagen je Frage stimmen mit den Läufen vom 23.10.2026 auf
-`a657798e` überein; alle Güte- und Kompasswerte sind identisch, nur Laufzeiten
-schwanken mit der Rechnerlast.
+wiederholt, am 08.11.2026 auf dem letzten 1.3-Stand `efd71b44` vollständig erneut:
+Alle Vorhersagen je Frage stimmen mit den Läufen vom 23.10.2026 auf `a657798e`
+überein; alle Güte-, Themen-, Robustheits- und Kompasswerte sind identisch. Laufzeiten
+und die Lastwiederholungen schwanken mit der Rechnerlast (1000/s: 4 von 20 am
+05.11., 3 von 20 am 08.11.). Geändert haben sich in `efd71b44` nur UI-Texte des
+Kompasses und der Wortwolke (z. B. »Wortgruppen«, »Themen«, Statuszeile
+»… geordnet.«) und die Wahl des Themen-Modus durch den Kompass (`e6270901`); die
+Messskripte übernehmen die neuen Texte.
 
-Release-Tests der gemessenen Pfade, am 04.11.2026 auf `84a5614e` grün:
+Release-Tests der gemessenen Pfade, am 09.11.2026 auf `efd71b44` grün:
 Backend `npx vitest run src/lib/qaNlp src/lib/wordCloudSemantic src/lib/wordCloudTopicLabels`
 (13 Dateien, 96 Tests), `libs/shared-types` `moderation-compass-rules.test.ts` (21
-Tests), Frontend `moderation-compass*.spec.ts` (2 Dateien, 102 Tests).
+Tests), Frontend `moderation-compass*.spec.ts` (2 Dateien, 107 Tests).
 
 ## Live-Demo im laufenden arsnova.eu
 
@@ -363,11 +358,10 @@ Teilnehmende ein – über dieselben öffentlichen Schnittstellen wie der Browse
 npx tsx referat-2b/demo-feed-questions.mts --code <SESSION-CODE> --domain police --count 40
 ```
 
-Am 04.11.2026 so durchgespielt: Alle 40 Polizeischul-Fragen erhalten eine
-Kategorie (keine `uncertain`), der Kompass meldet »grob nach Inhalt, Ablauf und
-Technik sortiert«, und der Sprung über »Fragen zum Ablauf« zeigt Inhaltsfragen wie
+Am 04.11.2026 auf `84a5614e` so durchgespielt (UI-Texte hier im Wortlaut von `efd71b44`): Alle 40 Polizeischul-Fragen erhalten eine
+Kategorie (keine `uncertain`), der Kompass meldet »nach Inhalt, Organisation und Technik geordnet«, und der Sprung über »Fragen zum Ablauf« zeigt Inhaltsfragen wie
 »Wie prüfe ich die Verhältnismäßigkeit einer Maßnahme Schritt für Schritt?« ohne
-Warnung. Die Wortwolke im Modus »Thema« bildet Encoder-Themen; wird der
+Warnung. Die Wortwolke im Modus »Themen« bildet Encoder-Themen; wird der
 Encoder gestoppt und kommen neue Fragen hinzu, liefert die Analyse
 `status: failed`, `fallbackUsed: true`. `demo-shots.mjs` spielt denselben Ablauf
 mit Playwright durch und legt Screenshots ab.
@@ -390,15 +384,14 @@ mit Playwright durch und legt Screenshots ab.
 | `check-group-scenario.mts`                                                  | Kontexttest: Sechs-Fragen-Szenario aus #456 durch 8.9b, Wortwolke und Kompass V0–V3, Bewertung mit der 2A-Rubrik                               |
 | `measure-spacy.mts`                                                         | Lexikalische Baseline ohne/mit spaCy-Glättung (Release-Sidecar) gegen Encoder-Themen im Kompass, je Fach, Sprache und im Sechs-Fragen-Szenario |
 | `measure-robustness.mts`                                                    | 100 zufällige Teilsitzungen je Sitzung: Wörter ohne/mit spaCy gegen Encoder im Kompass, ARI; `--set locales`: Encoder für fr/es hypothetisch   |
-| `build-label-sheet.mjs`, `measure-agreement.mjs`, `zweitannotation/`        | Zweitannotation: Blätter ohne Lösungen, Schlüssel, Auswertung mit Cohens κ                                                                     |
 | `demo-feed-questions.mts`, `demo-shots.mjs`                                 | Live-Demo: Fragen in eine laufende Session einspeisen; Ablauf mit Screenshots prüfen                                                           |
 | `results/`                                                                  | Berichte (`report.md`), Rohdaten (`results.json`, `items.csv`) je Lauf                                                                         |
 
 ## Gültigkeitsgrenzen
 
 - Referenzfragen sind synthetisch und mit KI-Assistenz entworfen; die Kategorien
-  wurden ebenfalls KI-gestützt zugeordnet und vom Autor übernommen; die
-  Zweitannotation ist vorbereitet (`zweitannotation/`), ihr Ergebnis steht aus. Bewusst schwierige Mischung (Near-Miss, Mehrdeutigkeit, Rauschen).
+  wurden ebenfalls KI-gestützt zugeordnet und vom Autor übernommen.
+  Bewusst schwierige Mischung (Near-Miss, Mehrdeutigkeit, Rauschen).
 - Fachfremde Fächer mit kleinen Stichproben (37 / 36 / 135 gelabelte Fragen):
   Richtungsbefund.
 - spaCy-Sidecar unter Windows per `docker exec` aufgerufen; ein Kontrolllauf über

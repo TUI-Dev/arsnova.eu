@@ -9,10 +9,10 @@
  *
  *   L0 »Wörter« ohne spaCy           LEXICAL, normalization NONE
  *   L1 »Wörter« mit spaCy            LEXICAL, normalization LEMMA (echter Sidecar)
- *   T0 »Wörter & Phrasen« ohne spaCy THEME (= V0 in measure-compass.mts)
- *   T1 »Wörter & Phrasen« mit spaCy  Phrasen aus THEME + Lemma-Unigramme, wie der Host mischt
+ *   T0 »Wortgruppen« ohne spaCy THEME (= V0 in measure-compass.mts)
+ *   T1 »Wortgruppen« mit spaCy  Phrasen aus THEME + Lemma-Unigramme, wie der Host mischt
  *                                    (mergeThemePhrasesWithLemmaUnigrams, max. 80 Einträge)
- *   S  »Thema« (Encoder)             SEMANTIC, e5-Encoder (nur de/en; sonst lexikalischer Fallback)
+ *   S  »Themen« (Encoder)             SEMANTIC, e5-Encoder (nur de/en; sonst lexikalischer Fallback)
  *
  * Release-Funktionen: analyzeWordCloudSnapshot (Host-Pfad inkl. Normalisierung), Lemma-Normalizer,
  * buildLexicalSemanticFallbackEntries, analyzeSemanticWordCloudSnapshot, mergeThemePhrasesWithLemmaUnigrams,
@@ -358,9 +358,9 @@ writeFileSync(
 const VN: [string, string][] = [
   ['L0', '»Wörter« ohne spaCy'],
   ['L1', '»Wörter« mit spaCy'],
-  ['T0', '»Wörter & Phrasen« ohne spaCy'],
-  ['T1', '»Wörter & Phrasen« mit spaCy'],
-  ['S', '»Thema« (Encoder)'],
+  ['T0', '»Wortgruppen« ohne spaCy'],
+  ['T1', '»Wortgruppen« mit spaCy'],
+  ['S', '»Themen« (Encoder)'],
 ];
 const fmtPP = (x: number | null) => (x === null ? '–' : pct(x));
 const table = (rows: [string, any][]) => {
